@@ -1,0 +1,47 @@
+package:
+  name: libxau-devel-amzn2-aarch64
+  version: 1.0.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXau-devel-1.0.8-2.1.amzn2.0.2.aarch64.rpm
+    sha256: 71706276da86dd52c6645393c24203a2f0d67df1817f20607ec121c28c821ae9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXau-1.0.8-2.1.amzn2.0.2.src.rpm
+    sha256: 50e5b92f2010fd9924e65ea36c082af0cc43f26f788b4f0dcd70cfe6c140998a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxau-amzn2-aarch64 ==1.0.8
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+  host:
+    - libxau-amzn2-aarch64 ==1.0.8
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+  run:
+    - libxau-amzn2-aarch64 ==1.0.8
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libXau"
+  description: |
+        X.Org X11 libXau development package
+
+extras:
+  rpm_name: libXau-devel

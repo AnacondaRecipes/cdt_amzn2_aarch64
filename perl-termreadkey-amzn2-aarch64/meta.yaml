@@ -1,0 +1,55 @@
+package:
+  name: perl-termreadkey-amzn2-aarch64
+  version: 2.30
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-TermReadKey-2.30-20.amzn2.0.2.aarch64.rpm
+    sha256: dcc0666a751993feb330d4a357834469e5432b63fc3a5c0034f577be501b4e9f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-TermReadKey-2.30-20.amzn2.0.2.src.rpm
+    sha256: e0674142d223058676d1bddf802073e9b547ca4dd7ee52b80d13c86136bdd41b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/~jstowe/TermReadKey/
+  license: (Copyright only) and (Artistic or GPL+)
+  license_family: GPL
+  summary: "(CDT) A perl module for simple terminal control"
+  description: |
+        Term::ReadKey is a compiled perl module dedicated to providing simple control
+        over terminal driver modes (cbreak, raw, cooked, etc.) support for non-
+        blocking reads, if the architecture allows, and some generalized handy
+        functions for working with terminals.  One of the main goals is to have the
+        functions as portable as possible, so you can just plug in "use Term::ReadKey"
+        on any architecture and have a good likelyhood of it working.
+
+extras:
+  rpm_name: perl-TermReadKey

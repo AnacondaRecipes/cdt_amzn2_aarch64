@@ -1,0 +1,47 @@
+package:
+  name: mesa-libegl-devel-amzn2-aarch64
+  version: 18.3.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mesa-libEGL-devel-18.3.4-5.amzn2.0.1.aarch64.rpm
+    sha256: 620af46198da8196090334feb622f9f463d9b4052db7d95cd5c2536f47b1c855
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mesa-18.3.4-5.amzn2.0.1.src.rpm
+    sha256: 6a8b6b5fe494d93ba576820d4cfa246c67108428b877558a3fbc9c4f2fe9e8af
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libegl-amzn2-aarch64 ==18.3.4
+  host:
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libegl-amzn2-aarch64 ==18.3.4
+  run:
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libegl-amzn2-aarch64 ==18.3.4
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Mesa libEGL development package"
+  description: |
+        Mesa libEGL development package
+
+extras:
+  rpm_name: mesa-libEGL-devel

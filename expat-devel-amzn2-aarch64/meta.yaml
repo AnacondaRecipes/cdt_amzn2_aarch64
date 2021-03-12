@@ -1,0 +1,42 @@
+package:
+  name: expat-devel-amzn2-aarch64
+  version: 2.1.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/expat-devel-2.1.0-12.amzn2.aarch64.rpm
+    sha256: 35bf965f4d94498f7a0743e8d1ef7efb6755d2abf5895e0e974e27182ad6d125
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/expat-2.1.0-12.amzn2.src.rpm
+    sha256: 95e5534999eef179a172c04292c0a2f85106b24b23ea78e22eced07a3b53a4e3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - expat-amzn2-aarch64 ==2.1.0
+  host:
+    - expat-amzn2-aarch64 ==2.1.0
+  run:
+    - expat-amzn2-aarch64 ==2.1.0
+
+about:
+  home: http://www.libexpat.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Libraries and header files to develop applications using expat"
+  description: |
+        The expat-devel package contains the libraries, include files and
+        documentation to develop XML applications with expat.
+
+extras:
+  rpm_name: expat-devel

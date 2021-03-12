@@ -1,0 +1,49 @@
+package:
+  name: libmpc-amzn2-aarch64
+  version: 1.0.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libmpc-1.0.1-3.amzn2.0.2.aarch64.rpm
+    sha256: 647650a9bf7ecca3d1b01912efbb828e34cbcae7b6a8336f3872285c4cfe1707
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libmpc-1.0.1-3.amzn2.0.2.src.rpm
+    sha256: 4f356896e09a493e3f54698ff6bfc918674ec0b5e07b6c81f3fb76acbcc72229
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - mpfr-amzn2-aarch64 ==3.1.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - mpfr-amzn2-aarch64 ==3.1.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - mpfr-amzn2-aarch64 ==3.1.1
+
+about:
+  home: http://www.multiprecision.org/
+  license: LGPLv3+ and GFDL
+  license_family: LGPL
+  summary: "(CDT) C library for multiple precision complex arithmetic"
+  description: |
+        MPC is a C library for the arithmetic of complex numbers with arbitrarily high
+        precision and correct rounding of the result. It is built upon and follows the
+        same principles as Mpfr.
+
+extras:
+  rpm_name: libmpc

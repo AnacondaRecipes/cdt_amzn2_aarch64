@@ -1,0 +1,54 @@
+package:
+  name: glibmm24-devel-amzn2-aarch64
+  version: 2.56.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibmm24-devel-2.56.0-1.amzn2.aarch64.rpm
+    sha256: 6f08892590430d7e39e94673dfa5f9488c182be92693eb9f9d4f223190730743
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibmm24-2.56.0-1.amzn2.src.rpm
+    sha256: 8ecedf74e6fb33b4c6371f8d3fba981b73ac530d0c4ecdc95b17bcf1be96d5f3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-xml-parser-amzn2-aarch64 ==2.41
+  host:
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-xml-parser-amzn2-aarch64 ==2.41
+  run:
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-xml-parser-amzn2-aarch64 ==2.41
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Headers for developing programs that will use glibmm24"
+  description: |
+        This package contains the static libraries and header files needed for
+        developing glibmm applications.
+
+extras:
+  rpm_name: glibmm24-devel

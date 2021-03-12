@@ -1,0 +1,47 @@
+package:
+  name: libxi-devel-amzn2-aarch64
+  version: 1.7.9
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXi-devel-1.7.9-1.amzn2.0.2.aarch64.rpm
+    sha256: ba80d0f5d150cf013188294beffa01c1cd315118d41ef6571e977c21c08e83de
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXi-1.7.9-1.amzn2.0.2.src.rpm
+    sha256: 686eb0dd38a1cbb515f348a0204fb5ec98696b72d2570463433fa97096a8a168
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxi-amzn2-aarch64 ==1.7.9
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+  host:
+    - libxi-amzn2-aarch64 ==1.7.9
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+  run:
+    - libxi-amzn2-aarch64 ==1.7.9
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xorg-x11-proto-devel-amzn2-aarch64 ==2018.4
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXi development package"
+  description: |
+        X.Org X11 libXi development package
+
+extras:
+  rpm_name: libXi-devel

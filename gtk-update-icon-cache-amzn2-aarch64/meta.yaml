@@ -1,0 +1,50 @@
+package:
+  name: gtk-update-icon-cache-amzn2-aarch64
+  version: 3.22.30
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gtk-update-icon-cache-3.22.30-3.amzn2.aarch64.rpm
+    sha256: b29f412504aafbd5d816c96e10d89ca5e79cf47b945b2e6dc40ae970961f9473
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gtk3-3.22.30-3.amzn2.src.rpm
+    sha256: 85dd92c206405b9b642485d96311dcec193ee9eb1e5b33341c27a010fbcef781
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.gtk.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Icon theme caching utility"
+  description: |
+        GTK+ can use the cache files created by gtk-update-icon-cache to avoid a lot
+        of system call and disk seek overhead when the application starts. Since the
+        format of the cache files allows them to be mmap()ed shared between multiple
+        applications, the overall memory consumption is reduced as well.
+
+extras:
+  rpm_name: gtk-update-icon-cache

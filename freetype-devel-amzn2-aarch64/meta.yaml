@@ -1,0 +1,43 @@
+package:
+  name: freetype-devel-amzn2-aarch64
+  version: 2.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/freetype-devel-2.8-14.amzn2.1.aarch64.rpm
+    sha256: 3e24b4c5acb5d8e1af17c3a11c227345b3232303fd4452892a9c2e7437c50293
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/freetype-2.8-14.amzn2.1.src.rpm
+    sha256: 6d823c73999355231a92f651c352ef84fbbe1c4faea18662b755e3bf33be45df
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - freetype-amzn2-aarch64 ==2.8
+  host:
+    - freetype-amzn2-aarch64 ==2.8
+  run:
+    - freetype-amzn2-aarch64 ==2.8
+
+about:
+  home: http://www.freetype.org
+  license: (FTL or GPLv2+) and BSD and MIT and Public Domain and zlib with acknowledgement
+  license_family: GPL2
+  summary: "(CDT) FreeType development libraries and header files"
+  description: |
+        The freetype-devel package includes the static libraries and header files for
+        the FreeType font rendering engine.  Install freetype-devel if you want to
+        develop programs which will use FreeType.
+
+extras:
+  rpm_name: freetype-devel

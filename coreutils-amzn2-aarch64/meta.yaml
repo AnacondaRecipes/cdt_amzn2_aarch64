@@ -1,0 +1,63 @@
+package:
+  name: coreutils-amzn2-aarch64
+  version: 8.22
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/coreutils-8.22-24.amzn2.aarch64.rpm
+    sha256: 6d7c54532bb98ea50b401fc61f501471bdcdee24e44e337a0588cb8112c29279
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/coreutils-8.22-24.amzn2.src.rpm
+    sha256: 7785c3a49bafaa745c01233429d6dab66539416864de241fb29aea434a29dcb2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - grep-amzn2-aarch64 ==2.20
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+    - libcap-amzn2-aarch64 ==2.22
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-amzn2-aarch64 ==6.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - grep-amzn2-aarch64 ==2.20
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+    - libcap-amzn2-aarch64 ==2.22
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-amzn2-aarch64 ==6.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - grep-amzn2-aarch64 ==2.20
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+    - libcap-amzn2-aarch64 ==2.22
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-amzn2-aarch64 ==6.0
+
+about:
+  home: http://www.gnu.org/software/coreutils/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A set of basic GNU tools commonly used in shell scripts"
+  description: |
+        These are the GNU core utilities.  This package is the combination of the old
+        GNU fileutils, sh-utils, and textutils packages.
+
+extras:
+  rpm_name: coreutils

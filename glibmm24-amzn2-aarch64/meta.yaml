@@ -1,0 +1,61 @@
+package:
+  name: glibmm24-amzn2-aarch64
+  version: 2.56.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibmm24-2.56.0-1.amzn2.aarch64.rpm
+    sha256: e770f8d6d9d374b0e713efa94377317a8d4d7c129b9671653bb597f74603bf5b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibmm24-2.56.0-1.amzn2.src.rpm
+    sha256: 8ecedf74e6fb33b4c6371f8d3fba981b73ac530d0c4ecdc95b17bcf1be96d5f3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) C++ interface for the GLib library"
+  description: |
+        glibmm is the official C++ interface for the popular cross-platform library
+        GLib. It provides non-UI API that is not available in standard C++ and makes
+        it possible for gtkmm to wrap GObject-based APIs.
+
+extras:
+  rpm_name: glibmm24

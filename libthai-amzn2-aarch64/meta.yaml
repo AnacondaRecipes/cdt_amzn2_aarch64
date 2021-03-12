@@ -1,0 +1,44 @@
+package:
+  name: libthai-amzn2-aarch64
+  version: 0.1.14
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libthai-0.1.14-9.amzn2.0.2.aarch64.rpm
+    sha256: 751f0f7675dcacbda37f9e2aa11ca5ab27a7325302ba5a481b41c51a276189c8
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libthai-0.1.14-9.amzn2.0.2.src.rpm
+    sha256: 8aee8438aa5685bf8dac6ccff2ca30d589257d4763a8f4d4e27243fe3a24bbfa
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://linux.thai.net
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Thai language support routines"
+  description: |
+        LibThai is a set of Thai language support routines aimed to ease developers'
+        tasks to incorporate Thai language support in their applications. It includes
+        important Thai-specific functions e.g. word breaking, input and output methods
+        as well as basic character and string supports.
+
+extras:
+  rpm_name: libthai

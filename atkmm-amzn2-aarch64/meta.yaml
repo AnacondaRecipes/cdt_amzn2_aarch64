@@ -1,0 +1,65 @@
+package:
+  name: atkmm-amzn2-aarch64
+  version: 2.24.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/atkmm-2.24.2-1.amzn2.0.2.aarch64.rpm
+    sha256: d111b48121ae448bd44343784696c55e9817b8d8f39515e218f7d8d1b41ce0e5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/atkmm-2.24.2-1.amzn2.0.2.src.rpm
+    sha256: 90fa3200c794f0b9d28733a8ec4f94c1703d8d80377fcf51bec9eed70cb87d0f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - atk-amzn2-aarch64 ==2.22.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - atk-amzn2-aarch64 ==2.22.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - atk-amzn2-aarch64 ==2.22.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) C++ interface for the ATK library"
+  description: |
+        atkmm provides a C++ interface for the ATK library. Highlights include
+        typesafe callbacks, widgets extensible via inheritance and a comprehensive set
+        of widget classes that can be freely combined to quickly create complex user
+        interfaces.
+
+extras:
+  rpm_name: atkmm

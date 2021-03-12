@@ -1,0 +1,45 @@
+package:
+  name: pam-devel-amzn2-aarch64
+  version: 1.1.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pam-devel-1.1.8-23.amzn2.0.1.aarch64.rpm
+    sha256: e2bab0dcd62047b29c111a651788a6991dca163bc25a8282a8df94b2365f2d3c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pam-1.1.8-23.amzn2.0.1.src.rpm
+    sha256: 8180ff24067156c24c25645a2b75057a3718af8d3d1f6e1c11ca1f11391df7d0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - pam-amzn2-aarch64 ==1.1.8
+  host:
+    - pam-amzn2-aarch64 ==1.1.8
+  run:
+    - pam-amzn2-aarch64 ==1.1.8
+
+about:
+  home: http://www.linux-pam.org/
+  license: BSD and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) Files needed for developing PAM-aware applications and modules for PAM"
+  description: |
+        PAM (Pluggable Authentication Modules) is a system security tool that allows
+        system administrators to set authentication policy without having to recompile
+        programs that handle authentication. This package contains header files used
+        for building both PAM-aware applications and modules for use with the PAM
+        system.
+
+extras:
+  rpm_name: pam-devel

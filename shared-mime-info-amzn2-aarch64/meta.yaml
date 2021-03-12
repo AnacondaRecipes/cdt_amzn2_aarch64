@@ -1,0 +1,51 @@
+package:
+  name: shared-mime-info-amzn2-aarch64
+  version: 1.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/shared-mime-info-1.8-4.amzn2.aarch64.rpm
+    sha256: 101f5a44bbf998145546704a21c894bcec572984d95d02045adb615204692880
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/shared-mime-info-1.8-4.amzn2.src.rpm
+    sha256: 9e51e9ed398518c869e22c71a6cf809d331622958224ced40e8ebf31bf5e810f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+
+about:
+  home: http://freedesktop.org/Software/shared-mime-info
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) Shared MIME information database"
+  description: |
+        This is the freedesktop.org shared MIME info database.  Many programs and
+        desktops use the MIME system to represent the types of files. Frequently, it
+        is necessary to work out the correct MIME type for a file. This is generally
+        done by examining the file's name or contents, and looking up the correct MIME
+        type in a database.
+
+extras:
+  rpm_name: shared-mime-info

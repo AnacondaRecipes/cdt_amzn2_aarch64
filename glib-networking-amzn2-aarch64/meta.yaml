@@ -1,0 +1,64 @@
+package:
+  name: glib-networking-amzn2-aarch64
+  version: 2.56.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glib-networking-2.56.1-1.amzn2.aarch64.rpm
+    sha256: 5896dfe3add9d1e4574f7879619bb8dc3b63e24cd064ea65499da1e12e9f55e1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glib-networking-2.56.1-1.amzn2.src.rpm
+    sha256: 2a609dccfc8c6498c4640f0802c403ebd7b3a3e90f5514c22d6dafab11860daf
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gnutls-amzn2-aarch64 ==3.3.29
+    - gsettings-desktop-schemas-amzn2-aarch64 ==3.28.0
+    - libproxy-amzn2-aarch64 ==0.4.11
+    - p11-kit-amzn2-aarch64 ==0.23.22
+  host:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gnutls-amzn2-aarch64 ==3.3.29
+    - gsettings-desktop-schemas-amzn2-aarch64 ==3.28.0
+    - libproxy-amzn2-aarch64 ==0.4.11
+    - p11-kit-amzn2-aarch64 ==0.23.22
+  run:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gnutls-amzn2-aarch64 ==3.3.29
+    - gsettings-desktop-schemas-amzn2-aarch64 ==3.28.0
+    - libproxy-amzn2-aarch64 ==0.4.11
+    - p11-kit-amzn2-aarch64 ==0.23.22
+
+about:
+  home: http://www.gnome.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Networking support for GLib"
+  description: |
+        This package contains modules that extend the networking support in GIO. In
+        particular, it contains libproxy- and GSettings-based GProxyResolver
+        implementations and a gnutls-based GTlsConnection implementation.
+
+extras:
+  rpm_name: glib-networking

@@ -1,0 +1,48 @@
+package:
+  name: nss-softokn-freebl-amzn2-aarch64
+  version: 3.53.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nss-softokn-freebl-3.53.1-6.amzn2.aarch64.rpm
+    sha256: 63e80621bce54904bcc01bcf651069e5e8d3deb89d649e45311da9de781798a8
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nss-softokn-3.53.1-6.amzn2.src.rpm
+    sha256: 4dbb73c4f123686d4098650c59185d23fb37a5339677c2e0d1dd155fe21397bd
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nss-util-amzn2-aarch64 >=3.53.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nss-util-amzn2-aarch64 >=3.53.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nss-util-amzn2-aarch64 >=3.53.1
+
+about:
+  home: http://www.mozilla.org/projects/security/pki/nss/
+  license: MPLv2.0
+  license_family: Other
+  summary: "(CDT) Freebl library for the Network Security Services"
+  description: |
+        NSS Softoken Cryptographic Module Freebl Library  Install the nss-softokn-
+        freebl package if you need the freebl library.
+
+extras:
+  rpm_name: nss-softokn-freebl

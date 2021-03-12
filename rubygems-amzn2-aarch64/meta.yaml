@@ -1,0 +1,54 @@
+package:
+  name: rubygems-amzn2-aarch64
+  version: 2.0.14.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rubygems-2.0.14.1-36.amzn2.0.1.noarch.rpm
+    sha256: 83a68618476c40b7f2ef0815446733d964eb3531ad473ac1b6b06c3b464e7f1e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-io-console-amzn2-aarch64 >=0.4.2
+    - rubygem-psych-amzn2-aarch64 >=2.0.0
+    - rubygem-rdoc-amzn2-aarch64 >=4.0.0
+  host:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-io-console-amzn2-aarch64 >=0.4.2
+    - rubygem-psych-amzn2-aarch64 >=2.0.0
+    - rubygem-rdoc-amzn2-aarch64 >=4.0.0
+  run:
+    - ca-certificates-amzn2-aarch64 ==2019.2.32
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-io-console-amzn2-aarch64 >=0.4.2
+    - rubygem-psych-amzn2-aarch64 >=2.0.0
+    - rubygem-rdoc-amzn2-aarch64 >=4.0.0
+
+about:
+  home: http://ruby-lang.org/
+  license: Ruby or MIT
+  license_family: MIT
+  summary: "(CDT) The Ruby standard for packaging ruby libraries"
+  description: |
+        RubyGems is the Ruby standard for publishing and managing third party
+        libraries.
+
+extras:
+  rpm_name: rubygems

@@ -1,0 +1,75 @@
+package:
+  name: perl-file-temp-amzn2-aarch64
+  version: 0.23.01
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-File-Temp-0.23.01-3.amzn2.noarch.rpm
+    sha256: e71e1c4564e0ae83595bbe04e9e65972ef12b7700432f68823c2c87433bfe39a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-File-Temp-0.23.01-3.amzn2.src.rpm
+    sha256: da0b5ae04e90a6bf319028ce2931cdb50a626b1931b38b4305a6a41863e7fc94
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 >=2.09
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  host:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 >=2.09
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  run:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 >=2.09
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+
+about:
+  home: http://search.cpan.org/dist/File-Temp/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Return name and handle of a temporary file safely"
+  description: |
+        File::Temp can be used to create and open temporary files in a safe way. There
+        is both a function interface and an object-oriented interface. The File::Temp
+        constructor or the tempfile() function can be used to return the name and the
+        open file handle of a temporary file. The tempdir() function can be used to
+        create a temporary directory.
+
+extras:
+  rpm_name: perl-File-Temp

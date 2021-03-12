@@ -1,0 +1,52 @@
+package:
+  name: llvm-private-amzn2-aarch64
+  version: 6.0.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/llvm-private-6.0.1-2.amzn2.aarch64.rpm
+    sha256: b838537036f45355919493038dd504b7297d56a9d1e65fd020fb96feaf5bca5b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/llvm-private-6.0.1-2.amzn2.src.rpm
+    sha256: 72c3351ba0952650d59fc8c944767a3e37ee6fc9ea19d49046aee8247e55c46e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://llvm.org
+  license: NCSA
+  license_family: Other
+  summary: "(CDT) llvm engine for Mesa"
+  description: |
+        This package contains the LLVM-based runtime support for Mesa.  It is not a
+        fully-featured build of LLVM, and use by any package other than Mesa is not
+        supported.
+
+extras:
+  rpm_name: llvm-private

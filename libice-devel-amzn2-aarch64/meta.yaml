@@ -1,0 +1,41 @@
+package:
+  name: libice-devel-amzn2-aarch64
+  version: 1.0.9
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libICE-devel-1.0.9-9.amzn2.0.2.aarch64.rpm
+    sha256: 907dcc128f6d9697a1401d2ddfc7d6aba2077da580039d920282f61bbbbba9ac
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libICE-1.0.9-9.amzn2.0.2.src.rpm
+    sha256: 9991a3e969ad170fa2d2632fd8f86d6dc1cd053b43e3cf8fb0e19b1f7d598045
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libice-amzn2-aarch64 ==1.0.9
+  host:
+    - libice-amzn2-aarch64 ==1.0.9
+  run:
+    - libice-amzn2-aarch64 ==1.0.9
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 ICE development package"
+  description: |
+        The X.Org X11 ICE (Inter-Client Exchange) development package.
+
+extras:
+  rpm_name: libICE-devel

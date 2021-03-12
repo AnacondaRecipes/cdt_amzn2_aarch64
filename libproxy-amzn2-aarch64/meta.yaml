@@ -1,0 +1,55 @@
+package:
+  name: libproxy-amzn2-aarch64
+  version: 0.4.11
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libproxy-0.4.11-10.amzn2.0.3.aarch64.rpm
+    sha256: 5a058e73d89e591d66fdd69714b80c1d9727d8c738ca020e32b9671afdf7fa5f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libproxy-0.4.11-10.amzn2.0.3.src.rpm
+    sha256: 25371c16d8ebeff8b7ac9635cee164929b952e096c0a762e80eafd6bcc3d48c4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmodman-amzn2-aarch64 ==2.0.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmodman-amzn2-aarch64 ==2.0.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmodman-amzn2-aarch64 ==2.0.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://code.google.com/p/libproxy/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A library handling all the details of proxy configuration"
+  description: |
+        libproxy offers the following features:      * extremely small core footprint
+        (< 35K)     * no external dependencies within libproxy core       (libproxy
+        plugins may have dependencies)     * only 3 functions in the stable external
+        API     * dynamic adjustment to changing network topology     * a standard way
+        of dealing with proxy settings across all scenarios     * a sublime sense of
+        joy and accomplishment
+
+extras:
+  rpm_name: libproxy

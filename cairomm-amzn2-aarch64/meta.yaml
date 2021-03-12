@@ -1,0 +1,79 @@
+package:
+  name: cairomm-amzn2-aarch64
+  version: 1.12.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cairomm-1.12.0-1.amzn2.0.2.aarch64.rpm
+    sha256: 8830a6830376227052b586db5b587e1f64e63bdd4976461958d1a1ac7e293769
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cairomm-1.12.0-1.amzn2.0.2.src.rpm
+    sha256: 644b86a8f63cf4ec502537f94558f2f97a0a05fa471b8b7b3f2a23d861ef2ec2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairo-amzn2-aarch64 >=1.15.12
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairo-amzn2-aarch64 >=1.15.12
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairo-amzn2-aarch64 >=1.15.12
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libsigcxx20-amzn2-aarch64 >=2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.cairographics.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) C++ API for the cairo graphics library"
+  description: |
+        Cairomm is the C++ API for the cairo graphics library. It offers all the power
+        of cairo with an interface familiar to C++ developers, including use of the
+        Standard Template Library where it makes sense.
+
+extras:
+  rpm_name: cairomm

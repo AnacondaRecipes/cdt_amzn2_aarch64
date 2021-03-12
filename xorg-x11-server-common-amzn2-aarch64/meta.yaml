@@ -1,0 +1,47 @@
+package:
+  name: xorg-x11-server-common-amzn2-aarch64
+  version: 1.20.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-server-common-1.20.4-15.amzn2.0.1.aarch64.rpm
+    sha256: fb2b05ba4d418ebaca454c31a293c84f7eb2be44e48e9d86b59d24d46e88905f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-server-1.20.4-15.amzn2.0.1.src.rpm
+    sha256: b3ef4d0b300a16be79248bb2bd7fa2d113a2b82489fb860a07dabf2c6cc179c4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - pixman-amzn2-aarch64 >=0.30.0
+    - xkeyboard-config-amzn2-aarch64 ==2.20
+    - xorg-x11-xkb-utils-amzn2-aarch64 ==7.7
+  host:
+    - pixman-amzn2-aarch64 >=0.30.0
+    - xkeyboard-config-amzn2-aarch64 ==2.20
+    - xorg-x11-xkb-utils-amzn2-aarch64 ==7.7
+  run:
+    - pixman-amzn2-aarch64 >=0.30.0
+    - xkeyboard-config-amzn2-aarch64 ==2.20
+    - xorg-x11-xkb-utils-amzn2-aarch64 ==7.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Xorg server common files"
+  description: |
+        Common files shared among all X servers.
+
+extras:
+  rpm_name: xorg-x11-server-common

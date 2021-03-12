@@ -1,0 +1,73 @@
+package:
+  name: perl-pod-simple-amzn2-aarch64
+  version: 3.28
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Pod-Simple-3.28-4.amzn2.noarch.rpm
+    sha256: e3abf4c4ebd2ff3ffb079c94886bb500bdb061dcfe1ca62770c749f3569c3cec
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Pod-Simple-3.28-4.amzn2.src.rpm
+    sha256: bcb63066441032bcca42bfb53de90b05882a96213a57a230fdff95709d2a0b60
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-escapes-amzn2-aarch64 >=1.04
+  host:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-escapes-amzn2-aarch64 >=1.04
+  run:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.16.3
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-escapes-amzn2-aarch64 >=1.04
+
+about:
+  home: http://search.cpan.org/dist/Pod-Simple/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Framework for parsing POD documentation"
+  description: |
+        Pod::Simple is a Perl library for parsing text in the Pod ("plain old
+        documentation") markup language that is typically used for writing
+        documentation for Perl and for Perl modules.
+
+extras:
+  rpm_name: perl-Pod-Simple

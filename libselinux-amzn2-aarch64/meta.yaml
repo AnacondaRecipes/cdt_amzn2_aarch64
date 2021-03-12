@@ -1,0 +1,57 @@
+package:
+  name: libselinux-amzn2-aarch64
+  version: 2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libselinux-2.5-12.amzn2.0.2.aarch64.rpm
+    sha256: 993fd594a9eba4ad6d4f15ae4599ac0d89eb8a5886c18a984432aacf5ede174b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libselinux-2.5-12.amzn2.0.2.src.rpm
+    sha256: 0be2744b0f89765b31cecb119ca520449eb8cf48cd7355824f7ca4e0873deec3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libsepol-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 >=2.5
+    - pcre-amzn2-aarch64 ==8.32
+  host:
+    - libsepol-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 >=2.5
+    - pcre-amzn2-aarch64 ==8.32
+  run:
+    - libsepol-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 >=2.5
+    - pcre-amzn2-aarch64 ==8.32
+
+about:
+  home: https://github.com/SELinuxProject/selinux/wiki
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) SELinux library and simple utilities"
+  description: |
+        Security-enhanced Linux is a feature of the Linux® kernel and a number of
+        utilities with enhanced security functionality designed to add mandatory
+        access controls to Linux.  The Security-enhanced Linux kernel contains new
+        architectural components originally developed to improve the security of the
+        Flask operating system. These architectural components provide general support
+        for the enforcement of many kinds of mandatory access control policies,
+        including those based on the concepts of Type Enforcement®, Role-based Access
+        Control, and Multi-level Security.  libselinux provides an API for SELinux
+        applications to get and set process and file security contexts and to obtain
+        security policy decisions.  Required for any applications that use the SELinux
+        API.
+
+extras:
+  rpm_name: libselinux

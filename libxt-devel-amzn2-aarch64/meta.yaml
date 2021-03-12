@@ -1,0 +1,41 @@
+package:
+  name: libxt-devel-amzn2-aarch64
+  version: 1.1.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXt-devel-1.1.5-3.amzn2.0.2.aarch64.rpm
+    sha256: b733d36ac3c4145568985f4dedbb91b72a078ee12586273b38da024b2dc66bf9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXt-1.1.5-3.amzn2.0.2.src.rpm
+    sha256: 08b3828a7e31f8d94ebe8c9e7d4bd15a3f9f8b35581723afca36f8243e5b3ee3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxt-amzn2-aarch64 ==1.1.5
+  host:
+    - libxt-amzn2-aarch64 ==1.1.5
+  run:
+    - libxt-amzn2-aarch64 ==1.1.5
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXt development package"
+  description: |
+        X.Org X11 libXt development package
+
+extras:
+  rpm_name: libXt-devel

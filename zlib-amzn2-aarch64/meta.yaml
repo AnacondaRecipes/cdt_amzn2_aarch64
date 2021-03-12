@@ -1,0 +1,42 @@
+package:
+  name: zlib-amzn2-aarch64
+  version: 1.2.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/zlib-1.2.7-18.amzn2.aarch64.rpm
+    sha256: b668f6084eebc7e6df7472c7f203e8d80247c4ce084bd23b314bd876d44007e9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/zlib-1.2.7-18.amzn2.src.rpm
+    sha256: b647167c530b0f50390e7cc0820b6705d26f9a415cf0c5ac90c00379c3854636
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.zlib.net/
+  license: zlib and Boost
+  license_family: Other
+  summary: "(CDT) The compression and decompression library"
+  description: |
+        Zlib is a general-purpose, patent-free, lossless data compression library
+        which is used by many different programs.
+
+extras:
+  rpm_name: zlib

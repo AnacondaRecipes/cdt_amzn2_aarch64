@@ -1,0 +1,65 @@
+package:
+  name: perl-git-amzn2-aarch64
+  version: 2.23.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Git-2.23.3-1.amzn2.0.1.noarch.rpm
+    sha256: 05802fa9249d7e43aed5255f8196e3489fa70f2f763668e2172a61b84a5ccf87
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/git-2.23.3-1.amzn2.0.1.src.rpm
+    sha256: 5d15b244f56fe4e1c91fa8edbbc2a352600d0110dcd0d65fe5ed7b1586480c49
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - git-amzn2-aarch64 ==2.23.3
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-error-amzn2-aarch64 ==0.17020
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-temp-amzn2-aarch64 ==0.23.01
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-time-local-amzn2-aarch64 ==1.2300
+  host:
+    - git-amzn2-aarch64 ==2.23.3
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-error-amzn2-aarch64 ==0.17020
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-temp-amzn2-aarch64 ==0.23.01
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-time-local-amzn2-aarch64 ==1.2300
+  run:
+    - git-amzn2-aarch64 ==2.23.3
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-error-amzn2-aarch64 ==0.17020
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-temp-amzn2-aarch64 ==0.23.01
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-time-local-amzn2-aarch64 ==1.2300
+
+about:
+  home: https://git-scm.com/
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) Perl interface to Git"
+  description: |
+        Perl interface to Git.
+
+extras:
+  rpm_name: perl-Git

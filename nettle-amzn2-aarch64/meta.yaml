@@ -1,0 +1,50 @@
+package:
+  name: nettle-amzn2-aarch64
+  version: 2.7.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nettle-2.7.1-8.amzn2.0.2.aarch64.rpm
+    sha256: 4b1d9481c2b18f22dac10ec4906ad22eb7211ea67befe13ea05128b2da7ad115
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nettle-2.7.1-8.amzn2.0.2.src.rpm
+    sha256: 24b9615696a0a6a414f21cc77071f405521330406505158ce8e77a2ae880c5a0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - info-amzn2-aarch64 ==5.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - info-amzn2-aarch64 ==5.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - info-amzn2-aarch64 ==5.1
+
+about:
+  home: http://www.lysator.liu.se/~nisse/nettle/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A low-level cryptographic library"
+  description: |
+        Nettle is a cryptographic library that is designed to fit easily in more or
+        less any context: In crypto toolkits for object-oriented languages (C++,
+        Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel
+        space.
+
+extras:
+  rpm_name: nettle

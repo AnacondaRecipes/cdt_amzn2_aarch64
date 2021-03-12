@@ -1,0 +1,83 @@
+package:
+  name: xorg-x11-server-xvfb-amzn2-aarch64
+  version: 1.20.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-server-Xvfb-1.20.4-15.amzn2.0.1.aarch64.rpm
+    sha256: 21eca55d5db7614fd7466b76bfc4efaba6b77634bf07d34b6ffd6c90d1b0190f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-server-1.20.4-15.amzn2.0.1.src.rpm
+    sha256: b3ef4d0b300a16be79248bb2bd7fa2d113a2b82489fb860a07dabf2c6cc179c4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxdmcp-amzn2-aarch64 ==1.1.2
+    - libxfont2-amzn2-aarch64 ==2.0.3
+    - libxshmfence-amzn2-aarch64 ==1.2
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pam-amzn2-aarch64 ==1.1.8
+    - pixman-amzn2-aarch64 ==0.34.0
+    - systemd-libs-amzn2-aarch64 ==219
+    - xorg-x11-server-common-amzn2-aarch64 >=1.20.4
+    - xorg-x11-xauth-amzn2-aarch64 ==1.0.9
+  host:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxdmcp-amzn2-aarch64 ==1.1.2
+    - libxfont2-amzn2-aarch64 ==2.0.3
+    - libxshmfence-amzn2-aarch64 ==1.2
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pam-amzn2-aarch64 ==1.1.8
+    - pixman-amzn2-aarch64 ==0.34.0
+    - systemd-libs-amzn2-aarch64 ==219
+    - xorg-x11-server-common-amzn2-aarch64 >=1.20.4
+    - xorg-x11-xauth-amzn2-aarch64 ==1.0.9
+  run:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxdmcp-amzn2-aarch64 ==1.1.2
+    - libxfont2-amzn2-aarch64 ==2.0.3
+    - libxshmfence-amzn2-aarch64 ==1.2
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pam-amzn2-aarch64 ==1.1.8
+    - pixman-amzn2-aarch64 ==0.34.0
+    - systemd-libs-amzn2-aarch64 ==219
+    - xorg-x11-server-common-amzn2-aarch64 >=1.20.4
+    - xorg-x11-xauth-amzn2-aarch64 ==1.0.9
+
+about:
+  home: http://www.x.org
+  license: MIT and GPLv2
+  license_family: GPL2
+  summary: "(CDT) A X Windows System virtual framebuffer X server."
+  description: |
+        Xvfb (X Virtual Frame Buffer) is an X server that is able to run on machines
+        with no display hardware and no physical input devices. Xvfb simulates a dumb
+        framebuffer using virtual memory.  Xvfb does not open any devices, but behaves
+        otherwise as an X display.  Xvfb is normally used for testing servers.
+
+extras:
+  rpm_name: xorg-x11-server-Xvfb

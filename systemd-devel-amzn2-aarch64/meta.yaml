@@ -1,0 +1,45 @@
+package:
+  name: systemd-devel-amzn2-aarch64
+  version: 219
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/systemd-devel-219-57.amzn2.0.12.aarch64.rpm
+    sha256: 68cb5f1f8b661731a0f77ec3ab14c68c9d64b9300255533c59979a7893ff133d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/systemd-219-57.amzn2.0.12.src.rpm
+    sha256: 497809f493ec44f17369a6efcedae9fa9dd3d77a453f4f70915e7e56a4e8c2ba
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+  host:
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+  run:
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/systemd
+  license: LGPLv2+ and MIT
+  license_family: LGPL
+  summary: "(CDT) Development headers for systemd"
+  description: |
+        Development headers and auxiliary files for developing applications for
+        systemd.
+
+extras:
+  rpm_name: systemd-devel

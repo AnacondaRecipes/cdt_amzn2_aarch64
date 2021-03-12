@@ -1,0 +1,37 @@
+package:
+  name: glibc-minimal-langpack-amzn2-aarch64
+  version: 2.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibc-minimal-langpack-2.26-39.amzn2.aarch64.rpm
+    sha256: 5d78e0c6720e81b1ccd726e05a5a7926238258083e74a008523fa9477573f938
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibc-2.26-39.amzn2.src.rpm
+    sha256: 29947b1cc20ab2b58472fbfe2c4c8394d4067876f0d8bc1491ea9ba17f99c12e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.gnu.org/software/glibc/
+  license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) Minimal language packs for glibc."
+  description: |
+        This is a Meta package that is used to install minimal language packs. This
+        package ensures you can use C, POSIX, or C.UTF-8 locales, but nothing else. It
+        is designed for assembling a minimal system.
+
+extras:
+  rpm_name: glibc-minimal-langpack

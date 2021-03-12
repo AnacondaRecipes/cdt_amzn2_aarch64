@@ -1,0 +1,44 @@
+package:
+  name: perl-parent-amzn2-aarch64
+  version: 0.225
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-parent-0.225-244.amzn2.0.1.noarch.rpm
+    sha256: 947d95f3a270ba114bf332ec722b7d87f8f021ae790a39b9ac5da3e2483310b6
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-parent-0.225-244.amzn2.0.1.src.rpm
+    sha256: c1ec8eb69643373f6bff2c62d0d245bf5e9cff655aabb0ba95a215564ba5e213
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 ==5.16.3
+  host:
+    - perl-amzn2-aarch64 ==5.16.3
+  run:
+    - perl-amzn2-aarch64 ==5.16.3
+
+about:
+  home: http://search.cpan.org/dist/parent/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Establish an ISA relationship with base classes at compile time"
+  description: |
+        Allows you to both load one or more modules, while setting up inheritance from
+        those modules at the same time. Mostly similar in effect to:          package
+        Baz;          BEGIN {                 require Foo;                 require
+        Bar;                  push @ISA, qw(Foo Bar);         }
+
+extras:
+  rpm_name: perl-parent

@@ -1,0 +1,65 @@
+package:
+  name: libsoup-amzn2-aarch64
+  version: 2.56.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsoup-2.56.0-6.amzn2.aarch64.rpm
+    sha256: 261c9c56a82c2726961cc0d6644fe1f61789377239093bb11d2db6e18a018ffd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsoup-2.56.0-6.amzn2.src.rpm
+    sha256: 378deb352be656c29f201a58b96f286309962595d61e597dda9899cec8febad0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib-networking-amzn2-aarch64 >=2.56.1
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+  host:
+    - glib-networking-amzn2-aarch64 >=2.56.1
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+  run:
+    - glib-networking-amzn2-aarch64 >=2.56.1
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+
+about:
+  home: https://wiki.gnome.org/Projects/libsoup
+  license: LGPLv2
+  license_family: LGPL
+  summary: "(CDT) Soup, an HTTP library implementation"
+  description: |
+        Libsoup is an HTTP library implementation in C. It was originally part of a
+        SOAP (Simple Object Access Protocol) implementation called Soup, but the SOAP
+        and non-SOAP parts have now been split into separate packages.  libsoup uses
+        the Glib main loop and is designed to work well with GTK applications. This
+        enables GNOME applications to access HTTP servers on the network in a
+        completely asynchronous fashion, very similar to the Gtk+ programming model (a
+        synchronous operation mode is also supported for those who want it).
+
+extras:
+  rpm_name: libsoup

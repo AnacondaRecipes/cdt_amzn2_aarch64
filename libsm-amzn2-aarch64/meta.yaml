@@ -1,0 +1,47 @@
+package:
+  name: libsm-amzn2-aarch64
+  version: 1.2.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libSM-1.2.2-2.amzn2.0.2.aarch64.rpm
+    sha256: be4fbea1d9c8b0ce37b5ba235612cf1cd330f8bfc0fbed1a53877302a9e05817
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libSM-1.2.2-2.amzn2.0.2.src.rpm
+    sha256: 282e50e8814f0760a3c2624f3a16250666d871524fc028aa2dce0f5d2dbd94a1
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libuuid-amzn2-aarch64 ==2.30.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libuuid-amzn2-aarch64 ==2.30.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libuuid-amzn2-aarch64 ==2.30.2
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 SM runtime library"
+  description: |
+        The X.Org X11 SM (Session Management) runtime library.
+
+extras:
+  rpm_name: libSM

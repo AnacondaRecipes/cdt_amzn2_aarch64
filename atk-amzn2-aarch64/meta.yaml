@@ -1,0 +1,47 @@
+package:
+  name: atk-amzn2-aarch64
+  version: 2.22.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/atk-2.22.0-3.amzn2.0.2.aarch64.rpm
+    sha256: d5648c42761b2067a30da325dadfeebb128f8b50349b051a6a4a8e35d3e304a9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/atk-2.22.0-3.amzn2.0.2.src.rpm
+    sha256: 5165276c7c85e1c8f294eaae090c90653eeaeaacb55f8f4d91a9b7aacf3a6d11
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://developer.gnome.org/platform-overview/stable/atk
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Interfaces for accessibility support"
+  description: |
+        The ATK library provides a set of interfaces for adding accessibility support
+        to applications and graphical user interface toolkits. By supporting the ATK
+        interfaces, an application or toolkit can be used with tools such as screen
+        readers, magnifiers, and alternative input devices.
+
+extras:
+  rpm_name: atk

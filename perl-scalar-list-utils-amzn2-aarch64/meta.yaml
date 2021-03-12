@@ -1,0 +1,53 @@
+package:
+  name: perl-scalar-list-utils-amzn2-aarch64
+  version: 1.27
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Scalar-List-Utils-1.27-248.amzn2.0.2.aarch64.rpm
+    sha256: 5713a3804803f39d27f7346bbcfaea2d726ce233be215b54ea8f8e0595115853
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Scalar-List-Utils-1.27-248.amzn2.0.2.src.rpm
+    sha256: d3699d6b111db2d3323f93fc90afffaad7f6aa4328abc59a888d9ffdcfe2182b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Scalar-List-Utils/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) A selection of general-utility scalar and list subroutines"
+  description: |
+        This package contains a selection of subroutines that people have expressed
+        would be nice to have in the perl core, but the usage would not really be high
+        enough to warrant the use of a keyword, and the size so small such that being
+        individual extensions would be wasteful.
+
+extras:
+  rpm_name: perl-Scalar-List-Utils

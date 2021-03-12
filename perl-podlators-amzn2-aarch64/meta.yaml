@@ -1,0 +1,71 @@
+package:
+  name: perl-podlators-amzn2-aarch64
+  version: 2.5.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-podlators-2.5.1-3.amzn2.0.1.noarch.rpm
+    sha256: c1aa1f1d7231c1f70fc6c4bc537ad242f3083ebe1ccee90aefcd89001771c037
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-podlators-2.5.1-3.amzn2.0.1.src.rpm
+    sha256: a1d47c3bbcffb00df0b739c2b3886a32ee31ebbcceeaf0eff97c4c5983d76946
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-usage-amzn2-aarch64 ==1.63
+  host:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-usage-amzn2-aarch64 ==1.63
+  run:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 >=3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-usage-amzn2-aarch64 ==1.63
+
+about:
+  home: http://search.cpan.org/dist/podlators/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Format POD source into various output formats"
+  description: |
+        This package contains Pod::Man and Pod::Text modules which convert POD input
+        to *roff source output, suitable for man pages, or plain text.  It also
+        includes several sub-classes of Pod::Text for formatted output to terminals
+        with various capabilities.
+
+extras:
+  rpm_name: perl-podlators

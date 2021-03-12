@@ -1,0 +1,36 @@
+package:
+  name: emacs-filesystem-amzn2-aarch64
+  version: 25.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/emacs-filesystem-25.3-3.amzn2.0.2.noarch.rpm
+    sha256: f1362e2ca0b04f3e7afffa936f4a70f11a7a05b3c7723b46ee82abb453e47277
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/emacs-25.3-3.amzn2.0.2.src.rpm
+    sha256: b3225537e99c8cc229ed5c13449573c6f55f95d800db96ff8e368715f0c88cc3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.gnu.org/software/emacs/
+  license: GPLv3+ and CC0-1.0
+  license_family: GPL3
+  summary: "(CDT) Emacs filesystem layout"
+  description: |
+        This package provides some directories which are required by other packages
+        that add functionality to Emacs.
+
+extras:
+  rpm_name: emacs-filesystem

@@ -1,0 +1,47 @@
+package:
+  name: zip-amzn2-aarch64
+  version: 3.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/zip-3.0-11.amzn2.0.2.aarch64.rpm
+    sha256: aff3dab4a390058e27aedce377d9e56e02aec5c223aef43cf58694a0941d3ed9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/zip-3.0-11.amzn2.0.2.src.rpm
+    sha256: 5dd63f118b946c3e8be15edba3ac70e225bdc8d7b36ec776d351a9a3e02a56fe
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.info-zip.org/Zip.html
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) A file compression and packaging utility compatible with PKZIP"
+  description: |
+        The zip program is a compression and file packaging utility.  Zip is analogous
+        to a combination of the UNIX tar and compress commands and is compatible with
+        PKZIP (a compression and file packaging utility for MS-DOS systems).  Install
+        the zip package if you need to compress files using the zip program.
+
+extras:
+  rpm_name: zip

@@ -1,0 +1,50 @@
+package:
+  name: perl-carp-amzn2-aarch64
+  version: 1.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Carp-1.26-244.amzn2.noarch.rpm
+    sha256: 955da3dec53571e07c8ee5604cb1d930d625d5e4fab23f222ca125cf2dbaa14c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Carp-1.26-244.amzn2.src.rpm
+    sha256: 0297546087e8dc525e67d43b3e2c8c0f84aff7b9c100fa574d3e1d6cc84a91f1
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Carp/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Alternative warn and die for modules"
+  description: |
+        The Carp routines are useful in your own modules because they act like die()
+        or warn(), but with a message which is more likely to be useful to a user of
+        your module. In the case of cluck, confess, and longmess that context is a
+        summary of every call in the call-stack. For a shorter message you can use
+        carp or croak which report the error as being from where your module was
+        called. There is no guarantee that that is where the error was, but it is a
+        good educated guess.
+
+extras:
+  rpm_name: perl-Carp

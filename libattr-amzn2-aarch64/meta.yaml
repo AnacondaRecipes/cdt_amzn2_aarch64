@@ -1,0 +1,42 @@
+package:
+  name: libattr-amzn2-aarch64
+  version: 2.4.46
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libattr-2.4.46-12.amzn2.0.2.aarch64.rpm
+    sha256: 0f6c90323b83b21ed0fbbac286189e74c39c764c0f1cb456ef79d4f0d5d10546
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/attr-2.4.46-12.amzn2.0.2.src.rpm
+    sha256: 370b7813e0e86fadc241a9fb590451372429f0fe3ab17d62a4378b49089f8158
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://acl.bestbits.at/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Dynamic library for extended attribute support"
+  description: |
+        This package contains the libattr.so dynamic library which contains the
+        extended attribute system calls and library functions.
+
+extras:
+  rpm_name: libattr

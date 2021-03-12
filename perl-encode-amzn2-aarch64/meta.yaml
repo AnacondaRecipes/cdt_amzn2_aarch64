@@ -1,0 +1,60 @@
+package:
+  name: perl-encode-amzn2-aarch64
+  version: 2.51
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Encode-2.51-7.amzn2.0.2.aarch64.rpm
+    sha256: 1ac5553f06b591621583e686c17337c15cb31441c21673a6bb6409645496d4b1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Encode-2.51-7.amzn2.0.2.src.rpm
+    sha256: 7f3163cab46d307a4915c73c1aa3e02129fa1ffcaaefba46c0bcbaee634b5fa4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.8.0
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.8.0
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-amzn2-aarch64 >=5.8.0
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+
+about:
+  home: http://search.cpan.org/dist/Encode/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Character encodings in Perl"
+  description: |
+        The Encode module provides the interface between Perl strings and the rest of
+        the system. Perl strings are sequences of characters.
+
+extras:
+  rpm_name: perl-Encode

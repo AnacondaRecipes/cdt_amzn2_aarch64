@@ -1,0 +1,54 @@
+package:
+  name: libxml2-amzn2-aarch64
+  version: 2.9.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxml2-2.9.1-6.amzn2.5.1.aarch64.rpm
+    sha256: cc001b18a20653355bc44319267ad4a4d738e633564229f39cd7057629cbb404
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libxml2-2.9.1-6.amzn2.5.1.src.rpm
+    sha256: e26858355c4df615ccdc11e136485a1acc716811176784f3985644c0f6d49062
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://xmlsoft.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Library providing XML and HTML support"
+  description: |
+        This library allows to manipulate XML files. It includes support to read,
+        modify and write XML and HTML files. There is DTDs support this includes
+        parsing and validation even with complex DtDs, either at parse time or later
+        once the document has been modified. The output can be a simple SAX stream or
+        and in-memory DOM like representations. In this case one can use the built-in
+        XPath and XPointer implementation to select sub nodes or ranges. A flexible
+        Input/Output mechanism is available, with existing HTTP and FTP modules and
+        combined to an URI library.
+
+extras:
+  rpm_name: libxml2

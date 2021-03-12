@@ -1,0 +1,57 @@
+package:
+  name: perl-text-parsewords-amzn2-aarch64
+  version: 3.29
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Text-ParseWords-3.29-4.amzn2.noarch.rpm
+    sha256: 8e4f3d423e915af2d0db7bc99f28e2668bb2d16ba66eea346593f3af60b5a79f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Text-ParseWords-3.29-4.amzn2.src.rpm
+    sha256: 8fe7bb07d03d40d593956118d69592a0ef4ddb94edc52b8445bde44ea2e09497
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Text-ParseWords/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Parse text into an array of tokens or array of arrays"
+  description: |
+        The nested_quotewords() and quotewords() functions accept a delimiter (which
+        can be a regular expression) and a list of lines and then breaks those lines
+        up into a list of words ignoring delimiters that appear inside quotes.
+        quotewords() returns all of the tokens in a single long list, while
+        nested_quotewords() returns a list of token lists corresponding to the
+        elements of @lines. parse_line() does tokenizing on a single string. The
+        quotewords() functions simply call &parse_line(), so if you're only splitting
+        one line you can call parse_line() directly and save a function call.
+
+extras:
+  rpm_name: perl-Text-ParseWords

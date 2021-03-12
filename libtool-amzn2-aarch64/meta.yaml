@@ -1,0 +1,61 @@
+package:
+  name: libtool-amzn2-aarch64
+  version: 2.4.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libtool-2.4.2-22.2.amzn2.0.2.aarch64.rpm
+    sha256: 0267ae3815ae1a300df82bfd244f17a799bcea2943cbcc57f164dc1f905e641e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libtool-2.4.2-22.2.amzn2.0.2.src.rpm
+    sha256: 5140f674ee592873910c70ec2e4dd90a123752b190c1ccc9f9aff8b01a174260
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - gcc-amzn2-aarch64 ==7.3.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - tar-amzn2-aarch64 ==1.26
+  host:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - gcc-amzn2-aarch64 ==7.3.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - tar-amzn2-aarch64 ==1.26
+  run:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - gcc-amzn2-aarch64 ==7.3.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - tar-amzn2-aarch64 ==1.26
+
+about:
+  home: http://www.gnu.org/software/libtool/
+  license: GPLv2+ and LGPLv2+ and GFDL
+  license_family: GPL2
+  summary: "(CDT) The GNU Portable Library Tool"
+  description: |
+        GNU Libtool is a set of shell scripts which automatically configure UNIX and
+        UNIX-like systems to generically build shared libraries. Libtool provides a
+        consistent, portable interface which simplifies the process of using shared
+        libraries.  If you are developing programs which will use shared libraries,
+        but do not use the rest of the GNU Autotools (such as GNU Autoconf and GNU
+        Automake), you should install the libtool package.  The libtool package also
+        includes all files needed to integrate the GNU Portable Library Tool (libtool)
+        and the GNU Libtool Dynamic Module Loader (ltdl) into a package built using
+        the GNU Autotools (including GNU Autoconf and GNU Automake).
+
+extras:
+  rpm_name: libtool

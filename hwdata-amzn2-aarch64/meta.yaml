@@ -1,0 +1,42 @@
+package:
+  name: hwdata-amzn2-aarch64
+  version: 0.252
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/hwdata-0.252-9.3.amzn2.aarch64.rpm
+    sha256: b899ecae9b1f09d3b20c7301cfe395276d649841abf2d98a18d37da65a4bc434
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/hwdata-0.252-9.3.amzn2.src.rpm
+    sha256: e14e2e531d375c3d8632936cf4600cd5c99cb960ca4d9e62029e0a8f2de060aa
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - systemd-amzn2-aarch64 ==219
+  host:
+    - systemd-amzn2-aarch64 ==219
+  run:
+    - systemd-amzn2-aarch64 ==219
+
+about:
+  home: https://github.com/vcrhonek/hwdata
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) Hardware identification and configuration data"
+  description: |
+        hwdata contains various hardware identification and configuration data, such
+        as the pci.ids and usb.ids databases.
+
+extras:
+  rpm_name: hwdata

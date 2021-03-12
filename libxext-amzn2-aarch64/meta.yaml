@@ -1,0 +1,47 @@
+package:
+  name: libxext-amzn2-aarch64
+  version: 1.3.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXext-1.3.3-3.amzn2.0.2.aarch64.rpm
+    sha256: b083fa3b20569be8f3038ed4c053d8892804ece2f20663a6f65caa92c2c2b103
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXext-1.3.3-3.amzn2.0.2.src.rpm
+    sha256: a5b66b05599fc270d30100847fc29548116293d1bd013b60f480eb9ece7bad98
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXext runtime library"
+  description: |
+        X.Org X11 libXext runtime library
+
+extras:
+  rpm_name: libXext

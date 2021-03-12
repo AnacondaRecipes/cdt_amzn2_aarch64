@@ -1,0 +1,69 @@
+package:
+  name: cpp-amzn2-aarch64
+  version: 7.3.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cpp-7.3.1-12.amzn2.aarch64.rpm
+    sha256: f4687d60479c3b272672200c220d9ef14f5d959fab994ed23ebeac4ea2621052
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gcc-7.3.1-12.amzn2.src.rpm
+    sha256: f32f053ece942d6fcf5b871bd5cf53634d56977f7c5783d2a026a65ba5394cf5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - filesystem-amzn2-aarch64 >=3
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libmpc-amzn2-aarch64 ==1.0.1
+    - mpfr-amzn2-aarch64 ==3.1.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - filesystem-amzn2-aarch64 >=3
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libmpc-amzn2-aarch64 ==1.0.1
+    - mpfr-amzn2-aarch64 ==3.1.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - filesystem-amzn2-aarch64 >=3
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libmpc-amzn2-aarch64 ==1.0.1
+    - mpfr-amzn2-aarch64 ==3.1.1
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://gcc.gnu.org
+  license: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+  license_family: GPL3
+  summary: "(CDT) The C Preprocessor"
+  description: |
+        Cpp is the GNU C-Compatible Compiler Preprocessor. Cpp is a macro processor
+        which is used automatically by the C compiler to transform your program before
+        actual compilation. It is called a macro processor because it allows you to
+        define macros, abbreviations for longer constructs.  The C preprocessor
+        provides four separate functionalities: the inclusion of header files (files
+        of declarations that can be substituted into your program); macro expansion
+        (you can define macros, and the C preprocessor will replace the macros with
+        their definitions throughout the program); conditional compilation (using
+        special preprocessing directives, you can include or exclude parts of the
+        program according to various conditions); and line control (if you use a
+        program to combine or rearrange source files into an intermediate file which
+        is then compiled, you can use line control to inform the compiler about where
+        each source line originated).  You should install this package if you are a C
+        programmer and you use macros.
+
+extras:
+  rpm_name: cpp

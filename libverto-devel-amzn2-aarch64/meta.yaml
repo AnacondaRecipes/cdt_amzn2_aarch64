@@ -1,0 +1,45 @@
+package:
+  name: libverto-devel-amzn2-aarch64
+  version: 0.2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libverto-devel-0.2.5-4.amzn2.0.2.aarch64.rpm
+    sha256: 62d0acdb938366db8642b3552088a6d5389632e7a6f30b8d377671b3ae6c12c0
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libverto-0.2.5-4.amzn2.0.2.src.rpm
+    sha256: 23eb8faf40e93c9ecbfeccc868d2e42b65bde82f92e1af0b0e9e17c387f1b049
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libverto-amzn2-aarch64 ==0.2.5
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - libverto-amzn2-aarch64 ==0.2.5
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - libverto-amzn2-aarch64 ==0.2.5
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: https://fedorahosted.org/libverto/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libverto"
+  description: |
+        The libverto-devel package contains libraries and header files for developing
+        applications that use libverto.
+
+extras:
+  rpm_name: libverto-devel

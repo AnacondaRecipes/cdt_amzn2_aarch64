@@ -1,0 +1,53 @@
+package:
+  name: libxt-amzn2-aarch64
+  version: 1.1.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXt-1.1.5-3.amzn2.0.2.aarch64.rpm
+    sha256: aad6a29a80b3d05d00be53874e8748bf4d7932cd54b6b326c6de7170e6288b85
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXt-1.1.5-3.amzn2.0.2.src.rpm
+    sha256: 08b3828a7e31f8d94ebe8c9e7d4bd15a3f9f8b35581723afca36f8243e5b3ee3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libx11-amzn2-aarch64 >=1.6.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libx11-amzn2-aarch64 >=1.6.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libx11-amzn2-aarch64 >=1.6.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXt runtime library"
+  description: |
+        X.Org X11 libXt runtime library
+
+extras:
+  rpm_name: libXt

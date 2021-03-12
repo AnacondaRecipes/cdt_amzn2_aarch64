@@ -1,0 +1,44 @@
+package:
+  name: libwayland-server-amzn2-aarch64
+  version: 1.17.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libwayland-server-1.17.0-1.amzn2.aarch64.rpm
+    sha256: 816595d589853dfbcd5514a94ae80d5a3f15570b851178b55de22ec2c8581ec1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/wayland-1.17.0-1.amzn2.src.rpm
+    sha256: 695ebb48e9ccb2424a2de954defd347ff802cff6af38944a6d9fae23601a282f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+
+about:
+  home: http://wayland.freedesktop.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Wayland server library"
+  description: |
+        Wayland server library
+
+extras:
+  rpm_name: libwayland-server

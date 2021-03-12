@@ -1,0 +1,52 @@
+package:
+  name: libkadm5-amzn2-aarch64
+  version: 1.15.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libkadm5-1.15.1-37.amzn2.2.2.aarch64.rpm
+    sha256: 92e73cb66e002b2264d78fc9f7fa5c7f0d892f92536f1df60d7920810821f749
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/krb5-1.15.1-37.amzn2.2.2.src.rpm
+    sha256: a4ae5281a860a9566b9d0533461f0a65858cb1cea7cc82eb94f5b0ca59ef8020
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+
+about:
+  home: http://web.mit.edu/kerberos/www/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Kerberos 5 Administrative libraries"
+  description: |
+        Kerberos is a network authentication system. The libkadm5 package contains the
+        libkadm5clnt and libkadm5serv shared objects, for use ONLY by kerberos itself.
+        Do not depend on this package.
+
+extras:
+  rpm_name: libkadm5

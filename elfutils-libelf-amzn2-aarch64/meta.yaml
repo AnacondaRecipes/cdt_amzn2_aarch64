@@ -1,0 +1,47 @@
+package:
+  name: elfutils-libelf-amzn2-aarch64
+  version: 0.176
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/elfutils-libelf-0.176-2.amzn2.aarch64.rpm
+    sha256: 28cbf866d4b9ce40aa12522b48887f32c6fff766c710d8e8243cf5a2e7e12405
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/elfutils-0.176-2.amzn2.src.rpm
+    sha256: 7f6cc4b60d3a0fb8499726d64a830d91c97b301955f44418c3f1de3fb6304228
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://elfutils.org/
+  license: GPLv2+ or LGPLv3+
+  license_family: GPL2
+  summary: "(CDT) Library to read and write ELF files"
+  description: |
+        The elfutils-libelf package provides a DSO which allows reading and writing
+        ELF files on a high level.  Third party programs depend on this package to
+        read internals of ELF files.  The programs of the elfutils package use it also
+        to generate new ELF files.
+
+extras:
+  rpm_name: elfutils-libelf

@@ -1,0 +1,53 @@
+package:
+  name: mozjs17-amzn2-aarch64
+  version: 17.0.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mozjs17-17.0.0-20.amzn2.0.1.aarch64.rpm
+    sha256: 49d1197f4cc57f5117733f7cff04885c6847b98dbbcf8d682d2fd4433f685edb
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mozjs17-17.0.0-20.amzn2.0.1.src.rpm
+    sha256: ca4f24df0a6be4667ab33bcc60126ccb6d95af3f3b1df2bddeb6a915cffaf702
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - nspr-amzn2-aarch64 ==4.25.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - nspr-amzn2-aarch64 ==4.25.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - nspr-amzn2-aarch64 ==4.25.0
+
+about:
+  home: http://www.mozilla.org/js/
+  license: GPLv2+ or LGPLv2+ or MPLv1.1
+  license_family: GPL2
+  summary: "(CDT) JavaScript interpreter and libraries"
+  description: |
+        JavaScript is the Netscape-developed object scripting language used in
+        millions of web pages and server applications worldwide. Netscape's JavaScript
+        is a superset of the ECMA-262 Edition 3 (ECMAScript) standard scripting
+        language, with only mild differences from the published standard.
+
+extras:
+  rpm_name: mozjs17

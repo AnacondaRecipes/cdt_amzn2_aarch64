@@ -1,0 +1,47 @@
+package:
+  name: nss-util-amzn2-aarch64
+  version: 3.53.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nss-util-3.53.1-1.amzn2.aarch64.rpm
+    sha256: 9e44d34322b20399c8be4f140868bf52e253ed8b5e21cc65ccb14208037f6f2f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nss-util-3.53.1-1.amzn2.src.rpm
+    sha256: 96021989815159d56c7af8b960c653a6087105ef7de288ce60ff2d6c4b7558e4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+
+about:
+  home: http://www.mozilla.org/projects/security/pki/nss/
+  license: MPLv2.0
+  license_family: Other
+  summary: "(CDT) Network Security Services Utilities Library"
+  description: |
+        Utilities for Network Security Services and the Softoken module
+
+extras:
+  rpm_name: nss-util

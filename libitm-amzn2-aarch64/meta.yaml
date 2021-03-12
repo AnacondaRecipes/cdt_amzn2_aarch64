@@ -1,0 +1,42 @@
+package:
+  name: libitm-amzn2-aarch64
+  version: 7.3.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libitm-7.3.1-12.amzn2.aarch64.rpm
+    sha256: fc5d863ce3135da01ad46411acbfe6780dfddd30a844d78e084c9f69ae381a10
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gcc-7.3.1-12.amzn2.src.rpm
+    sha256: f32f053ece942d6fcf5b871bd5cf53634d56977f7c5783d2a026a65ba5394cf5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://gcc.gnu.org
+  license: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+  license_family: GPL3
+  summary: "(CDT) The GNU Transactional Memory library"
+  description: |
+        This package contains the GNU Transactional Memory library which is a GCC
+        transactional memory support runtime library.
+
+extras:
+  rpm_name: libitm

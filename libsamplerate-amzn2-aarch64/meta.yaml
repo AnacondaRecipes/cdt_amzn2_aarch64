@@ -1,0 +1,48 @@
+package:
+  name: libsamplerate-amzn2-aarch64
+  version: 0.1.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsamplerate-0.1.8-6.amzn2.0.2.aarch64.rpm
+    sha256: db1c493ac585edcb2946d3cc8af5122609fd295b3f8b7d913b3c482d9d8896da
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsamplerate-0.1.8-6.amzn2.0.2.src.rpm
+    sha256: 17d7993b00828f6f6435a7f678ad88ebcb816d26d2e38bb96fb479440024f15b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libsndfile-amzn2-aarch64 ==1.0.25
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libsndfile-amzn2-aarch64 ==1.0.25
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libsndfile-amzn2-aarch64 ==1.0.25
+
+about:
+  home: http://www.mega-nerd.com/SRC/
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) Sample rate conversion library for audio data"
+  description: |
+        Secret Rabbit Code is a sample rate converter for audio. It is capable of
+        arbitrary and time varying conversions. It can downsample by a factor of 12
+        and upsample by the same factor. The ratio of input and output sample rates
+        can be a real number. The conversion ratio can also vary with time for
+        speeding up and slowing down effects.
+
+extras:
+  rpm_name: libsamplerate

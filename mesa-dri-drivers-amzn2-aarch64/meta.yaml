@@ -1,0 +1,74 @@
+package:
+  name: mesa-dri-drivers-amzn2-aarch64
+  version: 18.3.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mesa-dri-drivers-18.3.4-5.amzn2.0.1.aarch64.rpm
+    sha256: 5f4d222f022554bd1e354575e6e509ff991a1fafc80ee80580ceea003f22c012
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mesa-18.3.4-5.amzn2.0.1.src.rpm
+    sha256: 6a8b6b5fe494d93ba576820d4cfa246c67108428b877558a3fbc9c4f2fe9e8af
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - llvm-private-amzn2-aarch64 ==6.0.1
+    - mesa-filesystem-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - llvm-private-amzn2-aarch64 ==6.0.1
+    - mesa-filesystem-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - llvm-private-amzn2-aarch64 ==6.0.1
+    - mesa-filesystem-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Mesa-based DRI drivers"
+  description: |
+        Mesa-based DRI drivers.
+
+extras:
+  rpm_name: mesa-dri-drivers

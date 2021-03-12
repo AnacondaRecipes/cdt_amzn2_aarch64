@@ -1,0 +1,110 @@
+package:
+  name: at-spi-amzn2-aarch64
+  version: 1.32.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/at-spi-1.32.0-12.amzn2.0.2.aarch64.rpm
+    sha256: 1b1486f39aa485405856c38162a4352144e50fe3085489b98812b35fbdf20135
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/at-spi-1.32.0-12.amzn2.0.2.src.rpm
+    sha256: f0ba061edc5e1cef0f91a4f62d695b513c181c02a46cf8c7eda98dae99023417
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - atk-amzn2-aarch64 >=1.29.2
+    - atk-amzn2-aarch64 ==2.22.0
+    - cairo-amzn2-aarch64 ==1.15.12
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-amzn2-aarch64 ==2.8
+    - gconf2-amzn2-aarch64 ==3.2.6
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gtk2-amzn2-aarch64 >=2.10.0
+    - gtk2-amzn2-aarch64 ==2.24.31
+    - gtk2-amzn2-aarch64 >=2.24.31
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libbonobo-amzn2-aarch64 >=2.4.0
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - orbit2-amzn2-aarch64 >=2.6.0
+    - pango-amzn2-aarch64 ==1.42.4
+  host:
+    - atk-amzn2-aarch64 >=1.29.2
+    - atk-amzn2-aarch64 ==2.22.0
+    - cairo-amzn2-aarch64 ==1.15.12
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-amzn2-aarch64 ==2.8
+    - gconf2-amzn2-aarch64 ==3.2.6
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gtk2-amzn2-aarch64 >=2.10.0
+    - gtk2-amzn2-aarch64 ==2.24.31
+    - gtk2-amzn2-aarch64 >=2.24.31
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libbonobo-amzn2-aarch64 >=2.4.0
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - orbit2-amzn2-aarch64 >=2.6.0
+    - pango-amzn2-aarch64 ==1.42.4
+  run:
+    - atk-amzn2-aarch64 >=1.29.2
+    - atk-amzn2-aarch64 ==2.22.0
+    - cairo-amzn2-aarch64 ==1.15.12
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-amzn2-aarch64 ==2.8
+    - gconf2-amzn2-aarch64 ==3.2.6
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - gtk2-amzn2-aarch64 >=2.10.0
+    - gtk2-amzn2-aarch64 ==2.24.31
+    - gtk2-amzn2-aarch64 >=2.24.31
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libbonobo-amzn2-aarch64 >=2.4.0
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - orbit2-amzn2-aarch64 >=2.6.0
+    - pango-amzn2-aarch64 ==1.42.4
+
+about:
+  home: http://developer.gnome.org/projects/gap/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Assistive Technology Service Provider Interface"
+  description: |
+        at-spi allows assistive technologies to access GTK-based applications.
+        Essentially it exposes the internals of applications for automation, so tools
+        such as screen readers, magnifiers, or even scripting interfaces can query and
+        interact with GUI controls.
+
+extras:
+  rpm_name: at-spi

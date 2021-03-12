@@ -1,0 +1,61 @@
+package:
+  name: gconf2-amzn2-aarch64
+  version: 3.2.6
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/GConf2-3.2.6-8.amzn2.0.2.aarch64.rpm
+    sha256: 4b8277834bce1bc376231f8239a15efadae79288cd438824b4cea34fd51a1fe5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/GConf2-3.2.6-8.amzn2.0.2.src.rpm
+    sha256: fce67339d8c669c99a4764137c11b28162566029ed39ad3219e3668fa03ac619
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - polkit-amzn2-aarch64 ==0.112
+  host:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - polkit-amzn2-aarch64 ==0.112
+  run:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - dbus-glib-amzn2-aarch64 ==0.100
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - polkit-amzn2-aarch64 ==0.112
+
+about:
+  home: http://projects.gnome.org/gconf/
+  license: LGPLv2+ and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) A process-transparent configuration system"
+  description: |
+        GConf is a process-transparent configuration database API used to store user
+        preferences. It has pluggable backends and features to support workgroup
+        administration.
+
+extras:
+  rpm_name: GConf2

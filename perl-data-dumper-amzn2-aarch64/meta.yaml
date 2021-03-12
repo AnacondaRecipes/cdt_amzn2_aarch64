@@ -1,0 +1,62 @@
+package:
+  name: perl-data-dumper-amzn2-aarch64
+  version: 2.145
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Data-Dumper-2.145-3.amzn2.0.2.aarch64.rpm
+    sha256: efe518332d42cb88a45edc96a38bd67fbd6da8a1f8ff690647c43607b937deaf
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Data-Dumper-2.145-3.amzn2.0.2.src.rpm
+    sha256: faeffc3c0cec0f792ee87efd595dcc5cfc1b8f43b9d51193be8b54d6a07d356f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.006_001
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.006_001
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.006_001
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+
+about:
+  home: http://search.cpan.org/dist/Data-Dumper/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Stringify perl data structures, suitable for printing and eval"
+  description: |
+        Given a list of scalars or reference variables, writes out their contents in
+        perl syntax. The references can also be objects. The content of each variable
+        is output in a single Perl statement. Handles self-referential structures
+        correctly.
+
+extras:
+  rpm_name: perl-Data-Dumper

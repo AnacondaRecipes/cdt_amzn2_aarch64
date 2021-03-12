@@ -1,0 +1,48 @@
+package:
+  name: readline-amzn2-aarch64
+  version: 6.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/readline-6.2-10.amzn2.0.2.aarch64.rpm
+    sha256: eb37b3b4e1c2c8c0d716d125fc1a0285a999095accddf8cb664cedb30bc1c870
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/readline-6.2-10.amzn2.0.2.src.rpm
+    sha256: e2b36f4a9d20e84ecb267c1a1b7ac1695a02175ffc08876957103338c6c358a7
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+
+about:
+  home: http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A library for editing typed command lines"
+  description: |
+        The Readline library provides a set of functions that allow users to edit
+        command lines. Both Emacs and vi editing modes are available. The Readline
+        library includes additional functions for maintaining a list of previously-
+        entered command lines for recalling or editing those lines, and for performing
+        csh-like history expansion on previous commands.
+
+extras:
+  rpm_name: readline

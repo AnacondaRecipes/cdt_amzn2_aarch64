@@ -1,0 +1,47 @@
+package:
+  name: libxrender-amzn2-aarch64
+  version: 0.9.10
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXrender-0.9.10-1.amzn2.0.2.aarch64.rpm
+    sha256: 0a6570d156c3bf207fb2c01a8544784e0290f8763910ab7b22647a826f937122
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXrender-0.9.10-1.amzn2.0.2.src.rpm
+    sha256: 2fe1544bf29659492949c6cd05b8bbfa96b6dab548d5e3e013176dd7dda02f44
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXrender runtime library"
+  description: |
+        X.Org X11 libXrender runtime library
+
+extras:
+  rpm_name: libXrender

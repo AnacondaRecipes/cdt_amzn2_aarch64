@@ -1,0 +1,64 @@
+package:
+  name: dbus-amzn2-aarch64
+  version: 1.10.24
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/dbus-1.10.24-7.amzn2.aarch64.rpm
+    sha256: cf3ccb776a3b24a67e07438627d343a8f14f4946ab4f17ae48703f21934d6b88
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/dbus-1.10.24-7.amzn2.src.rpm
+    sha256: 6f65978cb730ebb1be8be1b7aabbaf5069bbacbeb2ad049f3a929cefdcc5f3ea
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-amzn2-aarch64 >=2.5
+    - systemd-libs-amzn2-aarch64 ==219
+  host:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-amzn2-aarch64 >=2.5
+    - systemd-libs-amzn2-aarch64 ==219
+  run:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-amzn2-aarch64 >=2.5
+    - systemd-libs-amzn2-aarch64 ==219
+
+about:
+  home: http://www.freedesktop.org/Software/dbus/
+  license: (GPLv2+ or AFL) and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) D-BUS message bus"
+  description: |
+        D-BUS is a system for sending messages between applications. It is used both
+        for the system-wide message bus service, and as a per-user-login-session
+        messaging facility.
+
+extras:
+  rpm_name: dbus

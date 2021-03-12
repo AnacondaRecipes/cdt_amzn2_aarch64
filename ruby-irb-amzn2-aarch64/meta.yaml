@@ -1,0 +1,42 @@
+package:
+  name: ruby-irb-amzn2-aarch64
+  version: 2.0.0.648
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ruby-irb-2.0.0.648-36.amzn2.0.1.noarch.rpm
+    sha256: ae38ed48b54c88bbf44bcadaa38f0323ee62f0c448081c0857237e3878d792e3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  host:
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  run:
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+
+about:
+  home: http://ruby-lang.org/
+  license: (Ruby or BSD) and Public Domain
+  license_family: BSD
+  summary: "(CDT) The Interactive Ruby"
+  description: |
+        The irb is acronym for Interactive Ruby.  It evaluates ruby expression from
+        the terminal.
+
+extras:
+  rpm_name: ruby-irb

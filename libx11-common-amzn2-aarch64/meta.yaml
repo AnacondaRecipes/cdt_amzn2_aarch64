@@ -1,0 +1,35 @@
+package:
+  name: libx11-common-amzn2-aarch64
+  version: 1.6.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libX11-common-1.6.7-3.amzn2.noarch.rpm
+    sha256: 0b9f9ef2981dddeb441c6141e53b4b91229572fd9a62c07de73766b52da663ab
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libX11-1.6.7-3.amzn2.src.rpm
+    sha256: 190ee77e2f129aaba049c3a73244d9bd82d8ea4900ebf59cdbdd699f1b54ebd6
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Common data for libX11"
+  description: |
+        libX11 common data
+
+extras:
+  rpm_name: libX11-common

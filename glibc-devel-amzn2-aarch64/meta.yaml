@@ -1,0 +1,55 @@
+package:
+  name: glibc-devel-amzn2-aarch64
+  version: 2.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibc-devel-2.26-39.amzn2.aarch64.rpm
+    sha256: b4b3c888c9b11510a477d00b36c91d031d2da916bf5fa8f459088a16df2e22d3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibc-2.26-39.amzn2.src.rpm
+    sha256: 29947b1cc20ab2b58472fbfe2c4c8394d4067876f0d8bc1491ea9ba17f99c12e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-headers-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-headers-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-headers-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.gnu.org/software/glibc/
+  license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) Object files for development using standard C libraries."
+  description: |
+        The glibc-devel package contains the object files necessary for developing
+        programs which use the standard C libraries (which are used by nearly all
+        programs).  If you are developing programs which will use the standard C
+        libraries, your system needs to have these standard object files available in
+        order to create the executables.  Install glibc-devel if you are going to
+        develop programs which will use the standard C libraries.
+
+extras:
+  rpm_name: glibc-devel

@@ -1,0 +1,47 @@
+package:
+  name: libcroco-amzn2-aarch64
+  version: 0.6.12
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libcroco-0.6.12-6.amzn2.aarch64.rpm
+    sha256: ccd8694a57eb3fc5c53d9d82436e2719ac2cd8eee0c5ebb17acc1c1f8247eb2f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libcroco-0.6.12-6.amzn2.src.rpm
+    sha256: e5af6ddd32b776845ee2be3492246905c8c7fa642a0618081fcb4cf8c2f05622
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+
+about:
+  home: 
+  license: LGPLv2
+  license_family: LGPL
+  summary: "(CDT) A CSS2 parsing library"
+  description: |
+        CSS2 parsing and manipulation library for GNOME
+
+extras:
+  rpm_name: libcroco

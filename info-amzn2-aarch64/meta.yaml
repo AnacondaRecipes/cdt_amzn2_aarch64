@@ -1,0 +1,49 @@
+package:
+  name: info-amzn2-aarch64
+  version: 5.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/info-5.1-5.amzn2.aarch64.rpm
+    sha256: 252df0877ac9ead7e9e5f8e661bcc86f11df03b5d32a389b46d96eda15038436
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/texinfo-5.1-5.amzn2.src.rpm
+    sha256: 968c079ef8a8a2efee76ff59cd99e06dd242b8813960171d0f5c23f4a6eb0bb2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.gnu.org/software/texinfo/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A stand-alone TTY-based reader for GNU texinfo documentation"
+  description: |
+        The GNU project uses the texinfo file format for much of its documentation.
+        The info package provides a standalone TTY-based browser program for viewing
+        texinfo files.
+
+extras:
+  rpm_name: info

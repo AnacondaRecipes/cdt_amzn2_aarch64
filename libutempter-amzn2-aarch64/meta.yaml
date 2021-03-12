@@ -1,0 +1,45 @@
+package:
+  name: libutempter-amzn2-aarch64
+  version: 1.1.6
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libutempter-1.1.6-4.amzn2.0.2.aarch64.rpm
+    sha256: 2fb16285856cb5822d2d1594df12cca425bcfab85c33857b4b7695388333d80b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libutempter-1.1.6-4.amzn2.0.2.src.rpm
+    sha256: ad96256471b3ac8fdbba612b8ee7393d1e754e7b5fa7c2340b0aa0690554161f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+
+about:
+  home: ftp://ftp.altlinux.org/pub/people/ldv/utempter
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A privileged helper for utmp/wtmp updates"
+  description: |
+        This library provides interface for terminal emulators such as screen and
+        xterm to record user sessions to utmp and wtmp files.
+
+extras:
+  rpm_name: libutempter

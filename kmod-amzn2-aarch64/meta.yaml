@@ -1,0 +1,53 @@
+package:
+  name: kmod-amzn2-aarch64
+  version: 25
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/kmod-25-3.amzn2.0.2.aarch64.rpm
+    sha256: fa5447559d35e1da50463f5578510f761ed562a306a23969f78e3f58fe404534
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/kmod-25-3.amzn2.0.2.src.rpm
+    sha256: 690f912ad75fa60f2abd7ca91f023009aee784746cce582f74578c80d73059c7
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://git.kernel.org/?p=utils/kernel/kmod/kmod.git;a=summary
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) Linux kernel module management utilities"
+  description: |
+        The kmod package provides various programs needed for automatic loading and
+        unloading of modules under 2.6, 3.x, and later kernels, as well as other
+        module management programs. Device drivers and filesystems are two examples of
+        loaded and unloaded modules.
+
+extras:
+  rpm_name: kmod

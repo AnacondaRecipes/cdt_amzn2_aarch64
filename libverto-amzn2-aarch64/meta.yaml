@@ -1,0 +1,49 @@
+package:
+  name: libverto-amzn2-aarch64
+  version: 0.2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libverto-0.2.5-4.amzn2.0.2.aarch64.rpm
+    sha256: 17b02e4df43677f13f036b7926aade3d6afcfa8500f1179e4491d9f958f57c1b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libverto-0.2.5-4.amzn2.0.2.src.rpm
+    sha256: 23eb8faf40e93c9ecbfeccc868d2e42b65bde82f92e1af0b0e9e17c387f1b049
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: https://fedorahosted.org/libverto/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Main loop abstraction library"
+  description: |
+        libverto provides a way for libraries to expose asynchronous interfaces
+        without having to choose a particular event loop, offloading this decision to
+        the end application which consumes the library.  If you are packaging an
+        application, not library, based on libverto, you should depend either on a
+        specific implementation module or you can depend on the virtual provides
+        'libverto-module-base'. This will ensure that you have at least one module
+        installed that provides io, timeout and signal functionality. Currently glib
+        is the only module that does not provide these three because it lacks signal.
+        However, glib will support signal in the future.
+
+extras:
+  rpm_name: libverto

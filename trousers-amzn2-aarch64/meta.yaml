@@ -1,0 +1,54 @@
+package:
+  name: trousers-amzn2-aarch64
+  version: 0.3.14
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/trousers-0.3.14-2.amzn2.0.2.aarch64.rpm
+    sha256: a760aca31e439095782a024effb1343ce87a8c76a66b7f7cfbc60b1569f8a7da
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/trousers-0.3.14-2.amzn2.0.2.src.rpm
+    sha256: 5376235f25b54781b785866f68482911d00622b28e6bfade4da58f421dae311c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+
+about:
+  home: http://trousers.sourceforge.net
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) TCG's Software Stack v1.2"
+  description: |
+        TrouSerS is an implementation of the Trusted Computing Group's Software Stack
+        (TSS) specification. You can use TrouSerS to write applications that make use
+        of your TPM hardware. TPM hardware can create, store and use RSA keys securely
+        (without ever being exposed in memory), verify a platform's software state
+        using cryptographic hashes and more.
+
+extras:
+  rpm_name: trousers

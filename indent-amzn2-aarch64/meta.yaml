@@ -1,0 +1,45 @@
+package:
+  name: indent-amzn2-aarch64
+  version: 2.2.11
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/indent-2.2.11-13.amzn2.0.2.aarch64.rpm
+    sha256: cd3f682bd5fd00aa7679e6a0474101b23721bc7515f626c6caee99b652df770a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/indent-2.2.11-13.amzn2.0.2.src.rpm
+    sha256: 4b23c14a810f633577a5269678956554ef258142e0260c7c547f8c867078f22a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://indent.isidore-it.eu/beautify.html
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A GNU program for formatting C code"
+  description: |
+        Indent is a GNU program for beautifying C code, so that it is easier to read.
+        Indent can also convert from one C writing style to a different one.  Indent
+        understands correct C syntax and tries to handle incorrect C syntax.  Install
+        the indent package if you are developing applications in C and you want a
+        program to format your code.
+
+extras:
+  rpm_name: indent

@@ -1,0 +1,53 @@
+package:
+  name: python-amzn2-aarch64
+  version: 2.7.18
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python-2.7.18-1.amzn2.0.2.aarch64.rpm
+    sha256: 520e6d8d73738b37b73259f335a093f138609e50e067879ee3e61ebe20e625ae
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/python-2.7.18-1.amzn2.0.2.src.rpm
+    sha256: bbce2dfe98cb08fa66d6ca06b1d47d9ba8df929acdcf1391c800178753c298a2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - python-libs-amzn2-aarch64 ==2.7.18
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - python-libs-amzn2-aarch64 ==2.7.18
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - python-libs-amzn2-aarch64 ==2.7.18
+
+about:
+  home: http://www.python.org/
+  license: Python
+  license_family: Other
+  summary: "(CDT) An interpreted, interactive, object-oriented programming language"
+  description: |
+        Python is an interpreted, interactive, object-oriented programming language
+        often compared to Tcl, Perl, Scheme or Java. Python includes modules, classes,
+        exceptions, very high level dynamic data types and dynamic typing. Python
+        supports interfaces to many system calls and libraries, as well as to various
+        windowing systems (X11, Motif, Tk, Mac and MFC).  Programmers can write new
+        built-in modules for Python in C or C++. Python can be used as an extension
+        language for applications that need a programmable interface.  Note that
+        documentation for Python is provided in the python-docs package.  This package
+        provides the "python" executable; most of the actual implementation is within
+        the "python-libs" package.
+
+extras:
+  rpm_name: python

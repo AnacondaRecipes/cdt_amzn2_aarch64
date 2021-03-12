@@ -1,0 +1,52 @@
+package:
+  name: diffutils-amzn2-aarch64
+  version: 3.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/diffutils-3.3-5.amzn2.aarch64.rpm
+    sha256: 2d0c0f9c6f1e11851773e298356b3b107b0d9bcd5e4c40ea1aceafc61c1ded5a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/diffutils-3.3-5.amzn2.src.rpm
+    sha256: 3b94189bd4a0bbb334c887b5a7306f5cbe927e45ca9a9c1e68e6466570b7a4e1
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+
+about:
+  home: http://www.gnu.org/software/diffutils/diffutils.html
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A GNU collection of diff utilities"
+  description: |
+        Diffutils includes four utilities: diff, cmp, diff3 and sdiff. Diff compares
+        two files and shows the differences, line by line.  The cmp command shows the
+        offset and line numbers where two files differ, or cmp can show the characters
+        that differ between the two files.  The diff3 command shows the differences
+        between three files.  Diff3 can be used when two people have made independent
+        changes to a common original; diff3 can produce a merged file that contains
+        both sets of changes and warnings about conflicts.  The sdiff command can be
+        used to merge two files interactively.  Install diffutils if you need to
+        compare text files.
+
+extras:
+  rpm_name: diffutils

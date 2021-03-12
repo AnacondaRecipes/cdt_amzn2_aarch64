@@ -1,0 +1,72 @@
+package:
+  name: gnutls-amzn2-aarch64
+  version: 3.3.29
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gnutls-3.3.29-9.amzn2.aarch64.rpm
+    sha256: 1365d13e1128371a79ccae31a1168d11410f08ac9b68988efa8f474a46153c44
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gnutls-3.3.29-9.amzn2.src.rpm
+    sha256: ea9330a485aed42f8901e5717f6b93988d2bef501235824b7188363b347969b1
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libtasn1-amzn2-aarch64 >=3.9
+    - libtasn1-amzn2-aarch64 ==4.10
+    - nettle-amzn2-aarch64 ==2.7.1
+    - p11-kit-amzn2-aarch64 >=0.23.1
+    - p11-kit-amzn2-aarch64 ==0.23.22
+    - p11-kit-trust-amzn2-aarch64 ==0.23.22
+    - trousers-amzn2-aarch64 >=0.3.11.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libtasn1-amzn2-aarch64 >=3.9
+    - libtasn1-amzn2-aarch64 ==4.10
+    - nettle-amzn2-aarch64 ==2.7.1
+    - p11-kit-amzn2-aarch64 >=0.23.1
+    - p11-kit-amzn2-aarch64 ==0.23.22
+    - p11-kit-trust-amzn2-aarch64 ==0.23.22
+    - trousers-amzn2-aarch64 >=0.3.11.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 ==6.0.0
+    - libtasn1-amzn2-aarch64 >=3.9
+    - libtasn1-amzn2-aarch64 ==4.10
+    - nettle-amzn2-aarch64 ==2.7.1
+    - p11-kit-amzn2-aarch64 >=0.23.1
+    - p11-kit-amzn2-aarch64 ==0.23.22
+    - p11-kit-trust-amzn2-aarch64 ==0.23.22
+    - trousers-amzn2-aarch64 >=0.3.11.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.gnutls.org/
+  license: GPLv3+ and LGPLv2+
+  license_family: GPL3
+  summary: "(CDT) A TLS protocol implementation"
+  description: |
+        GnuTLS is a secure communications library implementing the SSL, TLS and DTLS
+        protocols and technologies around them. It provides a simple C language
+        application programming interface (API) to access the secure communications
+        protocols as well as APIs to parse and write X.509, PKCS #12, OpenPGP and
+        other required structures.
+
+extras:
+  rpm_name: gnutls

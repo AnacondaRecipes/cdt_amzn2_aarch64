@@ -1,0 +1,44 @@
+package:
+  name: perl-libs-amzn2-aarch64
+  version: 5.16.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-libs-5.16.3-294.amzn2.aarch64.rpm
+    sha256: d42679b0d175e18048286772de1d272fcf6c406ba524aac03a0037a1a195b3ec
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-5.16.3-294.amzn2.src.rpm
+    sha256: 0c816ac5bcd69fcd1363cdffdac8a351de636098f2b9b2d5344abc73ba9e189d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.perl.org/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) The libraries for the perl runtime"
+  description: |
+        The libraries for the perl runtime
+
+extras:
+  rpm_name: perl-libs

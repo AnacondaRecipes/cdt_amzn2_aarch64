@@ -1,0 +1,54 @@
+package:
+  name: dbus-glib-amzn2-aarch64
+  version: 0.100
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/dbus-glib-0.100-7.2.amzn2.aarch64.rpm
+    sha256: b5dd86aa259bd5587ec85d82ff7909d7da53c8374519cf0dfd9725945b641cc7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/dbus-glib-0.100-7.2.amzn2.src.rpm
+    sha256: 425d8181165f54c742caf74a53ad0a25b1ecedf3cbc833af98e17662d5019703
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - chkconfig-amzn2-aarch64 >=1.3.26
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - chkconfig-amzn2-aarch64 >=1.3.26
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - chkconfig-amzn2-aarch64 >=1.3.26
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.freedesktop.org/software/dbus/
+  license: AFL and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) GLib bindings for D-Bus"
+  description: |
+        D-Bus add-on library to integrate the standard D-Bus library with the GLib
+        thread abstraction and main loop.
+
+extras:
+  rpm_name: dbus-glib

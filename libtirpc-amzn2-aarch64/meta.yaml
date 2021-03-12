@@ -1,0 +1,54 @@
+package:
+  name: libtirpc-amzn2-aarch64
+  version: 0.2.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libtirpc-0.2.4-0.16.amzn2.aarch64.rpm
+    sha256: 27cbc5a90491c13fd26115e0800cf17b79d25da21d815b23aebaeda3de62f557
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libtirpc-0.2.4-0.16.amzn2.src.rpm
+    sha256: 1dca9e519fbcdd8b6074adc85f1be8bc78edcebc69272232ee07a8a99e05320c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+
+about:
+  home: http://git.linux-nfs.org/?p=steved/libtirpc.git;a=summary
+  license: SISSL and BSD
+  license_family: BSD
+  summary: "(CDT) Transport Independent RPC Library"
+  description: |
+        This package contains SunLib's implementation of transport-independent RPC
+        (TI-RPC) documentation.  This library forms a piece of the base of Open
+        Network Computing (ONC), and is derived directly from the Solaris 2.3 source.
+        TI-RPC is an enhanced version of TS-RPC that requires the UNIX System V
+        Transport Layer Interface (TLI) or an equivalent X/Open Transport Interface
+        (XTI).  TI-RPC is on-the-wire compatible with the TS-RPC, which is supported
+        by almost 70 vendors on all major operating systems.  TS-RPC source code
+        (RPCSRC 4.0) remains available from several internet sites.
+
+extras:
+  rpm_name: libtirpc

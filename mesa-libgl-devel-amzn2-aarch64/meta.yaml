@@ -1,0 +1,53 @@
+package:
+  name: mesa-libgl-devel-amzn2-aarch64
+  version: 18.3.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mesa-libGL-devel-18.3.4-5.amzn2.0.1.aarch64.rpm
+    sha256: 54b882e9abdceb1d6231bf1a5cbec47c5b3a1b6ab405a93188eaaaca8d1c1abc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mesa-18.3.4-5.amzn2.0.1.src.rpm
+    sha256: 6a8b6b5fe494d93ba576820d4cfa246c67108428b877558a3fbc9c4f2fe9e8af
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gl-manpages-amzn2-aarch64 ==1.1
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libgl-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+  host:
+    - gl-manpages-amzn2-aarch64 ==1.1
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libgl-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+  run:
+    - gl-manpages-amzn2-aarch64 ==1.1
+    - libglvnd-devel-amzn2-aarch64 ==1.0.1
+    - mesa-khr-devel-amzn2-aarch64 ==18.3.4
+    - mesa-libgl-amzn2-aarch64 ==18.3.4
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Mesa libGL development package"
+  description: |
+        Mesa libGL development package
+
+extras:
+  rpm_name: mesa-libGL-devel

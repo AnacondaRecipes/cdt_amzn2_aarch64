@@ -1,0 +1,45 @@
+package:
+  name: audit-libs-amzn2-aarch64
+  version: 2.8.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/audit-libs-2.8.1-3.amzn2.1.aarch64.rpm
+    sha256: 8d238997baa4effbe9f204226289fc3c4388635fccf289232b1986a30b40c350
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/audit-2.8.1-3.amzn2.1.src.rpm
+    sha256: 6af950cd493703410c3c041e3343bf1618b94f4f5a2e72976d8ab1d31f625871
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-ng-amzn2-aarch64 ==0.7.5
+
+about:
+  home: http://people.redhat.com/sgrubb/audit/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Dynamic library for libaudit"
+  description: |
+        The audit-libs package contains the dynamic libraries needed for applications
+        to use the audit framework.
+
+extras:
+  rpm_name: audit-libs

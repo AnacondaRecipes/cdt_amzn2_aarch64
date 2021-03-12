@@ -1,0 +1,53 @@
+package:
+  name: lua-amzn2-aarch64
+  version: 5.1.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/lua-5.1.4-15.amzn2.0.2.aarch64.rpm
+    sha256: 758afe908d1844aaf9578ff43af8cc9766f0a36a249102543b7d90a6d995632b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/lua-5.1.4-15.amzn2.0.2.src.rpm
+    sha256: 4f245b1212afa57d45d2ef83997a92d3346a2aa315de8d54c4f93aceb71c2c97
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+
+about:
+  home: http://www.lua.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Powerful light-weight programming language"
+  description: |
+        Lua is a powerful light-weight programming language designed for extending
+        applications. Lua is also frequently used as a general-purpose, stand-alone
+        language. Lua is free software. Lua combines simple procedural syntax with
+        powerful data description constructs based on associative arrays and
+        extensible semantics. Lua is dynamically typed, interpreted from bytecodes,
+        and has automatic memory management with garbage collection, making it ideal
+        for configuration, scripting, and rapid prototyping.
+
+extras:
+  rpm_name: lua

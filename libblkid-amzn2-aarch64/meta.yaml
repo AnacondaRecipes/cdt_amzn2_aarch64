@@ -1,0 +1,47 @@
+package:
+  name: libblkid-amzn2-aarch64
+  version: 2.30.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libblkid-2.30.2-2.amzn2.0.4.aarch64.rpm
+    sha256: c752276795fbd8e96d1e6909f7f65149763b3e2c39841e68d76b3e9fc26e08ab
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/util-linux-2.30.2-2.amzn2.0.4.src.rpm
+    sha256: 7967325dfd44cdb0fd0caa45b27d56da920dd3110a5989c3ae52364b44ae7d82
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libuuid-amzn2-aarch64 ==2.30.2
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libuuid-amzn2-aarch64 ==2.30.2
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - libuuid-amzn2-aarch64 ==2.30.2
+
+about:
+  home: http://en.wikipedia.org/wiki/Util-linux
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Block device ID library"
+  description: |
+        This is block device identification library, part of util-linux.
+
+extras:
+  rpm_name: libblkid

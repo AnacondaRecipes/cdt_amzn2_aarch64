@@ -1,0 +1,42 @@
+package:
+  name: glibc-common-amzn2-aarch64
+  version: 2.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibc-common-2.26-39.amzn2.aarch64.rpm
+    sha256: 5e9701f9b79a906493f665fd29a92f2220ea85a7b30a7653c217c2c7a88072d7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibc-2.26-39.amzn2.src.rpm
+    sha256: 29947b1cc20ab2b58472fbfe2c4c8394d4067876f0d8bc1491ea9ba17f99c12e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - tzdata-amzn2-aarch64 >=2003a
+  host:
+    - tzdata-amzn2-aarch64 >=2003a
+  run:
+    - tzdata-amzn2-aarch64 >=2003a
+
+about:
+  home: http://www.gnu.org/software/glibc/
+  license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) Common binaries and locale data for glibc"
+  description: |
+        The glibc-common package includes common binaries for the GNU libc libraries,
+        as well as national language (locale) support.
+
+extras:
+  rpm_name: glibc-common

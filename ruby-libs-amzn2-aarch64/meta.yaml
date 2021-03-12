@@ -1,0 +1,65 @@
+package:
+  name: ruby-libs-amzn2-aarch64
+  version: 2.0.0.648
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ruby-libs-2.0.0.648-36.amzn2.0.1.aarch64.rpm
+    sha256: c92df30116f3340056b3bc3e159a9b2b7355e7a00666e99cd450e9ecaf5cd5bf
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://ruby-lang.org/
+  license: Ruby or BSD
+  license_family: BSD
+  summary: "(CDT) Libraries necessary to run Ruby"
+  description: |
+        This package includes the libruby, necessary to run Ruby.
+
+extras:
+  rpm_name: ruby-libs

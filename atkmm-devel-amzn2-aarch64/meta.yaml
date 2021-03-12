@@ -1,0 +1,42 @@
+package:
+  name: atkmm-devel-amzn2-aarch64
+  version: 2.24.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/atkmm-devel-2.24.2-1.amzn2.0.2.aarch64.rpm
+    sha256: 17277cb6d8073089801e78dc84af72efc608fd152c99decb0de217476718a96a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/atkmm-2.24.2-1.amzn2.0.2.src.rpm
+    sha256: 90fa3200c794f0b9d28733a8ec4f94c1703d8d80377fcf51bec9eed70cb87d0f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - atkmm-amzn2-aarch64 ==2.24.2
+  host:
+    - atkmm-amzn2-aarch64 ==2.24.2
+  run:
+    - atkmm-amzn2-aarch64 ==2.24.2
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Development files for atkmm"
+  description: |
+        The atkmm-devel package contains libraries and header files for developing
+        applications that use atkmm.
+
+extras:
+  rpm_name: atkmm-devel

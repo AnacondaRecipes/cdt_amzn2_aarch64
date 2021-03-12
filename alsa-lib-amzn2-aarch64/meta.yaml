@@ -1,0 +1,48 @@
+package:
+  name: alsa-lib-amzn2-aarch64
+  version: 1.1.4.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/alsa-lib-1.1.4.1-2.amzn2.aarch64.rpm
+    sha256: 0462d4f9eb820d9f5f98e88f38a365c5621063d348c4984d863c7630b36e5021
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/alsa-lib-1.1.4.1-2.amzn2.src.rpm
+    sha256: a9e7dae839d2d1b3ad7651900716426494b587dfcab6e3ca0d93e03a32386d2c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.alsa-project.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) The Advanced Linux Sound Architecture (ALSA) library"
+  description: |
+        The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI
+        functionality to the Linux operating system.  This package includes the ALSA
+        runtime libraries to simplify application programming and provide higher level
+        functionality as well as support for the older OSS API, providing binary
+        compatibility for most OSS programs.
+
+extras:
+  rpm_name: alsa-lib

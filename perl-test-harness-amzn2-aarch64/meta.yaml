@@ -1,0 +1,61 @@
+package:
+  name: perl-test-harness-amzn2-aarch64
+  version: 3.28
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Test-Harness-3.28-3.amzn2.noarch.rpm
+    sha256: 96229e37e1b958210fd6317e1cf1572b89e4c156e4cbe563646668e09ceaf55b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Test-Harness-3.28-3.amzn2.src.rpm
+    sha256: 7bf55db599dd37f71a944685753a8274865ea9a06be11c247b74cb9a28a9062d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+  host:
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+  run:
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+
+about:
+  home: http://search.cpan.org/dist/Test-Harness/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Run Perl standard test scripts with statistics"
+  description: |
+        This package allows tests to be run and results automatically aggregated and
+        output to STDOUT.  Although, for historical reasons, the Test-Harness
+        distribution takes its name from this module it now exists only to provide
+        TAP::Harness with an interface that is somewhat backwards compatible with
+        Test::Harness 2.xx. If you're writing new code consider using TAP::Harness
+        directly instead.
+
+extras:
+  rpm_name: perl-Test-Harness

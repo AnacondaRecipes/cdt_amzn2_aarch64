@@ -1,0 +1,41 @@
+package:
+  name: libx11-devel-amzn2-aarch64
+  version: 1.6.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libX11-devel-1.6.7-3.amzn2.aarch64.rpm
+    sha256: 0a6deb82fe26a7ef28c0da6b42d3ff288b32ac39ff01ba41d1914e80664cbbac
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libX11-1.6.7-3.amzn2.src.rpm
+    sha256: 190ee77e2f129aaba049c3a73244d9bd82d8ea4900ebf59cdbdd699f1b54ebd6
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libx11-amzn2-aarch64 ==1.6.7
+  host:
+    - libx11-amzn2-aarch64 ==1.6.7
+  run:
+    - libx11-amzn2-aarch64 ==1.6.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libX11"
+  description: |
+        X.Org X11 libX11 development package
+
+extras:
+  rpm_name: libX11-devel

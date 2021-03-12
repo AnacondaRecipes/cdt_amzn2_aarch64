@@ -1,0 +1,65 @@
+package:
+  name: gettext-libs-amzn2-aarch64
+  version: 0.19.8.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gettext-libs-0.19.8.1-3.amzn2.aarch64.rpm
+    sha256: 857c4533779998dcdd36da6384a2eb005ba2ad6c647bdcd48808d98118c415bc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gettext-0.19.8.1-3.amzn2.src.rpm
+    sha256: dcec779a471f2b55af8108d559d3c4223843cb7f793ab80ae150b45ec28e873d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcroco-amzn2-aarch64 ==0.6.12
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgomp-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libunistring-amzn2-aarch64 ==0.9.3
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcroco-amzn2-aarch64 ==0.6.12
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgomp-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libunistring-amzn2-aarch64 ==0.9.3
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcroco-amzn2-aarch64 ==0.6.12
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgomp-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - libunistring-amzn2-aarch64 ==0.9.3
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - ncurses-libs-amzn2-aarch64 ==6.0
+
+about:
+  home: http://www.gnu.org/software/gettext/
+  license: LGPLv2+ and GPLv3+
+  license_family: GPL3
+  summary: "(CDT) Libraries for gettext"
+  description: |
+        This package contains libraries used internationalization support.
+
+extras:
+  rpm_name: gettext-libs

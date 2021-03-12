@@ -1,0 +1,51 @@
+package:
+  name: perl-http-tiny-amzn2-aarch64
+  version: 0.033
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-HTTP-Tiny-0.033-3.amzn2.noarch.rpm
+    sha256: da4b899288c38bd581615d6e6ac5995bbd399ad7a13c49ae721c758acce85ae3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-HTTP-Tiny-0.033-3.amzn2.src.rpm
+    sha256: 19957a083a68a079566fc1e95381f8500ce4efbf0a66357e620667a6096fbc4f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-time-local-amzn2-aarch64 ==1.2300
+  host:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-time-local-amzn2-aarch64 ==1.2300
+  run:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-time-local-amzn2-aarch64 ==1.2300
+
+about:
+  home: http://search.cpan.org/dist/HTTP-Tiny/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Small, simple, correct HTTP/1.1 client"
+  description: |
+        This is a very simple HTTP/1.1 client, designed for doing simple GET requests
+        without the overhead of a large framework like LWP::UserAgent.  It is more
+        correct and more complete than HTTP::Lite. It supports proxies (currently only
+        non-authenticating ones) and redirection. It also correctly resumes after
+        EINTR.
+
+extras:
+  rpm_name: perl-HTTP-Tiny

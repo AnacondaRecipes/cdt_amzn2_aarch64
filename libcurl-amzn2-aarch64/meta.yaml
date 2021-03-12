@@ -1,0 +1,40 @@
+package:
+  name: libcurl-amzn2-aarch64
+  version: 7.61.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libcurl-7.61.1-12.amzn2.0.2.aarch64.rpm
+    sha256: 7273b9a6fdabfd5926e88be2dfe264ab481b35f76dd550076c900ac4c25d21ec
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/curl-7.61.1-12.amzn2.0.2.src.rpm
+    sha256: fb75b5678cc9ceacbece78025cb0cbb9a44b0e924ae8853cdc4777604ebdba0d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: https://curl.haxx.se/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) A library for getting files from web servers"
+  description: |
+        libcurl is a free and easy-to-use client-side URL transfer library, supporting
+        FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE,
+        IMAP, SMTP, POP3 and RTSP. libcurl supports SSL certificates, HTTP POST, HTTP
+        PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password
+        authentication (Basic, Digest, NTLM, Negotiate, Kerberos4), file transfer
+        resume, http proxy tunneling and more.
+
+extras:
+  rpm_name: libcurl

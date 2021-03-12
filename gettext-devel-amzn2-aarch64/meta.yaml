@@ -1,0 +1,62 @@
+package:
+  name: gettext-devel-amzn2-aarch64
+  version: 0.19.8.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gettext-devel-0.19.8.1-3.amzn2.aarch64.rpm
+    sha256: b0d5508826334acacac733152a43d477a99cc653a0ef4a94d3eb488ee936bf0c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gettext-0.19.8.1-3.amzn2.src.rpm
+    sha256: dcec779a471f2b55af8108d559d3c4223843cb7f793ab80ae150b45ec28e873d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - gettext-common-devel-amzn2-aarch64 ==0.19.8.1
+    - gettext-libs-amzn2-aarch64 ==0.19.8.1
+    - git-amzn2-aarch64 ==2.23.3
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+    - xz-amzn2-aarch64 ==5.2.2
+  host:
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - gettext-common-devel-amzn2-aarch64 ==0.19.8.1
+    - gettext-libs-amzn2-aarch64 ==0.19.8.1
+    - git-amzn2-aarch64 ==2.23.3
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+    - xz-amzn2-aarch64 ==5.2.2
+  run:
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - gettext-common-devel-amzn2-aarch64 ==0.19.8.1
+    - gettext-libs-amzn2-aarch64 ==0.19.8.1
+    - git-amzn2-aarch64 ==2.23.3
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+    - xz-amzn2-aarch64 ==5.2.2
+
+about:
+  home: http://www.gnu.org/software/gettext/
+  license: LGPLv2+ and GPLv3+
+  license_family: GPL3
+  summary: "(CDT) Development files for gettext"
+  description: |
+        This package contains all development related files necessary for developing
+        or compiling applications/libraries that needs internationalization
+        capability. You also need this package if you want to add gettext support for
+        your project.
+
+extras:
+  rpm_name: gettext-devel

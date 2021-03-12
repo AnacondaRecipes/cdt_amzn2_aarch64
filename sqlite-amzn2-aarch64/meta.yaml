@@ -1,0 +1,53 @@
+package:
+  name: sqlite-amzn2-aarch64
+  version: 3.7.17
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/sqlite-3.7.17-8.amzn2.1.1.aarch64.rpm
+    sha256: 080f23608c4811167f7947019c72f008c0a8971528012de3b696c257b1d33c65
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/sqlite-3.7.17-8.amzn2.1.1.src.rpm
+    sha256: 42efeeae9dcefd0c1a1b0eaafff80300a15588e03c1b5c3e727c2f8912fa8629
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - readline-amzn2-aarch64 ==6.2
+
+about:
+  home: http://www.sqlite.org/
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) Library that implements an embeddable SQL database engine"
+  description: |
+        SQLite is a C library that implements an SQL database engine. A large subset
+        of SQL92 is supported. A complete database is stored in a single disk file.
+        The API is designed for convenience and ease of use. Applications that link
+        against SQLite can enjoy the power and flexibility of an SQL database without
+        the administrative hassles of supporting a separate database server.  Version
+        2 and version 3 binaries are named to permit each to be installed on a single
+        host
+
+extras:
+  rpm_name: sqlite

@@ -1,0 +1,75 @@
+package:
+  name: pulseaudio-libs-amzn2-aarch64
+  version: 10.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pulseaudio-libs-10.0-3.amzn2.0.3.aarch64.rpm
+    sha256: d30a853b7872ce53f54b3a741f22e6534e13b2dcf13f7008d0f7c2449552f31d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pulseaudio-10.0-3.amzn2.0.3.src.rpm
+    sha256: 614c5717425ddbe454704382dadc7bed8aad353ea67283b9897717e10e1150c2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+    - libasyncns-amzn2-aarch64 ==0.8
+    - libcap-amzn2-aarch64 ==2.22
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libsndfile-amzn2-aarch64 ==1.0.25
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - systemd-libs-amzn2-aarch64 ==219
+    - tcp_wrappers-libs-amzn2-aarch64 ==7.6
+  host:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+    - libasyncns-amzn2-aarch64 ==0.8
+    - libcap-amzn2-aarch64 ==2.22
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libsndfile-amzn2-aarch64 ==1.0.25
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - systemd-libs-amzn2-aarch64 ==219
+    - tcp_wrappers-libs-amzn2-aarch64 ==7.6
+  run:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+    - libasyncns-amzn2-aarch64 ==0.8
+    - libcap-amzn2-aarch64 ==2.22
+    - libice-amzn2-aarch64 ==1.0.9
+    - libsm-amzn2-aarch64 ==1.2.2
+    - libsndfile-amzn2-aarch64 ==1.0.25
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+    - libxtst-amzn2-aarch64 ==1.2.3
+    - systemd-libs-amzn2-aarch64 ==219
+    - tcp_wrappers-libs-amzn2-aarch64 ==7.6
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/PulseAudio
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Libraries for PulseAudio clients"
+  description: |
+        This package contains the runtime libraries for any application that wishes to
+        interface with a PulseAudio sound server.
+
+extras:
+  rpm_name: pulseaudio-libs

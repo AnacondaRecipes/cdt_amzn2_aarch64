@@ -1,0 +1,51 @@
+package:
+  name: perl-thread-queue-amzn2-aarch64
+  version: 3.02
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Thread-Queue-3.02-2.amzn2.noarch.rpm
+    sha256: af7da4227ca1a9d80977110e1202f12a25fbc0f95a94009e19ed51fd23592b89
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Thread-Queue-3.02-2.amzn2.src.rpm
+    sha256: 68d3cf5879d90174f5c37d87a916ba0e29e20df0c1953fe6a85369994916542b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 >=1.27
+    - perl-threads-shared-amzn2-aarch64 >=1.43
+  host:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 >=1.27
+    - perl-threads-shared-amzn2-aarch64 >=1.43
+  run:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 >=1.27
+    - perl-threads-shared-amzn2-aarch64 >=1.43
+
+about:
+  home: http://search.cpan.org/dist/Thread-Queue/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Thread-safe queues"
+  description: |
+        This module provides thread-safe FIFO queues that can be accessed safely by
+        any number of threads.
+
+extras:
+  rpm_name: perl-Thread-Queue

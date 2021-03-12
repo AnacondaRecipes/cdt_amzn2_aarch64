@@ -1,0 +1,46 @@
+package:
+  name: libedit-amzn2-aarch64
+  version: 3.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libedit-3.0-12.20121213cvs.amzn2.0.2.aarch64.rpm
+    sha256: fc5976cb3d917429dff29b6b21d817d3edf89c8a9e3812028a183989c07f03fd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libedit-3.0-12.20121213cvs.amzn2.0.2.src.rpm
+    sha256: c190ef5d80c1a487cb6ec096b5ab37200c77f5ef70708d3c7b7f25494c8b89ab
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - ncurses-libs-amzn2-aarch64 ==6.0
+
+about:
+  home: http://www.thrysoee.dk/editline/
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) The NetBSD Editline library"
+  description: |
+        Libedit is an autotool- and libtoolized port of the NetBSD Editline library.
+        It provides generic line editing, history, and tokenization functions, similar
+        to those found in GNU Readline.
+
+extras:
+  rpm_name: libedit

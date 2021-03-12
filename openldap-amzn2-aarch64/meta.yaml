@@ -1,0 +1,73 @@
+package:
+  name: openldap-amzn2-aarch64
+  version: 2.4.44
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/openldap-2.4.44-22.amzn2.aarch64.rpm
+    sha256: 871d55a79e3fe338ca54b85b6f080471617690fa7201ce0f829c96f2eb72e65b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/openldap-2.4.44-22.amzn2.src.rpm
+    sha256: abeceab2f72b1f9dfdc2d4448e8349699bd8999aaa163998cc11e1be7c7b7753
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - cyrus-sasl-lib-amzn2-aarch64 ==2.1.26
+    - findutils-amzn2-aarch64 ==4.5.11
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-amzn2-aarch64 ==3.53.1
+    - nss-tools-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - rpm-amzn2-aarch64 ==4.11.3
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - cyrus-sasl-lib-amzn2-aarch64 ==2.1.26
+    - findutils-amzn2-aarch64 ==4.5.11
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-amzn2-aarch64 ==3.53.1
+    - nss-tools-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - rpm-amzn2-aarch64 ==4.11.3
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - cyrus-sasl-lib-amzn2-aarch64 ==2.1.26
+    - findutils-amzn2-aarch64 ==4.5.11
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-amzn2-aarch64 ==3.53.1
+    - nss-tools-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - rpm-amzn2-aarch64 ==4.11.3
+
+about:
+  home: http://www.openldap.org/
+  license: OpenLDAP
+  license_family: Other
+  summary: "(CDT) LDAP support libraries"
+  description: |
+        OpenLDAP is an open source suite of LDAP (Lightweight Directory Access
+        Protocol) applications and development tools. LDAP is a set of protocols for
+        accessing directory services (usually phone book style information, but other
+        information is possible) over the Internet, similar to the way DNS (Domain
+        Name System) information is propagated over the Internet. The openldap package
+        contains configuration files, libraries, and documentation for OpenLDAP.
+
+extras:
+  rpm_name: openldap

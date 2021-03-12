@@ -1,0 +1,35 @@
+package:
+  name: system-release-amzn2-aarch64
+  version: 2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/system-release-2-13.amzn2.aarch64.rpm
+    sha256: f5908dcd2b6998c6f11ba2d72b7a99e612b46f046ea59790d5ec4968daa25062
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/system-release-2-13.amzn2.src.rpm
+    sha256: 4b1c6b66180103d5b68ebb82a59533f8c260f28e69c3a2b378c11b6e384a38f7
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: https://amazonlinux.com/
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) Amazon Linux release files"
+  description: |
+        Amazon Linux release files
+
+extras:
+  rpm_name: system-release

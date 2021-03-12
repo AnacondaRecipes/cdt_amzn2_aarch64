@@ -1,0 +1,65 @@
+package:
+  name: glib2-amzn2-aarch64
+  version: 2.56.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glib2-2.56.1-7.amzn2.0.1.aarch64.rpm
+    sha256: ddcdd318382b374628e0988e7d0844f3eee6a6050723d7605561bf7f8d336ca3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glib2-2.56.1-7.amzn2.0.1.src.rpm
+    sha256: 8ddbb329b8aa21536459692fbc8a9cdf4b2c88037b274b30b843f81bdecfd007
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - shared-mime-info-amzn2-aarch64 ==1.8
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - shared-mime-info-amzn2-aarch64 ==1.8
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - shared-mime-info-amzn2-aarch64 ==1.8
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.gtk.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A library of handy utility functions"
+  description: |
+        GLib is the low-level core library that forms the basis for projects such as
+        GTK+ and GNOME. It provides data structure handling for C, portability
+        wrappers, and interfaces for such runtime functionality as an event loop,
+        threads, dynamic loading, and an object system.
+
+extras:
+  rpm_name: glib2

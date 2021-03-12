@@ -1,0 +1,55 @@
+package:
+  name: perl-time-local-amzn2-aarch64
+  version: 1.2300
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Time-Local-1.2300-2.amzn2.noarch.rpm
+    sha256: 6260362cc386f7006681aa932ded733b3123bd0d49f308467a413aea1482def1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Time-Local-1.2300-2.amzn2.src.rpm
+    sha256: 438306e7101ed9319951d0944520b6b8b4e32dc4c62a22b41c33452424251be1
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Time-Local/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Efficiently compute time from local and GMT time"
+  description: |
+        This module provides functions that are the inverse of built-in perl functions
+        localtime() and gmtime(). They accept a date as a six-element array, and
+        return the corresponding time(2) value in seconds since the system epoch
+        (Midnight, January 1, 1970 GMT on Unix, for example). This value can be
+        positive or negative, though POSIX only requires support for positive values,
+        so dates before the system's epoch may not work on all operating systems.
+
+extras:
+  rpm_name: perl-Time-Local

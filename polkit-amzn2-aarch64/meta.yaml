@@ -1,0 +1,66 @@
+package:
+  name: polkit-amzn2-aarch64
+  version: 0.112
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/polkit-0.112-26.amzn2.aarch64.rpm
+    sha256: 8d56600ab654c91058e9f58e56d9b47bb40323006492690b1cce084e89206afb
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/polkit-0.112-26.amzn2.src.rpm
+    sha256: d684e4dc5d432b8aa30e53951ca199af94095047faf69389d10f40b3477fef07
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - mozjs17-amzn2-aarch64 ==17.0.0
+    - pam-amzn2-aarch64 ==1.1.8
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+  host:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - mozjs17-amzn2-aarch64 ==17.0.0
+    - pam-amzn2-aarch64 ==1.1.8
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+  run:
+    - dbus-amzn2-aarch64 ==1.10.24
+    - expat-amzn2-aarch64 ==2.1.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - mozjs17-amzn2-aarch64 ==17.0.0
+    - pam-amzn2-aarch64 ==1.1.8
+    - shadow-utils-amzn2-aarch64 ==4.1.5.1
+    - systemd-amzn2-aarch64 ==219
+    - systemd-libs-amzn2-aarch64 ==219
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/polkit
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) An authorization framework"
+  description: |
+        polkit is a toolkit for defining and handling authorizations.  It is used for
+        allowing unprivileged processes to speak to privileged processes.
+
+extras:
+  rpm_name: polkit

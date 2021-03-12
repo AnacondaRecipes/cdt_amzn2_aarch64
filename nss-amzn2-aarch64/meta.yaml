@@ -1,0 +1,66 @@
+package:
+  name: nss-amzn2-aarch64
+  version: 3.53.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nss-3.53.1-3.amzn2.aarch64.rpm
+    sha256: 1a69191ca2f621ed73cd7f58ca01db1def4a9e7f662c2a7ac0a4ab8330f6dd44
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nss-3.53.1-3.amzn2.src.rpm
+    sha256: d7aaefe2f0b7813c966d9014f78af25dc5244cceee6909f79731c4d997edcc28
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-pem-amzn2-aarch64 ==1.0.3
+    - nss-softokn-amzn2-aarch64 >=3.53.1
+    - nss-sysinit-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-pem-amzn2-aarch64 ==1.0.3
+    - nss-softokn-amzn2-aarch64 >=3.53.1
+    - nss-sysinit-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-pem-amzn2-aarch64 ==1.0.3
+    - nss-softokn-amzn2-aarch64 >=3.53.1
+    - nss-sysinit-amzn2-aarch64 ==3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+
+about:
+  home: http://www.mozilla.org/projects/security/pki/nss/
+  license: MPLv2.0
+  license_family: Other
+  summary: "(CDT) Network Security Services"
+  description: |
+        Network Security Services (NSS) is a set of libraries designed to support
+        cross-platform development of security-enabled client and server applications.
+        Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7,
+        PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security
+        standards.
+
+extras:
+  rpm_name: nss

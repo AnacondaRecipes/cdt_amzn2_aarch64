@@ -1,0 +1,55 @@
+package:
+  name: perl-socket-amzn2-aarch64
+  version: 2.010
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Socket-2.010-4.amzn2.0.2.aarch64.rpm
+    sha256: 288eed4ff77083880be4529cc3c1a1d0ecdfeaf881e3c6151572c03f9e7c5867
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Socket-2.010-4.amzn2.0.2.src.rpm
+    sha256: 55c36b75f39d325cfc52dd6f991ad4535e64e543febe31b4c20a648ed78d099a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Socket/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Networking constants and support functions"
+  description: |
+        This module provides a variety of constants, structure manipulators and other
+        functions related to socket-based networking. The values and functions
+        provided are useful when used in conjunction with Perl core functions such as
+        socket(), setsockopt() and bind(). It also provides several other support
+        functions, mostly for dealing with conversions of network addresses between
+        human-readable and native binary forms, and for hostname resolver operations.
+
+extras:
+  rpm_name: perl-Socket

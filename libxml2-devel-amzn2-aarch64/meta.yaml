@@ -1,0 +1,58 @@
+package:
+  name: libxml2-devel-amzn2-aarch64
+  version: 2.9.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxml2-devel-2.9.1-6.amzn2.5.1.aarch64.rpm
+    sha256: 96697c4a3c07318ad3625a613b2493c394ba619257f1381f43acd46b05fcc510
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libxml2-2.9.1-6.amzn2.5.1.src.rpm
+    sha256: e26858355c4df615ccdc11e136485a1acc716811176784f3985644c0f6d49062
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xz-devel-amzn2-aarch64 ==5.2.2
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+  host:
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xz-devel-amzn2-aarch64 ==5.2.2
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+  run:
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - xz-devel-amzn2-aarch64 ==5.2.2
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://xmlsoft.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Libraries, includes, etc. to develop XML and HTML applications"
+  description: |
+        Libraries, include files, etc you can use to develop XML applications. This
+        library allows to manipulate XML files. It includes support to read, modify
+        and write XML and HTML files. There is DTDs support this includes parsing and
+        validation even with complex DtDs, either at parse time or later once the
+        document has been modified. The output can be a simple SAX stream or and in-
+        memory DOM like representations. In this case one can use the built-in XPath
+        and XPointer implementation to select sub nodes or ranges. A flexible
+        Input/Output mechanism is available, with existing HTTP and FTP modules and
+        combined to an URI library.
+
+extras:
+  rpm_name: libxml2-devel

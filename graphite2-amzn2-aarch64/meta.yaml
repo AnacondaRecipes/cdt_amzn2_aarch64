@@ -1,0 +1,52 @@
+package:
+  name: graphite2-amzn2-aarch64
+  version: 1.3.10
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/graphite2-1.3.10-1.amzn2.0.2.aarch64.rpm
+    sha256: 7cce864a70d296588eca7ca767438481aa9da5fd3239f5afb109a52d0d7ef079
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/graphite2-1.3.10-1.amzn2.0.2.src.rpm
+    sha256: 195a5f4378259c2ab0e747a28fa4a195364a80da3d054cec887946fd713b7733
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: https://sourceforge.net/projects/silgraphite/
+  license: (LGPLv2+ or GPLv2+ or MPL) and (Netscape or GPLv2+ or LGPLv2+)
+  license_family: GPL2
+  summary: "(CDT) Font rendering capabilities for complex non-Roman writing systems"
+  description: |
+        Graphite2 is a project within SIL’s Non-Roman Script Initiative and Language
+        Software Development groups to provide rendering capabilities for complex non-
+        Roman writing systems. Graphite can be used to create “smart fonts” capable of
+        displaying writing systems with various complex behaviors. With respect to the
+        Text Encoding Model, Graphite handles the "Rendering" aspect of writing system
+        implementation.
+
+extras:
+  rpm_name: graphite2

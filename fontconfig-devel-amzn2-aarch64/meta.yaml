@@ -1,0 +1,52 @@
+package:
+  name: fontconfig-devel-amzn2-aarch64
+  version: 2.13.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/fontconfig-devel-2.13.0-4.3.amzn2.aarch64.rpm
+    sha256: a28dbdbab7c2c5cc6b87384c32e42051129f848f4c358f062f3ffaba5a840cf9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/fontconfig-2.13.0-4.3.amzn2.src.rpm
+    sha256: d27fa964cbcbbd78a2cd17349b255f37d6fa44876c0186ffd4b05c63d6aae827
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - gettext-amzn2-aarch64 ==0.19.8.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://fontconfig.org
+  license: MIT and Public Domain and UCD
+  license_family: MIT
+  summary: "(CDT) Font configuration and customization library"
+  description: |
+        The fontconfig-devel package includes the header files, and developer docs for
+        the fontconfig package.  Install fontconfig-devel if you want to develop
+        programs which will use fontconfig.
+
+extras:
+  rpm_name: fontconfig-devel

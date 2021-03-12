@@ -1,0 +1,54 @@
+package:
+  name: gdk-pixbuf2-devel-amzn2-aarch64
+  version: 2.36.12
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gdk-pixbuf2-devel-2.36.12-3.amzn2.aarch64.rpm
+    sha256: 2d6611571b771889f5127ea589c2446134ce70b06ec1e33af287ff253ec00113
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gdk-pixbuf2-2.36.12-3.amzn2.src.rpm
+    sha256: 66c0234ee1599c3c05a52f8833491fd4aacdc4bb476fe4148153440c07e2632f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+  host:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+  run:
+    - gdk-pixbuf2-amzn2-aarch64 ==2.36.12
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+
+about:
+  home: http://www.gtk.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Development files for gdk-pixbuf"
+  description: |
+        This package contains the libraries and header files that are needed for
+        writing applications that are using gdk-pixbuf.
+
+extras:
+  rpm_name: gdk-pixbuf2-devel

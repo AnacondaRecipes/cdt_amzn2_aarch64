@@ -1,0 +1,41 @@
+package:
+  name: pcre-devel-amzn2-aarch64
+  version: 8.32
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pcre-devel-8.32-17.amzn2.0.2.aarch64.rpm
+    sha256: 36c8918d77b5b0f3516a235087aba0fe5990c6987f388b689bdbbf68d1908d11
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pcre-8.32-17.amzn2.0.2.src.rpm
+    sha256: c2b7d97e78a0b2fc29614992206919068a4f34f088bba431056abcb8802ce872
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - pcre-amzn2-aarch64 ==8.32
+  host:
+    - pcre-amzn2-aarch64 ==8.32
+  run:
+    - pcre-amzn2-aarch64 ==8.32
+
+about:
+  home: http://www.pcre.org/
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Development files for pcre"
+  description: |
+        Development files (Headers, libraries for dynamic linking, etc) for pcre.
+
+extras:
+  rpm_name: pcre-devel

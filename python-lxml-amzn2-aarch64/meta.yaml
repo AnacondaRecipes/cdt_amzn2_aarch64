@@ -1,0 +1,60 @@
+package:
+  name: python-lxml-amzn2-aarch64
+  version: 3.2.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python-lxml-3.2.1-4.amzn2.0.2.aarch64.rpm
+    sha256: 15007c7b2fe828850d8ed630d7564ccfe9289e822fa41c3c1059be47a904a08f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/python-lxml-3.2.1-4.amzn2.0.2.src.rpm
+    sha256: 228ed0156d55f24eb001ff1a4c3bc0714f24308e7c4899d735a73edc64446a4b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - python-libs-amzn2-aarch64 ==2.7.18
+    - python3-amzn2-aarch64 ==3.7.9
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - python-libs-amzn2-aarch64 ==2.7.18
+    - python3-amzn2-aarch64 ==3.7.9
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - python-libs-amzn2-aarch64 ==2.7.18
+    - python3-amzn2-aarch64 ==3.7.9
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://lxml.de
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) ElementTree-like Python bindings for libxml2 and libxslt"
+  description: |
+        lxml provides a Python binding to the libxslt and libxml2 libraries. It
+        follows the ElementTree API as much as possible in order to provide a more
+        Pythonic interface to libxml2 and libxslt than the default bindings.  In
+        particular, lxml deals with Python Unicode strings rather than encoded UTF-8
+        and handles memory management automatically, unlike the default bindings.
+
+extras:
+  rpm_name: python-lxml

@@ -1,0 +1,45 @@
+package:
+  name: cracklib-dicts-amzn2-aarch64
+  version: 2.9.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cracklib-dicts-2.9.0-11.amzn2.0.2.aarch64.rpm
+    sha256: f6366a02bfe43ae3afa65b1806a483b9c6056d81b2e47882839a8465eed65986
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cracklib-2.9.0-11.amzn2.0.2.src.rpm
+    sha256: 5f4d78fd25c6fbf6525699de780220c4adcfdd9c4a4247e94b4a22c84c678574
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cracklib-amzn2-aarch64 ==2.9.0
+  host:
+    - cracklib-amzn2-aarch64 ==2.9.0
+  run:
+    - cracklib-amzn2-aarch64 ==2.9.0
+
+about:
+  home: http://sourceforge.net/projects/cracklib/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) The standard CrackLib dictionaries"
+  description: |
+        The cracklib-dicts package includes the CrackLib dictionaries. CrackLib will
+        need to use the dictionary appropriate to your system, which is normally put
+        in /usr/share/dict/words. Cracklib-dicts also contains the utilities necessary
+        for the creation of new dictionaries.  If you are installing CrackLib, you
+        should also install cracklib-dicts.
+
+extras:
+  rpm_name: cracklib-dicts

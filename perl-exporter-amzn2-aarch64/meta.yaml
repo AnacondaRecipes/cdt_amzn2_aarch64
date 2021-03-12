@@ -1,0 +1,48 @@
+package:
+  name: perl-exporter-amzn2-aarch64
+  version: 5.68
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Exporter-5.68-3.amzn2.noarch.rpm
+    sha256: f4b46c581a748c6b10adc8c04ef13ced70aa4c561eceaef3df079367f03234d2
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Exporter-5.68-3.amzn2.src.rpm
+    sha256: b0a090790a45d44be40291a13244bfd0536ebcabbd935a792c8076cab6be8d21
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+  host:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+  run:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+
+about:
+  home: http://search.cpan.org/dist/Exporter/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Implements default import method for modules"
+  description: |
+        The Exporter module implements an import method which allows a module to
+        export functions and variables to its users' name spaces. Many modules use
+        Exporter rather than implementing their own import method because Exporter
+        provides a highly flexible interface, with an implementation optimized for the
+        common case.
+
+extras:
+  rpm_name: perl-Exporter

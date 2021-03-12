@@ -1,0 +1,73 @@
+package:
+  name: pam-amzn2-aarch64
+  version: 1.1.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pam-1.1.8-23.amzn2.0.1.aarch64.rpm
+    sha256: 7b0ea327d9faf9e206e4be7483452229a4ed80ef38d6e64441b1b04bbe524c7b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pam-1.1.8-23.amzn2.0.1.src.rpm
+    sha256: 8180ff24067156c24c25645a2b75057a3718af8d3d1f6e1c11ca1f11391df7d0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - audit-libs-amzn2-aarch64 >=1.0.8
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - coreutils-amzn2-aarch64 ==8.22
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.3.90
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libpwquality-amzn2-aarch64 >=0.9.9
+    - libselinux-amzn2-aarch64 >=1.33.2
+    - libselinux-amzn2-aarch64 ==2.5
+  host:
+    - audit-libs-amzn2-aarch64 >=1.0.8
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - coreutils-amzn2-aarch64 ==8.22
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.3.90
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libpwquality-amzn2-aarch64 >=0.9.9
+    - libselinux-amzn2-aarch64 >=1.33.2
+    - libselinux-amzn2-aarch64 ==2.5
+  run:
+    - audit-libs-amzn2-aarch64 >=1.0.8
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - coreutils-amzn2-aarch64 ==8.22
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.3.90
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libpwquality-amzn2-aarch64 >=0.9.9
+    - libselinux-amzn2-aarch64 >=1.33.2
+    - libselinux-amzn2-aarch64 ==2.5
+
+about:
+  home: http://www.linux-pam.org/
+  license: BSD and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) An extensible library which provides authentication for applications"
+  description: |
+        PAM (Pluggable Authentication Modules) is a system security tool that allows
+        system administrators to set authentication policy without having to recompile
+        programs that handle authentication.
+
+extras:
+  rpm_name: pam

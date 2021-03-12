@@ -1,0 +1,52 @@
+package:
+  name: pciutils-amzn2-aarch64
+  version: 3.5.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pciutils-3.5.1-3.amzn2.aarch64.rpm
+    sha256: a66b96fb66286f0cd8b7d9700ea78b98c64e914f2016bec87a88e890315460bc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pciutils-3.5.1-3.amzn2.src.rpm
+    sha256: c74a697575c6f79908887edadcfd5f67bb327780d946399134f36760bd76a415
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - hwdata-amzn2-aarch64 ==0.252
+    - kmod-libs-amzn2-aarch64 ==25
+    - pciutils-libs-amzn2-aarch64 ==3.5.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - hwdata-amzn2-aarch64 ==0.252
+    - kmod-libs-amzn2-aarch64 ==25
+    - pciutils-libs-amzn2-aarch64 ==3.5.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - hwdata-amzn2-aarch64 ==0.252
+    - kmod-libs-amzn2-aarch64 ==25
+    - pciutils-libs-amzn2-aarch64 ==3.5.1
+
+about:
+  home: http://atrey.karlin.mff.cuni.cz/~mj/pciutils.shtml
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) PCI bus related utilities"
+  description: |
+        The pciutils package contains various utilities for inspecting and setting
+        devices connected to the PCI bus. The utilities provided require kernel
+        version 2.1.82 or newer (which support the /proc/bus/pci interface).
+
+extras:
+  rpm_name: pciutils

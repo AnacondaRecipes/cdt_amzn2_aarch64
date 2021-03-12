@@ -1,0 +1,49 @@
+package:
+  name: xz-amzn2-aarch64
+  version: 5.2.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xz-5.2.2-1.amzn2.0.2.aarch64.rpm
+    sha256: 298da620ef32250e55132bf1cb3147af5be2adf768437c6f02a4a2023699d664
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xz-5.2.2-1.amzn2.0.2.src.rpm
+    sha256: bcb9c095602e8f3c64b34b19a8487a9b3dffb2160c8a01d81303eb8201bf2069
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+
+about:
+  home: http://tukaani.org/xz/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) LZMA compression utilities"
+  description: |
+        XZ Utils are an attempt to make LZMA compression easy to use on free (as in
+        freedom) operating systems. This is achieved by providing tools and libraries
+        which are similar to use than the equivalents of the most popular existing
+        compression algorithms.  LZMA is a general purpose compression algorithm
+        designed by Igor Pavlov as part of 7-Zip. It provides high compression ratio
+        while keeping the decompression speed fast.
+
+extras:
+  rpm_name: xz

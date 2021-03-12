@@ -1,0 +1,52 @@
+package:
+  name: less-amzn2-aarch64
+  version: 458
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/less-458-9.amzn2.0.2.aarch64.rpm
+    sha256: 9871aca19d783d1d7c17e584f32376e1fc03f8d502bc7d9fc7672093d7a00682
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/less-458-9.amzn2.0.2.src.rpm
+    sha256: 375b76190c7f6134807d408e6a3278830d23446dc2d46262d6d0dd1ffb41aefa
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+
+about:
+  home: http://www.greenwoodsoftware.com/less/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A text file browser similar to more, but better"
+  description: |
+        The less utility is a text file browser that resembles more, but has more
+        capabilities.  Less allows you to move backwards in the file as well as
+        forwards.  Since less doesn't have to read the entire input file before it
+        starts, less starts up more quickly than text editors (for example, vi).  You
+        should install less because it is a basic utility for viewing text files, and
+        you'll use it frequently.
+
+extras:
+  rpm_name: less

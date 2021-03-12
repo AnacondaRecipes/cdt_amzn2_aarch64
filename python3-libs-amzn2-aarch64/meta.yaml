@@ -1,0 +1,92 @@
+package:
+  name: python3-libs-amzn2-aarch64
+  version: 3.7.9
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python3-libs-3.7.9-1.amzn2.0.1.aarch64.rpm
+    sha256: d85071ed7d53ff74d3dd4a2b65d95ceb8d60a74451b6b954323f425d5cd4659c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/python3-3.7.9-1.amzn2.0.1.src.rpm
+    sha256: 8dfd84a1bc28a5badf27096122829fc5e15439cbb97668f58cef7c221e8a8c3a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - gdbm-amzn2-aarch64 >=1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.26
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libtirpc-amzn2-aarch64 ==0.2.4
+    - libuuid-amzn2-aarch64 ==2.30.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - gdbm-amzn2-aarch64 >=1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.26
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libtirpc-amzn2-aarch64 ==0.2.4
+    - libuuid-amzn2-aarch64 ==2.30.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - gdbm-amzn2-aarch64 >=1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - glibc-amzn2-aarch64 >=2.26
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libtirpc-amzn2-aarch64 ==0.2.4
+    - libuuid-amzn2-aarch64 ==2.30.2
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: https://www.python.org/
+  license: Python
+  license_family: Other
+  summary: "(CDT) Python runtime libraries"
+  description: |
+        This package contains runtime libraries for use by Python: - the majority of
+        the Python standard library - a dynamically linked library for use by
+        applications that embed Python as   a scripting language, and by the main
+        "python3" executable
+
+extras:
+  rpm_name: python3-libs

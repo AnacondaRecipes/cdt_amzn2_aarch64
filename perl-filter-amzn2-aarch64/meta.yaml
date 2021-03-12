@@ -1,0 +1,58 @@
+package:
+  name: perl-filter-amzn2-aarch64
+  version: 1.49
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Filter-1.49-3.amzn2.0.2.aarch64.rpm
+    sha256: 3bb566ddbd1c9a647ef61d3cbc4c1dfc08f6bf799f66aff4b934dcd15874c04d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Filter-1.49-3.amzn2.0.2.src.rpm
+    sha256: 28dcdff6fd786a3e7c8ef73981282dc6ec7de0d0e167c8f326ce51dc46f3485a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.002
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.002
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.002
+    - perl-amzn2-aarch64 >=5.005
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Filter/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl source filters"
+  description: |
+        Source filters alter the program text of a module before Perl sees it, much as
+        a C preprocessor alters the source text of a C program before the compiler
+        sees it.
+
+extras:
+  rpm_name: perl-Filter

@@ -1,0 +1,59 @@
+package:
+  name: elfutils-libs-amzn2-aarch64
+  version: 0.176
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/elfutils-libs-0.176-2.amzn2.aarch64.rpm
+    sha256: cbc95a0fd7b98681fea584ebd16ce8400f52cf61e7cee08c41dc756ee3a3b3ef
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/elfutils-0.176-2.amzn2.src.rpm
+    sha256: 7f6cc4b60d3a0fb8499726d64a830d91c97b301955f44418c3f1de3fb6304228
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-default-yama-scope-amzn2-aarch64 ==0.176
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-default-yama-scope-amzn2-aarch64 ==0.176
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-default-yama-scope-amzn2-aarch64 ==0.176
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://elfutils.org/
+  license: GPLv2+ or LGPLv3+
+  license_family: GPL2
+  summary: "(CDT) Libraries to handle compiled objects"
+  description: |
+        The elfutils-libs package contains libraries which implement DWARF, ELF, and
+        machine-specific ELF handling.  These libraries are used by the programs in
+        the elfutils package.  The elfutils-devel package enables building other
+        programs using these libraries.
+
+extras:
+  rpm_name: elfutils-libs

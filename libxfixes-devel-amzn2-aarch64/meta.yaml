@@ -1,0 +1,44 @@
+package:
+  name: libxfixes-devel-amzn2-aarch64
+  version: 5.0.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXfixes-devel-5.0.3-1.amzn2.0.2.aarch64.rpm
+    sha256: cdb57c089d72e84dbc399485ea0dc73903122d603495fab0a78f7f28ff4179b7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXfixes-5.0.3-1.amzn2.0.2.src.rpm
+    sha256: b59e5918e4a07df44752eee112a6ab0fa8b1e5f796033f6b7dd5ec2a4da9cdfe
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libXfixes"
+  description: |
+        libXfixes development package
+
+extras:
+  rpm_name: libXfixes-devel

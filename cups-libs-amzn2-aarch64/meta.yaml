@@ -1,0 +1,76 @@
+package:
+  name: cups-libs-amzn2-aarch64
+  version: 1.6.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cups-libs-1.6.3-51.amzn2.aarch64.rpm
+    sha256: 6f36bd1f049cc0e4fcfee3f491d4fa29072aed65c1ae76c0c44dda983e8c08fc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cups-1.6.3-51.amzn2.src.rpm
+    sha256: f81fe4e2a285ce740bf301fe2a47ace7ab9d85aad5ea81d8e171779fa290b7f4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - avahi-libs-amzn2-aarch64 ==0.6.31
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - avahi-libs-amzn2-aarch64 ==0.6.31
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - avahi-libs-amzn2-aarch64 ==0.6.31
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.cups.org/
+  license: LGPLv2 and zlib
+  license_family: LGPL
+  summary: "(CDT) CUPS printing system - libraries"
+  description: |
+        CUPS printing system provides a portable printing layer for UNIX® operating
+        systems. It has been developed by Apple Inc. to promote a standard printing
+        solution for all UNIX vendors and users. CUPS provides the System V and
+        Berkeley command-line interfaces. The cups-libs package provides libraries
+        used by applications to use CUPS natively, without needing the lp/lpr
+        commands.
+
+extras:
+  rpm_name: cups-libs

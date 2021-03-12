@@ -1,0 +1,42 @@
+package:
+  name: copy-jdk-configs-amzn2-aarch64
+  version: 3.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/copy-jdk-configs-3.3-10.amzn2.noarch.rpm
+    sha256: e85d3c6a5c03a2c9b7cc440b1b8ab782b053d4d8563af4d2dcf6467053e72697
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/copy-jdk-configs-3.3-10.amzn2.src.rpm
+    sha256: af093e91d26a35060304eb55fdef48a302bb18d5555e546b332d71910c240817
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - lua-amzn2-aarch64 ==5.1.4
+  host:
+    - lua-amzn2-aarch64 ==5.1.4
+  run:
+    - lua-amzn2-aarch64 ==5.1.4
+
+about:
+  home: https://pagure.io/copy_jdk_configs
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) JDKs configuration files copier"
+  description: |
+        Utility script to transfer JDKs configuration files between updates or for
+        archiving. With script to fix incorrectly created rpmnew files
+
+extras:
+  rpm_name: copy-jdk-configs

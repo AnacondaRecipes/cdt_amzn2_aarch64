@@ -1,0 +1,42 @@
+package:
+  name: keyutils-libs-amzn2-aarch64
+  version: 1.5.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/keyutils-libs-1.5.8-3.amzn2.0.2.aarch64.rpm
+    sha256: 5c0a9faed7f311809527a7f4f4d81ff60d895bc7e28cc6d61cbdcbb535daa811
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/keyutils-1.5.8-3.amzn2.0.2.src.rpm
+    sha256: 1579dc52bd90d64e68d663da4dfa4462afa9df1cfbef30d47b64add0dd12210e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://people.redhat.com/~dhowells/keyutils/
+  license: GPLv2+ and LGPLv2+
+  license_family: GPL2
+  summary: "(CDT) Key utilities library"
+  description: |
+        This package provides a wrapper library for the key management facility system
+        calls.
+
+extras:
+  rpm_name: keyutils-libs

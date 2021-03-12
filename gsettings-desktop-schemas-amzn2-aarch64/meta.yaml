@@ -1,0 +1,42 @@
+package:
+  name: gsettings-desktop-schemas-amzn2-aarch64
+  version: 3.28.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gsettings-desktop-schemas-3.28.0-3.amzn2.0.1.aarch64.rpm
+    sha256: 1de6c5bf0a53e9c9423d7bb7d2fd39abbea1bd24984b527e21a4575a7758be6d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gsettings-desktop-schemas-3.28.0-3.amzn2.0.1.src.rpm
+    sha256: b2e07cd0bb66432a0710c462e2e414e74091c76302f4610f03adc08ef63eeec0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 >=2.31.0
+  host:
+    - glib2-amzn2-aarch64 >=2.31.0
+  run:
+    - glib2-amzn2-aarch64 >=2.31.0
+
+about:
+  home: http://bugzilla.gnome.org/enter_bug.cgi?product=gsettings-desktop-schemas
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A collection of GSettings schemas"
+  description: |
+        gsettings-desktop-schemas contains a collection of GSettings schemas for
+        settings shared by various components of a desktop.
+
+extras:
+  rpm_name: gsettings-desktop-schemas

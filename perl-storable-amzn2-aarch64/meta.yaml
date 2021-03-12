@@ -1,0 +1,52 @@
+package:
+  name: perl-storable-amzn2-aarch64
+  version: 2.45
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Storable-2.45-3.amzn2.0.2.aarch64.rpm
+    sha256: d450e68d63eef2cdd3305187c1ead2150b24f93aa5c39acbeb54abde6d2b0066
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Storable-2.45-3.amzn2.0.2.src.rpm
+    sha256: 6c213f8561d991d03c89e24776c930f9c27fb82ce79b72c6ddec4efa58b7d246
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://search.cpan.org/dist/Storable/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Persistence for Perl data structures"
+  description: |
+        The Storable package brings persistence to your Perl data structures
+        containing scalar, array, hash or reference objects, i.e. anything that can be
+        conveniently stored to disk and retrieved at a later time.
+
+extras:
+  rpm_name: perl-Storable

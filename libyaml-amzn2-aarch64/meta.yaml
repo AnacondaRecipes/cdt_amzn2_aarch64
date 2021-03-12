@@ -1,0 +1,43 @@
+package:
+  name: libyaml-amzn2-aarch64
+  version: 0.1.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libyaml-0.1.4-11.amzn2.0.2.aarch64.rpm
+    sha256: c2a1b975a2b46f455b7e5f1613ac957482b5d27c892acce0d8f78fc0d6505d04
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libyaml-0.1.4-11.amzn2.0.2.src.rpm
+    sha256: bda16aa2257d2144036defc39e88a3a86680e0b91db57441de188818e1cdc49b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://pyyaml.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) YAML 1.1 parser and emitter written in C"
+  description: |
+        YAML is a data serialization format designed for human readability and
+        interaction with scripting languages.  LibYAML is a YAML parser and emitter
+        written in C.
+
+extras:
+  rpm_name: libyaml

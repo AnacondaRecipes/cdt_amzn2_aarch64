@@ -1,0 +1,54 @@
+package:
+  name: cyrus-sasl-lib-amzn2-aarch64
+  version: 2.1.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cyrus-sasl-lib-2.1.26-23.amzn2.aarch64.rpm
+    sha256: 01f5246f62dbd11e833cba1fb0b7ee680bfcb73a0b7b37814bc94ce2feb89385
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cyrus-sasl-2.1.26-23.amzn2.src.rpm
+    sha256: d94991ec3297e116fddaa0543c7626d29605fd5ce546f5d94f697e65c595ad66
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+
+about:
+  home: http://asg.web.cmu.edu/sasl/sasl-library.html
+  license: BSD with advertising
+  license_family: BSD
+  summary: "(CDT) Shared libraries needed by applications which use Cyrus SASL"
+  description: |
+        The cyrus-sasl-lib package contains shared libraries which are needed by
+        applications which use the Cyrus SASL library.
+
+extras:
+  rpm_name: cyrus-sasl-lib

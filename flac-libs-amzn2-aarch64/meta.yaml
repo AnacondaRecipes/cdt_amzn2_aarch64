@@ -1,0 +1,55 @@
+package:
+  name: flac-libs-amzn2-aarch64
+  version: 1.3.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/flac-libs-1.3.0-5.amzn2.0.2.aarch64.rpm
+    sha256: f8f135ccb376ebbb8f03bdddcc8d95a7abc9ae076e7b3eb12ee053f9e77a46f9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/flac-1.3.0-5.amzn2.0.2.src.rpm
+    sha256: 91a837181b90d14fb44692ba23bd8f2a2b3598d12c27b0f23efc883e751fb330
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libogg-amzn2-aarch64 ==1.3.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libogg-amzn2-aarch64 ==1.3.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libogg-amzn2-aarch64 ==1.3.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.xiph.org/flac/
+  license: BSD and GPLv2+ and GFDL
+  license_family: GPL2
+  summary: "(CDT) Libraries for the Free Lossless Audio Codec"
+  description: |
+        FLAC stands for Free Lossless Audio Codec. Grossly oversimplified, FLAC is
+        similar to Ogg Vorbis, but lossless. The FLAC project consists of the stream
+        format, reference encoders and decoders in library form, flac, a command-line
+        program to encode and decode FLAC files, metaflac, a command-line metadata
+        editor for FLAC files and input plugins for various music players.  This
+        package contains the FLAC libraries.
+
+extras:
+  rpm_name: flac-libs

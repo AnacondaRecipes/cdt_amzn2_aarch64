@@ -1,0 +1,60 @@
+package:
+  name: libtiff-amzn2-aarch64
+  version: 4.0.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libtiff-4.0.3-35.amzn2.aarch64.rpm
+    sha256: 131fe4d760d1525b5da65e8ca8d7307038b369dfe7aa19eaa2e796bf1523200a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libtiff-4.0.3-35.amzn2.src.rpm
+    sha256: 047734277b09e14a47d34c3d4d66c6308828db0cbfd6e4d0401b05b8f5a5edee
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - jbigkit-libs-amzn2-aarch64 ==2.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - jbigkit-libs-amzn2-aarch64 ==2.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - jbigkit-libs-amzn2-aarch64 ==2.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.remotesensing.org/libtiff/
+  license: libtiff
+  license_family: Other
+  summary: "(CDT) Library of functions for manipulating TIFF format image files"
+  description: |
+        The libtiff package contains a library of functions for manipulating TIFF
+        (Tagged Image File Format) image format files.  TIFF is a widely used file
+        format for bitmapped images.  TIFF files usually end in the .tif extension and
+        they are often quite large.  The libtiff package should be installed if you
+        need to manipulate TIFF format image files.
+
+extras:
+  rpm_name: libtiff

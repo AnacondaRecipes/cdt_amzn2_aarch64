@@ -1,0 +1,52 @@
+package:
+  name: openssl-devel-amzn2-aarch64
+  version: 1.0.2k
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/openssl-devel-1.0.2k-19.amzn2.0.4.aarch64.rpm
+    sha256: cd8fe6f6795742cd0eb818283ca6edde6e91b221ee64b8908b40940567e125a1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/openssl-1.0.2k-19.amzn2.0.4.src.rpm
+    sha256: 00cb374f99a5b72b94488de57839437aa5c13e3223ab300c6cad54784e65831b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - krb5-devel-amzn2-aarch64 ==1.15.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+  host:
+    - krb5-devel-amzn2-aarch64 ==1.15.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+  run:
+    - krb5-devel-amzn2-aarch64 ==1.15.1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+    - zlib-devel-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.openssl.org/
+  license: OpenSSL
+  license_family: Other
+  summary: "(CDT) Files for development of applications which will use OpenSSL"
+  description: |
+        OpenSSL is a toolkit for supporting cryptography. The openssl-devel package
+        contains include files needed to develop applications which support various
+        cryptographic algorithms and protocols.
+
+extras:
+  rpm_name: openssl-devel

@@ -1,0 +1,42 @@
+package:
+  name: atk-devel-amzn2-aarch64
+  version: 2.22.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/atk-devel-2.22.0-3.amzn2.0.2.aarch64.rpm
+    sha256: c174724462cf19a07ee28085aaa45e477ba44e4333f6f4ba1885aabc8ad56bdd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/atk-2.22.0-3.amzn2.0.2.src.rpm
+    sha256: 5165276c7c85e1c8f294eaae090c90653eeaeaacb55f8f4d91a9b7aacf3a6d11
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - atk-amzn2-aarch64 ==2.22.0
+  host:
+    - atk-amzn2-aarch64 ==2.22.0
+  run:
+    - atk-amzn2-aarch64 ==2.22.0
+
+about:
+  home: http://developer.gnome.org/platform-overview/stable/atk
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Development files for the ATK accessibility toolkit"
+  description: |
+        This package includes libraries, header files, and developer documentation
+        needed for development of applications or toolkits which use ATK.
+
+extras:
+  rpm_name: atk-devel

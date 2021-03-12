@@ -1,0 +1,57 @@
+package:
+  name: gtkmm24-devel-amzn2-aarch64
+  version: 2.24.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gtkmm24-devel-2.24.5-1.amzn2.0.2.aarch64.rpm
+    sha256: 9ab234e75d3709d3aaf5a75ca864feedf4f450da67f272c0dd3ea54972863454
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gtkmm24-2.24.5-1.amzn2.0.2.src.rpm
+    sha256: 646fa4177ca8837e92ee8966c010bb88249dccf5e26a0e5ed5b4cdadf39e0991
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - atkmm-devel-amzn2-aarch64 ==2.24.2
+    - cairomm-devel-amzn2-aarch64 ==1.12.0
+    - glibmm24-devel-amzn2-aarch64 ==2.56.0
+    - gtk2-devel-amzn2-aarch64 ==2.24.31
+    - gtkmm24-amzn2-aarch64 ==2.24.5
+    - pangomm-devel-amzn2-aarch64 ==2.40.1
+  host:
+    - atkmm-devel-amzn2-aarch64 ==2.24.2
+    - cairomm-devel-amzn2-aarch64 ==1.12.0
+    - glibmm24-devel-amzn2-aarch64 ==2.56.0
+    - gtk2-devel-amzn2-aarch64 ==2.24.31
+    - gtkmm24-amzn2-aarch64 ==2.24.5
+    - pangomm-devel-amzn2-aarch64 ==2.40.1
+  run:
+    - atkmm-devel-amzn2-aarch64 ==2.24.2
+    - cairomm-devel-amzn2-aarch64 ==1.12.0
+    - glibmm24-devel-amzn2-aarch64 ==2.56.0
+    - gtk2-devel-amzn2-aarch64 ==2.24.31
+    - gtkmm24-amzn2-aarch64 ==2.24.5
+    - pangomm-devel-amzn2-aarch64 ==2.40.1
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Headers for developing programs that will use gtkmm24."
+  description: |
+        This package contains the static libraries and header files needed for
+        developing gtkmm applications.
+
+extras:
+  rpm_name: gtkmm24-devel

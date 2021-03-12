@@ -1,0 +1,46 @@
+package:
+  name: libsepol-amzn2-aarch64
+  version: 2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsepol-2.5-8.1.amzn2.0.2.aarch64.rpm
+    sha256: b8a276eb840189e2d2ab4f5b61c56c01baeb278a514b5f03e9a9055e5b51acdd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsepol-2.5-8.1.amzn2.0.2.src.rpm
+    sha256: c5597168fd76decdd14b8c307ea2ab87a22f7e2236cf9c2ff4cf438c0e6d4120
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: https://github.com/SELinuxProject/selinux/wiki
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) SELinux binary policy manipulation library"
+  description: |
+        Security-enhanced Linux is a feature of the Linux® kernel and a number of
+        utilities with enhanced security functionality designed to add mandatory
+        access controls to Linux.  The Security-enhanced Linux kernel contains new
+        architectural components originally developed to improve the security of the
+        Flask operating system. These architectural components provide general support
+        for the enforcement of many kinds of mandatory access control policies,
+        including those based on the concepts of Type Enforcement®, Role-based Access
+        Control, and Multi-level Security.  libsepol provides an API for the
+        manipulation of SELinux binary policies. It is used by checkpolicy (the policy
+        compiler) and similar tools, as well as by programs like load_policy that need
+        to perform specific transformations on binary policies such as customizing
+        policy boolean settings.
+
+extras:
+  rpm_name: libsepol

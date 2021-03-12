@@ -1,0 +1,48 @@
+package:
+  name: sed-amzn2-aarch64
+  version: 4.2.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/sed-4.2.2-5.amzn2.0.2.aarch64.rpm
+    sha256: 825826615e2c3fb5e83f5370c22d7780dda5ea9ac27f896851ddcc984bc55c31
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/sed-4.2.2-5.amzn2.0.2.src.rpm
+    sha256: 6536ece4c46bf2ed9823a7e298728310689e54d535226819a7d7fe4b9eeadafd
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+
+about:
+  home: http://sed.sourceforge.net/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A GNU stream text editor"
+  description: |
+        The sed (Stream EDitor) editor is a stream or batch (non-interactive) editor.
+        Sed takes text as input, performs an operation or set of operations on the
+        text and outputs the modified text.  The operations that sed performs
+        (substitutions, deletions, insertions, etc.) can be specified in a script file
+        or from the command line.
+
+extras:
+  rpm_name: sed

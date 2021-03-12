@@ -1,0 +1,45 @@
+package:
+  name: libselinux-devel-amzn2-aarch64
+  version: 2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libselinux-devel-2.5-12.amzn2.0.2.aarch64.rpm
+    sha256: f028f48002892d0c4a3575e1932d9dc46f5a92e61d173514b456b7459a0e27b1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libselinux-2.5-12.amzn2.0.2.src.rpm
+    sha256: 0be2744b0f89765b31cecb119ca520449eb8cf48cd7355824f7ca4e0873deec3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-devel-amzn2-aarch64 >=2.5
+  host:
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-devel-amzn2-aarch64 >=2.5
+  run:
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-devel-amzn2-aarch64 >=2.5
+
+about:
+  home: https://github.com/SELinuxProject/selinux/wiki
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) Header files and libraries used to build SELinux"
+  description: |
+        The libselinux-devel package contains the libraries and header files needed
+        for developing SELinux applications.
+
+extras:
+  rpm_name: libselinux-devel

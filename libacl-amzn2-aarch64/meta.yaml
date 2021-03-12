@@ -1,0 +1,45 @@
+package:
+  name: libacl-amzn2-aarch64
+  version: 2.2.51
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libacl-2.2.51-14.amzn2.aarch64.rpm
+    sha256: 9c338f6ae4db52548bc3a59cfec41e0c8aabc8cbdc03454d12f22f85a46c6441
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/acl-2.2.51-14.amzn2.src.rpm
+    sha256: d21969f8fbccf539fa601961f20352b7c95b4cf593c9fa5dad2ac4896c7ca6c9
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+
+about:
+  home: http://acl.bestbits.at/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Dynamic library for access control list support"
+  description: |
+        This package contains the libacl.so dynamic library which contains the POSIX
+        1003.1e draft standard 17 functions for manipulating access control lists.
+
+extras:
+  rpm_name: libacl

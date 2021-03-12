@@ -1,0 +1,54 @@
+package:
+  name: pango-devel-amzn2-aarch64
+  version: 1.42.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pango-devel-1.42.4-4.amzn2.aarch64.rpm
+    sha256: e4d9d7ae96b7411d0a21fa294b9e04a43d9e34869bfd66966cdd41fa659a8de7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pango-1.42.4-4.amzn2.src.rpm
+    sha256: 0b96df84e91b7fa544515ea103a8658d0f1fda806ac02ec748b177876f51615d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cairo-devel-amzn2-aarch64 >=1.15.12
+    - fontconfig-devel-amzn2-aarch64 >=2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - pango-amzn2-aarch64 ==1.42.4
+  host:
+    - cairo-devel-amzn2-aarch64 >=1.15.12
+    - fontconfig-devel-amzn2-aarch64 >=2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - pango-amzn2-aarch64 ==1.42.4
+  run:
+    - cairo-devel-amzn2-aarch64 >=1.15.12
+    - fontconfig-devel-amzn2-aarch64 >=2.13.0
+    - freetype-devel-amzn2-aarch64 >=2.8
+    - glib2-devel-amzn2-aarch64 >=2.56.1
+    - pango-amzn2-aarch64 ==1.42.4
+
+about:
+  home: http://www.pango.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Development files for pango"
+  description: |
+        The pango-devel package includes the header files and developer documentation
+        for the pango package.
+
+extras:
+  rpm_name: pango-devel

@@ -1,0 +1,47 @@
+package:
+  name: alsa-lib-devel-amzn2-aarch64
+  version: 1.1.4.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/alsa-lib-devel-1.1.4.1-2.amzn2.aarch64.rpm
+    sha256: 4fee69597aa59f00a9a44775cf7635228bce00e853e9cc45b3d60c7db8d32740
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/alsa-lib-1.1.4.1-2.amzn2.src.rpm
+    sha256: a9e7dae839d2d1b3ad7651900716426494b587dfcab6e3ca0d93e03a32386d2c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - alsa-lib-amzn2-aarch64 ==1.1.4.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - alsa-lib-amzn2-aarch64 ==1.1.4.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - alsa-lib-amzn2-aarch64 ==1.1.4.1
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://www.alsa-project.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Development files from the ALSA library"
+  description: |
+        The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI
+        functionality to the Linux operating system.  This package includes the ALSA
+        development libraries for developing against the ALSA libraries and
+        interfaces.
+
+extras:
+  rpm_name: alsa-lib-devel

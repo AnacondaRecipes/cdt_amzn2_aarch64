@@ -1,0 +1,47 @@
+package:
+  name: popt-amzn2-aarch64
+  version: 1.13
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/popt-1.13-16.amzn2.0.2.aarch64.rpm
+    sha256: 138e65213d34fe31d11c6bb22d7c02302079e0daed6089918c0c0a06b6e5c221
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/popt-1.13-16.amzn2.0.2.src.rpm
+    sha256: 849bd178ea42fbff69e6c5e765042ab80fb56a96bcadc7218926b13765282945
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.rpm5.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) C library for parsing command line parameters"
+  description: |
+        Popt is a C library for parsing command line parameters. Popt was heavily
+        influenced by the getopt() and getopt_long() functions, but it improves on
+        them by allowing more powerful argument expansion. Popt can parse arbitrary
+        argv[] style arrays and automatically set variables based on command line
+        arguments. Popt allows command line arguments to be aliased via configuration
+        files and includes utility functions for parsing arbitrary strings into argv[]
+        arrays using shell-like rules.
+
+extras:
+  rpm_name: popt

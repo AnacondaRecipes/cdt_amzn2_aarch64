@@ -1,0 +1,41 @@
+package:
+  name: libcap-ng-amzn2-aarch64
+  version: 0.7.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libcap-ng-0.7.5-4.amzn2.0.4.aarch64.rpm
+    sha256: 8718fbd8c0f52ac147beba3b7228b1545b7efcbdc1cb1ad19256d656322eca03
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libcap-ng-0.7.5-4.amzn2.0.4.src.rpm
+    sha256: b9685dfd18da9e00613cda24f60b48a09e3b4695dd6131e5e4ce4de70b90e95c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://people.redhat.com/sgrubb/libcap-ng
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) An alternate posix capabilities library"
+  description: |
+        Libcap-ng is a library that makes using posix capabilities easier
+
+extras:
+  rpm_name: libcap-ng

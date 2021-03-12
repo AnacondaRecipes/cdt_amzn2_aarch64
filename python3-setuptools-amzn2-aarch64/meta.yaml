@@ -1,0 +1,45 @@
+package:
+  name: python3-setuptools-amzn2-aarch64
+  version: 38.4.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python3-setuptools-38.4.0-3.amzn2.0.6.noarch.rpm
+    sha256: 4bda499284bf958160f8126c19fb31e1dcc2d71217ff05d7caf572c14f0c72e7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/python-setuptools-38.4.0-3.amzn2.0.6.src.rpm
+    sha256: 07513ea4d45e7754ad63237b01735fa03b49d226485e5412252387e6cb8ad2f2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - python3-amzn2-aarch64 ==3.7.9
+  host:
+    - python3-amzn2-aarch64 ==3.7.9
+  run:
+    - python3-amzn2-aarch64 ==3.7.9
+
+about:
+  home: https://pypi.python.org/pypi/setuptools
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Easily build and distribute Python 3 packages"
+  description: |
+        Setuptools is a collection of enhancements to the Python 3 distutils that
+        allow you to more easily build and distribute Python 3 packages, especially
+        ones that have dependencies on other packages.  This package also contains the
+        runtime components of setuptools, necessary to execute the software that
+        requires pkg_resources.py.
+
+extras:
+  rpm_name: python3-setuptools

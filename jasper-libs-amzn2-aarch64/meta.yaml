@@ -1,0 +1,44 @@
+package:
+  name: jasper-libs-amzn2-aarch64
+  version: 1.900.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/jasper-libs-1.900.1-33.amzn2.aarch64.rpm
+    sha256: f029a5c0a506f1cc8de8ef7a368ce0d2b788c92b8a82ecf9cc713c07b5daed8e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/jasper-1.900.1-33.amzn2.src.rpm
+    sha256: e7958fc8084d5d6797a809f9d7035879227afec52301877aa9a405c01347f308
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+
+about:
+  home: http://www.ece.uvic.ca/~frodo/jasper/
+  license: JasPer
+  license_family: Other
+  summary: "(CDT) Runtime libraries for jasper"
+  description: |
+        Runtime libraries for jasper.
+
+extras:
+  rpm_name: jasper-libs

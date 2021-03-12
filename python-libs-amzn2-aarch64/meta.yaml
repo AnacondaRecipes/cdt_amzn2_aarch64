@@ -1,0 +1,79 @@
+package:
+  name: python-libs-amzn2-aarch64
+  version: 2.7.18
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python-libs-2.7.18-1.amzn2.0.2.aarch64.rpm
+    sha256: ef02570352f622d3699da263b2a787dbc0213095597c62b2d113f4116f7442b5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/python-2.7.18-1.amzn2.0.2.src.rpm
+    sha256: bbce2dfe98cb08fa66d6ca06b1d47d9ba8df929acdcf1391c800178753c298a2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - expat-amzn2-aarch64 >=2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - expat-amzn2-aarch64 >=2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - expat-amzn2-aarch64 ==2.1.0
+    - expat-amzn2-aarch64 >=2.1.0
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libffi-amzn2-aarch64 ==3.0.13
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - readline-amzn2-aarch64 ==6.2
+    - sqlite-amzn2-aarch64 ==3.7.17
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.python.org/
+  license: Python
+  license_family: Other
+  summary: "(CDT) Runtime libraries for Python"
+  description: |
+        This package contains runtime libraries for use by Python: - the libpython
+        dynamic library, for use by applications that embed Python as a scripting
+        language, and by the main "python" executable - the Python standard library
+
+extras:
+  rpm_name: python-libs

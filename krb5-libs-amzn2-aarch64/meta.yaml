@@ -1,0 +1,70 @@
+package:
+  name: krb5-libs-amzn2-aarch64
+  version: 1.15.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/krb5-libs-1.15.1-37.amzn2.2.2.aarch64.rpm
+    sha256: 820800f35c7f94b75658f420cb6a371851d7ac7d7a22b1a99b12d4a92e132d41
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/krb5-1.15.1-37.amzn2.2.2.src.rpm
+    sha256: a4ae5281a860a9566b9d0533461f0a65858cb1cea7cc82eb94f5b0ca59ef8020
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - grep-amzn2-aarch64 ==2.20
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-amzn2-aarch64 >=1.5.8
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libselinux-amzn2-aarch64 ==2.5
+    - libverto-amzn2-aarch64 ==0.2.5
+    - sed-amzn2-aarch64 ==4.2.2
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - grep-amzn2-aarch64 ==2.20
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-amzn2-aarch64 >=1.5.8
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libselinux-amzn2-aarch64 ==2.5
+    - libverto-amzn2-aarch64 ==0.2.5
+    - sed-amzn2-aarch64 ==4.2.2
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - grep-amzn2-aarch64 ==2.20
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-amzn2-aarch64 >=1.5.8
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libselinux-amzn2-aarch64 ==2.5
+    - libverto-amzn2-aarch64 ==0.2.5
+    - sed-amzn2-aarch64 ==4.2.2
+
+about:
+  home: http://web.mit.edu/kerberos/www/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) The non-admin shared libraries used by Kerberos 5"
+  description: |
+        Kerberos is a network authentication system. The krb5-libs package contains
+        the shared libraries needed by Kerberos 5. If you are using Kerberos, you need
+        to install this package.
+
+extras:
+  rpm_name: krb5-libs

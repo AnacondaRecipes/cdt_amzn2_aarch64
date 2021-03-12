@@ -1,0 +1,46 @@
+package:
+  name: gzip-amzn2-aarch64
+  version: 1.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gzip-1.5-10.amzn2.aarch64.rpm
+    sha256: 3efc4ce299f187fd937557c7b319e75c58a9c61e35c1670e8bc844226e66df98
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gzip-1.5-10.amzn2.src.rpm
+    sha256: 11604894d095708f21447f007b0f9b6da1335ac2cbac9812d37dd16dd69ff74d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.gzip.org/
+  license: GPLv3+ and GFDL
+  license_family: GPL3
+  summary: "(CDT) The GNU data compression program"
+  description: |
+        The gzip package contains the popular GNU gzip data compression program.
+        Gzipped files have a .gz extension.  Gzip should be installed on your system,
+        because it is a very commonly used data compression program.
+
+extras:
+  rpm_name: gzip

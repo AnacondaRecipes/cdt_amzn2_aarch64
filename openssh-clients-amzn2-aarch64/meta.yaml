@@ -1,0 +1,79 @@
+package:
+  name: openssh-clients-amzn2-aarch64
+  version: 7.4p1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/openssh-clients-7.4p1-21.amzn2.0.1.aarch64.rpm
+    sha256: ad935e294b4a9a5adf79d192288e9ddc3fb2abedef36e0a338f0b2a1eced33e4
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/openssh-7.4p1-21.amzn2.0.1.src.rpm
+    sha256: 6e07f6e54529c297b39c4721296281355a3148223fb92819f05ff6f3898d7514
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - fipscheck-lib-amzn2-aarch64 ==1.4.1
+    - fipscheck-lib-amzn2-aarch64 >=1.4.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libedit-amzn2-aarch64 ==3.0
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openldap-amzn2-aarch64 ==2.4.44
+    - openssh-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - fipscheck-lib-amzn2-aarch64 ==1.4.1
+    - fipscheck-lib-amzn2-aarch64 >=1.4.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libedit-amzn2-aarch64 ==3.0
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openldap-amzn2-aarch64 ==2.4.44
+    - openssh-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - fipscheck-lib-amzn2-aarch64 ==1.4.1
+    - fipscheck-lib-amzn2-aarch64 >=1.4.1
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libedit-amzn2-aarch64 ==3.0
+    - libselinux-amzn2-aarch64 ==2.5
+    - ncurses-libs-amzn2-aarch64 ==6.0
+    - openldap-amzn2-aarch64 ==2.4.44
+    - openssh-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.openssh.com/portable.html
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) An open source SSH client applications"
+  description: |
+        OpenSSH is a free version of SSH (Secure SHell), a program for logging into
+        and executing commands on a remote machine. This package includes the clients
+        necessary to make encrypted connections to SSH servers.
+
+extras:
+  rpm_name: openssh-clients

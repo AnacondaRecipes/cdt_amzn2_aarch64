@@ -1,0 +1,70 @@
+package:
+  name: krb5-devel-amzn2-aarch64
+  version: 1.15.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/krb5-devel-1.15.1-37.amzn2.2.2.aarch64.rpm
+    sha256: c7b95db540cb1a19200392788c82a858cc62dd3cd0f4fedc7f70c787c26e2ff3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/krb5-1.15.1-37.amzn2.2.2.src.rpm
+    sha256: a4ae5281a860a9566b9d0533461f0a65858cb1cea7cc82eb94f5b0ca59ef8020
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-devel-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcom_err-devel-amzn2-aarch64 ==1.42.9
+    - libkadm5-amzn2-aarch64 ==1.15.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-devel-amzn2-aarch64 ==2.5
+    - libverto-devel-amzn2-aarch64 ==0.2.5
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-devel-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcom_err-devel-amzn2-aarch64 ==1.42.9
+    - libkadm5-amzn2-aarch64 ==1.15.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-devel-amzn2-aarch64 ==2.5
+    - libverto-devel-amzn2-aarch64 ==0.2.5
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - keyutils-libs-amzn2-aarch64 ==1.5.8
+    - keyutils-libs-devel-amzn2-aarch64 ==1.5.8
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - libcom_err-devel-amzn2-aarch64 ==1.42.9
+    - libkadm5-amzn2-aarch64 ==1.15.1
+    - libselinux-amzn2-aarch64 ==2.5
+    - libselinux-devel-amzn2-aarch64 ==2.5
+    - libverto-devel-amzn2-aarch64 ==0.2.5
+
+about:
+  home: http://web.mit.edu/kerberos/www/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files needed to compile Kerberos 5 programs"
+  description: |
+        Kerberos is a network authentication system. The krb5-devel package contains
+        the header files and libraries needed for compiling Kerberos 5 programs. If
+        you want to develop Kerberos-aware programs, you need to install this package.
+
+extras:
+  rpm_name: krb5-devel

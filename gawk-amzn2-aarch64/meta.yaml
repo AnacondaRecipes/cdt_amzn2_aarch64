@@ -1,0 +1,45 @@
+package:
+  name: gawk-amzn2-aarch64
+  version: 4.0.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gawk-4.0.2-4.amzn2.1.2.aarch64.rpm
+    sha256: f47bbd35cea8ae27685e3daced97019ceee45f2afebf79710a390fd71df0bdbc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gawk-4.0.2-4.amzn2.1.2.src.rpm
+    sha256: 20e168961dd7975b2be268b247219eb2e7a1bef49898ad360ffae2833d76ad1c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.gnu.org/software/gawk/gawk.html
+  license: GPLv3+ and GPL and LGPLv3+ and LGPL and BSD
+  license_family: GPL3
+  summary: "(CDT) The GNU version of the awk text processing utility"
+  description: |
+        The gawk package contains the GNU version of awk, a text processing utility.
+        Awk interprets a special-purpose programming language to do quick and easy
+        text pattern matching and reformatting jobs.  Install the gawk package if you
+        need a text processing utility. Gawk is considered to be a standard Linux tool
+        for processing text.
+
+extras:
+  rpm_name: gawk

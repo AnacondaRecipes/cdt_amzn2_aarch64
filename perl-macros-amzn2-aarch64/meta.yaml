@@ -1,0 +1,37 @@
+package:
+  name: perl-macros-amzn2-aarch64
+  version: 5.16.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-macros-5.16.3-294.amzn2.aarch64.rpm
+    sha256: ca0f26eefc870004824954c8a4aefa7bc9169b3690fe54b22b505b8097418260
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-5.16.3-294.amzn2.src.rpm
+    sha256: 0c816ac5bcd69fcd1363cdffdac8a351de636098f2b9b2d5344abc73ba9e189d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.perl.org/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Macros for rpmbuild"
+  description: |
+        Macros for rpmbuild are needed during build of srpm in koji. This sub-package
+        must be installed into buildroot, so it will be needed by perl. Perl is needed
+        because of git.
+
+extras:
+  rpm_name: perl-macros

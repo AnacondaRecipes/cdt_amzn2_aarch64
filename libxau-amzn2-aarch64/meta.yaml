@@ -1,0 +1,45 @@
+package:
+  name: libxau-amzn2-aarch64
+  version: 1.0.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXau-1.0.8-2.1.amzn2.0.2.aarch64.rpm
+    sha256: b48cebe880827e42954161fc54751467297716af739f264a4659ed9a3400b1e4
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXau-1.0.8-2.1.amzn2.0.2.src.rpm
+    sha256: 50e5b92f2010fd9924e65ea36c082af0cc43f26f788b4f0dcd70cfe6c140998a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Sample Authorization Protocol for X"
+  description: |
+        This is a very simple mechanism for providing individual access to an X Window
+        System display.It uses existing core protocol and library hooks for specifying
+        authorization data in the connection setup block to restrict use of the
+        display to only those clients that show that they know a server-specific key
+        called a "magic cookie".
+
+extras:
+  rpm_name: libXau

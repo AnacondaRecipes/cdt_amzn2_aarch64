@@ -1,0 +1,47 @@
+package:
+  name: libuuid-amzn2-aarch64
+  version: 2.30.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libuuid-2.30.2-2.amzn2.0.4.aarch64.rpm
+    sha256: ed8335eedda49281d3491377065df17cf07095a6c12abe354d846a5432336a42
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/util-linux-2.30.2-2.amzn2.0.4.src.rpm
+    sha256: 7967325dfd44cdb0fd0caa45b27d56da920dd3110a5989c3ae52364b44ae7d82
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://en.wikipedia.org/wiki/Util-linux
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Universally unique ID library"
+  description: |
+        This is the universally unique ID library, part of util-linux.  The libuuid
+        library generates and parses 128-bit universally unique id's (UUID's).  A UUID
+        is an identifier that is unique across both space and time, with respect to
+        the space of all UUIDs.  A UUID can be used for multiple purposes, from
+        tagging objects with an extremely short lifetime, to reliably identifying very
+        persistent objects across a network.  See also the "uuid" package, which is a
+        separate implementation.
+
+extras:
+  rpm_name: libuuid

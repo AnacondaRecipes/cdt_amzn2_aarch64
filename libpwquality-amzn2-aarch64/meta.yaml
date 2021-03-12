@@ -1,0 +1,49 @@
+package:
+  name: libpwquality-amzn2-aarch64
+  version: 1.2.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libpwquality-1.2.3-5.amzn2.aarch64.rpm
+    sha256: aca3d0f6d24e3931313d1dfba8343a29fc089830abb1019d1b2ed52fb70cc67a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libpwquality-1.2.3-5.amzn2.src.rpm
+    sha256: 95fb45d0f90b6fc30168c24a1132bb19745b85d60d02f51ecd288a0ed5802ee3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cracklib-amzn2-aarch64 ==2.9.0
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - cracklib-amzn2-aarch64 ==2.9.0
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - cracklib-amzn2-aarch64 ==2.9.0
+    - cracklib-dicts-amzn2-aarch64 >=2.8
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: https://github.com/libpwquality/libpwquality/
+  license: BSD or GPLv2+
+  license_family: GPL2
+  summary: "(CDT) A library for password generation and password quality checking"
+  description: |
+        This is a library for password quality checks and generation of random
+        passwords that pass the checks. This library uses the cracklib and cracklib
+        dictionaries to perform some of the checks.
+
+extras:
+  rpm_name: libpwquality

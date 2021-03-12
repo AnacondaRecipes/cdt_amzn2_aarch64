@@ -1,0 +1,53 @@
+package:
+  name: tar-amzn2-aarch64
+  version: 1.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/tar-1.26-35.amzn2.aarch64.rpm
+    sha256: 7789397ccb1cc20f1370c66aa8bb2a277f08bc2610de848a9942654ab33b34af
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/tar-1.26-35.amzn2.src.rpm
+    sha256: 3249d58314be6399ecbfcf70476bb2a0039af066ed4fc79942090302f6b214f6
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libselinux-amzn2-aarch64 ==2.5
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libselinux-amzn2-aarch64 ==2.5
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libselinux-amzn2-aarch64 ==2.5
+
+about:
+  home: http://www.gnu.org/software/tar/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A GNU file archiving program"
+  description: |
+        The GNU tar program saves many files together in one archive and can restore
+        individual files (or all of the files) from that archive. Tar can also be used
+        to add supplemental files to an archive and to update or list files in the
+        archive. Tar includes multivolume support, automatic archive
+        compression/decompression, the ability to perform remote archives, and the
+        ability to perform incremental and full backups.  If you want to use tar for
+        remote backups, you also need to install the rmt package on the remote box.
+
+extras:
+  rpm_name: tar

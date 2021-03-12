@@ -1,0 +1,51 @@
+package:
+  name: device-mapper-amzn2-aarch64
+  version: 1.02.146
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/device-mapper-1.02.146-4.amzn2.0.2.aarch64.rpm
+    sha256: 6dcf2a5bb0e217fd9498e43823352d3426777d81d20e1c42a3c9a583ce59edcd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/lvm2-2.02.177-4.amzn2.0.2.src.rpm
+    sha256: be124785834e8b63429387ed1a9d7dca2f05573aa4228d57c698f804627402e2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - device-mapper-libs-amzn2-aarch64 ==1.02.146
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 >=189
+    - util-linux-amzn2-aarch64 >=2.23
+  host:
+    - device-mapper-libs-amzn2-aarch64 ==1.02.146
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 >=189
+    - util-linux-amzn2-aarch64 >=2.23
+  run:
+    - device-mapper-libs-amzn2-aarch64 ==1.02.146
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 >=189
+    - util-linux-amzn2-aarch64 >=2.23
+
+about:
+  home: http://sources.redhat.com/dm
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) Device mapper utility"
+  description: |
+        This package contains the supporting userspace utility, dmsetup, for the
+        kernel device-mapper.
+
+extras:
+  rpm_name: device-mapper

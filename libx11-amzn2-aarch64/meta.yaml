@@ -1,0 +1,47 @@
+package:
+  name: libx11-amzn2-aarch64
+  version: 1.6.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libX11-1.6.7-3.amzn2.aarch64.rpm
+    sha256: de1a8fce50d024dee710cfab71abbb7dc5be5829e3b812b37d9bd00722e05081
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libX11-1.6.7-3.amzn2.src.rpm
+    sha256: 190ee77e2f129aaba049c3a73244d9bd82d8ea4900ebf59cdbdd699f1b54ebd6
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-common-amzn2-aarch64 >=1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-common-amzn2-aarch64 >=1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-common-amzn2-aarch64 >=1.6.7
+    - libxcb-amzn2-aarch64 ==1.12
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Core X11 protocol client library"
+  description: |
+        Core X11 protocol client library.
+
+extras:
+  rpm_name: libX11

@@ -1,0 +1,47 @@
+package:
+  name: libdb-amzn2-aarch64
+  version: 5.3.21
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libdb-5.3.21-24.amzn2.0.3.aarch64.rpm
+    sha256: 442f916f39021f3effad4604a82a23e9906dfa8a62c6d47c0ca178ae130b5ea7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libdb-5.3.21-24.amzn2.0.3.src.rpm
+    sha256: 6a07a0476eadc4a9948fa0985711becd678027168f34c4c53838da1d6335f9ff
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.oracle.com/database/berkeley-db/
+  license: BSD and LGPLv2 and Sleepycat
+  license_family: LGPL
+  summary: "(CDT) The Berkeley DB database library for C"
+  description: |
+        The Berkeley Database (Berkeley DB) is a programmatic toolkit that provides
+        embedded database support for both traditional and client/server applications.
+        The Berkeley DB includes B+tree, Extended Linear Hashing, Fixed and Variable-
+        length record access methods, transactions, locking, logging, shared memory
+        caching, and database recovery. The Berkeley DB supports C, C++, Java, and
+        Perl APIs. It is used by many applications, including Python and Perl, so this
+        should be installed on all systems.
+
+extras:
+  rpm_name: libdb

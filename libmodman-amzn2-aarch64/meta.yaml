@@ -1,0 +1,47 @@
+package:
+  name: libmodman-amzn2-aarch64
+  version: 2.0.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libmodman-2.0.1-8.amzn2.0.2.aarch64.rpm
+    sha256: 4da92d25d431658c9f8455d3accb5652cae4667834fbfc43e9b3e67ab60f9868
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libmodman-2.0.1-8.amzn2.0.2.src.rpm
+    sha256: f9fba5404ea6c429d2f2d5db20c79b456f5bc2a57a84320391b2ee4b70b2d290
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://code.google.com/p/libmodman/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A simple library for managing C++ modules (plug-ins)"
+  description: |
+        libmodman is a simple library for managing C++ modules (plug-ins).
+
+extras:
+  rpm_name: libmodman

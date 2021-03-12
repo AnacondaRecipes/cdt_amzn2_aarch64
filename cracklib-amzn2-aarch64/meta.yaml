@@ -1,0 +1,58 @@
+package:
+  name: cracklib-amzn2-aarch64
+  version: 2.9.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cracklib-2.9.0-11.amzn2.0.2.aarch64.rpm
+    sha256: 2c1ae568ac07ab3ac4fc9d3797a5f1eee2a2c26ea2f6661377305916e411b701
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cracklib-2.9.0-11.amzn2.0.2.src.rpm
+    sha256: 5f4d78fd25c6fbf6525699de780220c4adcfdd9c4a4247e94b4a22c84c678574
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gzip-amzn2-aarch64 ==1.5
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gzip-amzn2-aarch64 ==1.5
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gzip-amzn2-aarch64 ==1.5
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://sourceforge.net/projects/cracklib/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A password-checking library"
+  description: |
+        CrackLib tests passwords to determine whether they match certain security-
+        oriented characteristics, with the purpose of stopping users from choosing
+        passwords that are easy to guess. CrackLib performs several tests on
+        passwords: it tries to generate words from a username and gecos entry and
+        checks those words against the password; it checks for simplistic patterns in
+        passwords; and it checks for the password in a dictionary.  CrackLib is
+        actually a library containing a particular C function which is used to check
+        the password, as well as other C functions. CrackLib is not a replacement for
+        a passwd program; it must be used in conjunction with an existing passwd
+        program.  Install the cracklib package if you need a program to check users'
+        passwords to see if they are at least minimally secure. If you install
+        CrackLib, you will also want to install the cracklib-dicts package.
+
+extras:
+  rpm_name: cracklib

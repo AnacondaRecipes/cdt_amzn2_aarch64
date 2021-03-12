@@ -1,0 +1,77 @@
+package:
+  name: pangomm-amzn2-aarch64
+  version: 2.40.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pangomm-2.40.1-1.amzn2.0.2.aarch64.rpm
+    sha256: fce89e5823da3c843fd2d1562d9cfc95352476c8f852c16d9ea143a59a68d124
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pangomm-2.40.1-1.amzn2.0.2.src.rpm
+    sha256: fba85a9184af8737853880bbbe8acd0812ad7fadaac59a7e0c221d3cbdfae583
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairomm-amzn2-aarch64 ==1.12.0
+    - cairomm-amzn2-aarch64 >=1.12.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - pango-amzn2-aarch64 >=1.42.4
+    - pango-amzn2-aarch64 ==1.42.4
+  host:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairomm-amzn2-aarch64 ==1.12.0
+    - cairomm-amzn2-aarch64 >=1.12.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - pango-amzn2-aarch64 >=1.42.4
+    - pango-amzn2-aarch64 ==1.42.4
+  run:
+    - cairo-amzn2-aarch64 ==1.15.12
+    - cairomm-amzn2-aarch64 ==1.12.0
+    - cairomm-amzn2-aarch64 >=1.12.0
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - glibmm24-amzn2-aarch64 ==2.56.0
+    - glibmm24-amzn2-aarch64 >=2.56.0
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libsigcxx20-amzn2-aarch64 ==2.10.0
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+    - pango-amzn2-aarch64 >=1.42.4
+    - pango-amzn2-aarch64 ==1.42.4
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) C++ interface for Pango"
+  description: |
+        pangomm provides a C++ interface to the Pango library. Highlights include
+        typesafe callbacks, widgets extensible via inheritance and a comprehensive set
+        of widget classes that can be freely combined to quickly create complex user
+        interfaces.
+
+extras:
+  rpm_name: pangomm

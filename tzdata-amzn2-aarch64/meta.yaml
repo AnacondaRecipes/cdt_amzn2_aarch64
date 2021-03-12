@@ -1,0 +1,36 @@
+package:
+  name: tzdata-amzn2-aarch64
+  version: 2020d
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/tzdata-2020d-2.amzn2.noarch.rpm
+    sha256: 3fb3056593e7f6343c53cfdb89119997568a0631f159597d6fa7d47dcb5e4481
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/tzdata-2020d-2.amzn2.src.rpm
+    sha256: 524c36fe7d1d5f7939c6ce1eb3b1491b43537756080d6b201dde99e4c88366ae
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: https://www.iana.org/time-zones
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) Timezone data"
+  description: |
+        This package contains data files with rules for various timezones around the
+        world.
+
+extras:
+  rpm_name: tzdata

@@ -1,0 +1,54 @@
+package:
+  name: gmp-amzn2-aarch64
+  version: 6.0.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gmp-6.0.0-15.amzn2.0.2.aarch64.rpm
+    sha256: dfb739872b305c4d7e04ccad50f9f2136e629900c030af20dd8cd359e4a4ac25
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gmp-6.0.0-15.amzn2.0.2.src.rpm
+    sha256: 712fffd161eb394310f7fe5f7d41ae2aae07cdcce27ca119bf04c6f056eb2b4d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://gmplib.org/
+  license: LGPLv3+ or GPLv2+
+  license_family: GPL2
+  summary: "(CDT) A GNU arbitrary precision library"
+  description: |
+        The gmp package contains GNU MP, a library for arbitrary precision arithmetic,
+        signed integers operations, rational numbers and floating point numbers. GNU
+        MP is designed for speed, for both small and very large operands. GNU MP is
+        fast because it uses fullwords as the basic arithmetic type, it uses fast
+        algorithms, it carefully optimizes assembly code for many CPUs' most common
+        inner loops, and it generally emphasizes speed over simplicity/elegance in its
+        operations.  Install the gmp package if you need a fast arbitrary precision
+        library.
+
+extras:
+  rpm_name: gmp

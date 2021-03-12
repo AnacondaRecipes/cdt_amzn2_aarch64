@@ -1,0 +1,42 @@
+package:
+  name: libsoup-devel-amzn2-aarch64
+  version: 2.56.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsoup-devel-2.56.0-6.amzn2.aarch64.rpm
+    sha256: 231f9c0ae4b9036ae38a094f7bfba7f482f415cabc25e4842704a4c9d6d48a1e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsoup-2.56.0-6.amzn2.src.rpm
+    sha256: 378deb352be656c29f201a58b96f286309962595d61e597dda9899cec8febad0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libsoup-amzn2-aarch64 ==2.56.0
+  host:
+    - libsoup-amzn2-aarch64 ==2.56.0
+  run:
+    - libsoup-amzn2-aarch64 ==2.56.0
+
+about:
+  home: https://wiki.gnome.org/Projects/libsoup
+  license: LGPLv2
+  license_family: LGPL
+  summary: "(CDT) Header files for the Soup library"
+  description: |
+        Libsoup is an HTTP library implementation in C. This package allows you to
+        develop applications that use the libsoup library.
+
+extras:
+  rpm_name: libsoup-devel

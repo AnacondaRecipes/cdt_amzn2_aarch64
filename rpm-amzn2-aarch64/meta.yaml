@@ -1,0 +1,90 @@
+package:
+  name: rpm-amzn2-aarch64
+  version: 4.11.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rpm-4.11.3-40.amzn2.0.5.aarch64.rpm
+    sha256: 12af2ec71348870ce8a760bf495f3b0c198185a368c410d16a9d7762e0010e8b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/rpm-4.11.3-40.amzn2.0.5.src.rpm
+    sha256: d62ad87fc4f99ce5544760ef4bedaac867cd9c61474d4f68079d609d5cc2ce9f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - curl-amzn2-aarch64 ==7.61.1
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 >=1.13
+    - popt-amzn2-aarch64 ==1.13
+    - rpm-libs-amzn2-aarch64 ==4.11.3
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - curl-amzn2-aarch64 ==7.61.1
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 >=1.13
+    - popt-amzn2-aarch64 ==1.13
+    - rpm-libs-amzn2-aarch64 ==4.11.3
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - curl-amzn2-aarch64 ==7.61.1
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 >=1.13
+    - popt-amzn2-aarch64 ==1.13
+    - rpm-libs-amzn2-aarch64 ==4.11.3
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.rpm.org/
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) The RPM package management system"
+  description: |
+        The RPM Package Manager (RPM) is a powerful command line driven package
+        management system capable of installing, uninstalling, verifying, querying,
+        and updating software packages. Each software package consists of an archive
+        of files along with information about the package like its version, a
+        description, etc.
+
+extras:
+  rpm_name: rpm

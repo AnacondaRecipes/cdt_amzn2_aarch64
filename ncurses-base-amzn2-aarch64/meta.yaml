@@ -1,0 +1,36 @@
+package:
+  name: ncurses-base-amzn2-aarch64
+  version: 6.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ncurses-base-6.0-8.20170212.amzn2.1.3.noarch.rpm
+    sha256: b26fb978da9a3fb55e2834025b4ad967828b4e3ed8816bbe652e8c1f720e21af
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ncurses-6.0-8.20170212.amzn2.1.3.src.rpm
+    sha256: a0ab33ecd508ea556f1874e5baa8cc751466cf7b37d6f42ef15adcdf4fa4ad8e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://invisible-island.net/ncurses/ncurses.html
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Descriptions of common terminals"
+  description: |
+        This package contains descriptions of common terminals. Other terminal
+        descriptions are included in the ncurses-term package.
+
+extras:
+  rpm_name: ncurses-base

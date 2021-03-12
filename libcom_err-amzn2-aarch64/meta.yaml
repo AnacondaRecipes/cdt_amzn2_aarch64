@@ -1,0 +1,42 @@
+package:
+  name: libcom_err-amzn2-aarch64
+  version: 1.42.9
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libcom_err-1.42.9-19.amzn2.aarch64.rpm
+    sha256: 2d8c4f33e897e9c3bddbf6b06fd771be03d3500d54694ddc81a08fc23c285d19
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/e2fsprogs-1.42.9-19.amzn2.src.rpm
+    sha256: 161cbeb604e5866ce40b2be3280195526a37c6675362961dd307be04366b2678
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://e2fsprogs.sourceforge.net/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Common error description library"
+  description: |
+        This is the common error description library, part of e2fsprogs.  libcom_err
+        is an attempt to present a common error-handling mechanism.
+
+extras:
+  rpm_name: libcom_err

@@ -1,0 +1,53 @@
+package:
+  name: orbit2-amzn2-aarch64
+  version: 2.14.19
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ORBit2-2.14.19-13.amzn2.0.2.aarch64.rpm
+    sha256: 20b95b0e2eec83b234d4334fb6ca8cd2561700410f0632f27e1b6c8a9f0fa12a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ORBit2-2.14.19-13.amzn2.0.2.src.rpm
+    sha256: d64e7b215c91d3f49e7f12911b1ffac71afd6b1cb7ba60e9dcff41d399fbc6f3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libidl-amzn2-aarch64 ==0.8.14
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libidl-amzn2-aarch64 ==0.8.14
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libidl-amzn2-aarch64 ==0.8.14
+
+about:
+  home: http://www.gnome.org/projects/ORBit2
+  license: LGPLv2+ and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) A high-performance CORBA Object Request Broker"
+  description: |
+        ORBit is a high-performance CORBA (Common Object Request Broker Architecture)
+        ORB (object request broker). It allows programs to send requests and receive
+        replies from other programs, regardless of the locations of the two programs.
+        CORBA is an architecture that enables communication between program objects,
+        regardless of the programming language they're written in or the operating
+        system they run on.  You will need to install this package and ORBit-devel if
+        you want to write programs that use CORBA technology.
+
+extras:
+  rpm_name: ORBit2

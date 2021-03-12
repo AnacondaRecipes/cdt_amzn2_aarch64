@@ -1,0 +1,52 @@
+package:
+  name: libsecret-amzn2-aarch64
+  version: 0.18.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsecret-0.18.5-2.amzn2.0.2.aarch64.rpm
+    sha256: f776ee8d1f6103aa3d1951ef9b0a7889aebed425cd56385a0350f622dd037bd3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsecret-0.18.5-2.amzn2.0.2.src.rpm
+    sha256: b966941bf77f2cefafbb4cdd575c6e15d7c7fa51e8ec149ed0493005828be43a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+
+about:
+  home: https://wiki.gnome.org/Projects/Libsecret
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Library for storing and retrieving passwords and other secrets"
+  description: |
+        libsecret is a library for storing and retrieving passwords and other secrets.
+        It communicates with the "Secret Service" using DBus. gnome-keyring and
+        KSecretService are both implementations of a Secret Service.
+
+extras:
+  rpm_name: libsecret

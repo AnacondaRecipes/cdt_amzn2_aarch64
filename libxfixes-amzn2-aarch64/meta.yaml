@@ -1,0 +1,47 @@
+package:
+  name: libxfixes-amzn2-aarch64
+  version: 5.0.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXfixes-5.0.3-1.amzn2.0.2.aarch64.rpm
+    sha256: b849353b5e9b326cff70248adb7080f7df748232b0fe95d92f89b5b758af003a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXfixes-5.0.3-1.amzn2.0.2.src.rpm
+    sha256: b59e5918e4a07df44752eee112a6ab0fa8b1e5f796033f6b7dd5ec2a4da9cdfe
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.6
+    - libx11-amzn2-aarch64 ==1.6.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.6
+    - libx11-amzn2-aarch64 ==1.6.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.6
+    - libx11-amzn2-aarch64 ==1.6.7
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X Fixes library"
+  description: |
+        X Fixes library.
+
+extras:
+  rpm_name: libXfixes

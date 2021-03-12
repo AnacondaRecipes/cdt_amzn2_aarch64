@@ -1,0 +1,44 @@
+package:
+  name: libxtst-devel-amzn2-aarch64
+  version: 1.2.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXtst-devel-1.2.3-1.amzn2.0.2.aarch64.rpm
+    sha256: 173e332f4eab489b20c7bee424412afd1ca0f577f961ddad5224b7538d2084e3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXtst-1.2.3-1.amzn2.0.2.src.rpm
+    sha256: 2d06e393a4ffdca4131522f4f5cc03d12be1803ee8ce0a94bf355a29939a6d9a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxi-devel-amzn2-aarch64 ==1.7.9
+    - libxtst-amzn2-aarch64 ==1.2.3
+  host:
+    - libxi-devel-amzn2-aarch64 ==1.7.9
+    - libxtst-amzn2-aarch64 ==1.2.3
+  run:
+    - libxi-devel-amzn2-aarch64 ==1.7.9
+    - libxtst-amzn2-aarch64 ==1.2.3
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXtst development package"
+  description: |
+        X.Org X11 libXtst development package
+
+extras:
+  rpm_name: libXtst-devel

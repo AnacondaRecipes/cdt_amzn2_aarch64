@@ -1,0 +1,45 @@
+package:
+  name: libidl-amzn2-aarch64
+  version: 0.8.14
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libIDL-0.8.14-8.amzn2.0.2.aarch64.rpm
+    sha256: d955b4313592811ecf508513d62202f5da9d3b90bb43a4c7d44505e116ae95c3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libIDL-0.8.14-8.amzn2.0.2.src.rpm
+    sha256: 50eb575b0cda48718d8f9f35d3689cb0c65715c21b4fa415c6dca53c2225365a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Library for parsing IDL (Interface Definition Language)"
+  description: |
+        libIDL is a library for parsing IDL (Interface Definition Language). It can be
+        used for both COM-style and CORBA-style IDL.
+
+extras:
+  rpm_name: libIDL

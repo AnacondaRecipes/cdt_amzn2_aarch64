@@ -1,0 +1,50 @@
+package:
+  name: device-mapper-libs-amzn2-aarch64
+  version: 1.02.146
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/device-mapper-libs-1.02.146-4.amzn2.0.2.aarch64.rpm
+    sha256: e808fcf9db7b2d5ad1384f17012db66f8397ccb1f40dad2d22fb06aea121817b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/lvm2-2.02.177-4.amzn2.0.2.src.rpm
+    sha256: be124785834e8b63429387ed1a9d7dca2f05573aa4228d57c698f804627402e2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - systemd-libs-amzn2-aarch64 ==219
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - systemd-libs-amzn2-aarch64 ==219
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - systemd-libs-amzn2-aarch64 ==219
+
+about:
+  home: http://sources.redhat.com/lvm2
+  license: LGPLv2
+  license_family: LGPL
+  summary: "(CDT) Device-mapper shared library"
+  description: |
+        This package contains the device-mapper shared library, libdevmapper.
+
+extras:
+  rpm_name: device-mapper-libs

@@ -1,0 +1,79 @@
+package:
+  name: autoconf-amzn2-aarch64
+  version: 2.69
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/autoconf-2.69-11.amzn2.noarch.rpm
+    sha256: 0a4613a9de26a5def3e5b618f12459d2f5ff37b444394352d8647c8c3181ca69
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/autoconf-2.69-11.amzn2.src.rpm
+    sha256: 06d620f964a1d21bf0beac22b0323f13ecb0c24a0a664709850921ede0a190d2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - m4-amzn2-aarch64 >=1.4.14
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-data-dumper-amzn2-aarch64 ==2.145
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+  host:
+    - m4-amzn2-aarch64 >=1.4.14
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-data-dumper-amzn2-aarch64 ==2.145
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+  run:
+    - m4-amzn2-aarch64 >=1.4.14
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-data-dumper-amzn2-aarch64 ==2.145
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+
+about:
+  home: http://www.gnu.org/software/autoconf/
+  license: GPLv2+ and GFDL
+  license_family: GPL2
+  summary: "(CDT) A GNU tool for automatically configuring source code"
+  description: |
+        GNU's Autoconf is a tool for configuring source code and Makefiles. Using
+        Autoconf, programmers can create portable and configurable packages, since the
+        person building the package is allowed to specify various configuration
+        options.  You should install Autoconf if you are developing software and would
+        like to create shell scripts that configure your source code packages. If you
+        are installing Autoconf, you will also need to install the GNU m4 package.
+        Note that the Autoconf package is not required for the end-user who may be
+        configuring software with an Autoconf-generated script; Autoconf is only
+        required for the generation of the scripts, not their use.
+
+extras:
+  rpm_name: autoconf

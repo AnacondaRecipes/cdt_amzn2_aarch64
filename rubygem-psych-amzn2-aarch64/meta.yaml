@@ -1,0 +1,53 @@
+package:
+  name: rubygem-psych-amzn2-aarch64
+  version: 2.0.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rubygem-psych-2.0.0-36.amzn2.0.1.aarch64.rpm
+    sha256: 28922e7b7b1558f0498591b72685b85ba7473485510e3b4dd9c11e7d4fcd4b73
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libyaml-amzn2-aarch64 ==0.1.4
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libyaml-amzn2-aarch64 ==0.1.4
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libyaml-amzn2-aarch64 ==0.1.4
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+
+about:
+  home: http://ruby-lang.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) A libyaml wrapper for Ruby"
+  description: |
+        Psych is a YAML parser and emitter. Psych leverages
+        libyaml[http://pyyaml.org/wiki/LibYAML] for its YAML parsing and emitting
+        capabilities. In addition to wrapping libyaml, Psych also knows how to
+        serialize and de-serialize most Ruby objects to and from the YAML format.
+
+extras:
+  rpm_name: rubygem-psych

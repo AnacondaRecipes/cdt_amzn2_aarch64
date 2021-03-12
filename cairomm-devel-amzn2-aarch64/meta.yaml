@@ -1,0 +1,44 @@
+package:
+  name: cairomm-devel-amzn2-aarch64
+  version: 1.12.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/cairomm-devel-1.12.0-1.amzn2.0.2.aarch64.rpm
+    sha256: 5aad3aeb3e8365ccbe6f72c9ea980f445f0c5e48f519b8a1510eab1f3ffe504c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/cairomm-1.12.0-1.amzn2.0.2.src.rpm
+    sha256: 644b86a8f63cf4ec502537f94558f2f97a0a05fa471b8b7b3f2a23d861ef2ec2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - cairomm-amzn2-aarch64 ==1.12.0
+  host:
+    - cairomm-amzn2-aarch64 ==1.12.0
+  run:
+    - cairomm-amzn2-aarch64 ==1.12.0
+
+about:
+  home: http://www.cairographics.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Headers for developing programs that will use cairomm"
+  description: |
+        Cairomm is the C++ API for the cairo graphics library. It offers all the power
+        of cairo with an interface familiar to C++ developers, including use of the
+        Standard Template Library where it makes sense.  This package contains the
+        libraries and header files needed for developing cairomm applications.
+
+extras:
+  rpm_name: cairomm-devel

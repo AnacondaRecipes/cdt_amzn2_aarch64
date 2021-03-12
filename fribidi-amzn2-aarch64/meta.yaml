@@ -1,0 +1,43 @@
+package:
+  name: fribidi-amzn2-aarch64
+  version: 1.0.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/fribidi-1.0.2-1.amzn2.1.aarch64.rpm
+    sha256: 82696512bcd63ed500d595b32121aec6be10f1cb22f8d4c687f02a105a4ff4bc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/fribidi-1.0.2-1.amzn2.1.src.rpm
+    sha256: ba90a4cbb07f1b21c8d2280a68c7f6d6e7a3e9fc0e38a90792d900b25c1100c4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: https://github.com/fribidi/fribidi/
+  license: LGPLv2+ and UCD
+  license_family: LGPL
+  summary: "(CDT) Library implementing the Unicode Bidirectional Algorithm"
+  description: |
+        A library to handle bidirectional scripts (for example Hebrew, Arabic), so
+        that the display is done in the proper way; while the text data itself is
+        always written in logical order.
+
+extras:
+  rpm_name: fribidi

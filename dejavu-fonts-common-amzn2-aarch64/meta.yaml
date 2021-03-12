@@ -1,0 +1,44 @@
+package:
+  name: dejavu-fonts-common-amzn2-aarch64
+  version: 2.33
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/dejavu-fonts-common-2.33-6.amzn2.noarch.rpm
+    sha256: 5607436a924f6973c912243477da64bea51854327543747502be08564a75b058
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/dejavu-fonts-2.33-6.amzn2.src.rpm
+    sha256: 2c78ae75ee92a19e0ecbd2d6f1b1e6c343e2c8357057617fb7a03438fcff9ce0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - fontpackages-filesystem-amzn2-aarch64 ==1.44
+  host:
+    - fontpackages-filesystem-amzn2-aarch64 ==1.44
+  run:
+    - fontpackages-filesystem-amzn2-aarch64 ==1.44
+
+about:
+  home: http://dejavu-fonts.org/
+  license: Bitstream Vera and Public Domain
+  license_family: Public-Domain
+  summary: "(CDT) Common files for the Dejavu font set"
+  description: |
+        The DejaVu font set is based on the “Bitstream Vera” fonts, release 1.10. Its
+        purpose is to provide a wider range of characters, while maintaining the
+        original style, using an open collaborative development process.  This package
+        consists of files used by other DejaVu packages.
+
+extras:
+  rpm_name: dejavu-fonts-common

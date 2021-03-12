@@ -1,0 +1,56 @@
+package:
+  name: binutils-amzn2-aarch64
+  version: 2.29.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/binutils-2.29.1-30.amzn2.aarch64.rpm
+    sha256: 53b20663f9498315aae4ec33799a26ef3e7d301fdc06911a56626804d3a5292b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/binutils-2.29.1-30.amzn2.src.rpm
+    sha256: eb124e83cf5935c289136b2a45e326b9ceecff738e207e0a375dbc7cbce1b6c5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: https://sourceware.org/binutils
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A GNU collection of binary utilities"
+  description: |
+        Binutils is a collection of binary utilities, including ar (for creating,
+        modifying and extracting from archives), as (a family of GNU assemblers),
+        gprof (for displaying call graph profile data), ld (the GNU linker), nm (for
+        listing symbols from object files), objcopy (for copying and translating
+        object files), objdump (for displaying information from object files), ranlib
+        (for generating an index for the contents of an archive), readelf (for
+        displaying detailed information about binary files), size (for listing the
+        section sizes of an object or archive file), strings (for listing printable
+        strings from files), strip (for discarding symbols), and addr2line (for
+        converting addresses to file and line).
+
+extras:
+  rpm_name: binutils

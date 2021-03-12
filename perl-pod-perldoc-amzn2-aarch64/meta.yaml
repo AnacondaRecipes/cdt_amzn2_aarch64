@@ -1,0 +1,86 @@
+package:
+  name: perl-pod-perldoc-amzn2-aarch64
+  version: 3.20
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Pod-Perldoc-3.20-4.amzn2.noarch.rpm
+    sha256: 9e18809377ad0cd84b61cabe65a8d122b1ccbfe40d83222a10790b1513f1375f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Pod-Perldoc-3.20-4.amzn2.src.rpm
+    sha256: 37e5e7c193d3149f3938622b85f3a805dfeca381ca841aa6efa37356fee43389
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-file-temp-amzn2-aarch64 >=0.23.01
+    - perl-http-tiny-amzn2-aarch64 ==0.033
+    - perl-parent-amzn2-aarch64 ==0.225
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-simple-amzn2-aarch64 ==3.28
+    - perl-podlators-amzn2-aarch64 ==2.5.1
+    - perl-podlators-amzn2-aarch64 >=2.5.1
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+  host:
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-file-temp-amzn2-aarch64 >=0.23.01
+    - perl-http-tiny-amzn2-aarch64 ==0.033
+    - perl-parent-amzn2-aarch64 ==0.225
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-simple-amzn2-aarch64 ==3.28
+    - perl-podlators-amzn2-aarch64 ==2.5.1
+    - perl-podlators-amzn2-aarch64 >=2.5.1
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+  run:
+    - groff-base-amzn2-aarch64 ==1.22.2
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-encode-amzn2-aarch64 ==2.51
+    - perl-file-temp-amzn2-aarch64 >=0.23.01
+    - perl-http-tiny-amzn2-aarch64 ==0.033
+    - perl-parent-amzn2-aarch64 ==0.225
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-pod-simple-amzn2-aarch64 >=3.28
+    - perl-pod-simple-amzn2-aarch64 ==3.28
+    - perl-podlators-amzn2-aarch64 ==2.5.1
+    - perl-podlators-amzn2-aarch64 >=2.5.1
+    - perl-text-parsewords-amzn2-aarch64 ==3.29
+
+about:
+  home: http://search.cpan.org/dist/Pod-Perldoc/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Look up Perl documentation in Pod format"
+  description: |
+        perldoc looks up a piece of documentation in .pod format that is embedded in
+        the perl installation tree or in a perl script, and displays it via "groff
+        -man | $PAGER". This is primarily used for the documentation for the perl
+        library modules.
+
+extras:
+  rpm_name: perl-Pod-Perldoc

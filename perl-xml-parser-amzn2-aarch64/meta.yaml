@@ -1,0 +1,60 @@
+package:
+  name: perl-xml-parser-amzn2-aarch64
+  version: 2.41
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-XML-Parser-2.41-10.amzn2.0.2.aarch64.rpm
+    sha256: 1d3b644ad8b604ea7bc8efb31c4029b4cda66801114a715404d2c3bbed307ad1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-XML-Parser-2.41-10.amzn2.0.2.src.rpm
+    sha256: 494c278d79d904b70fe9d7f2de3d80acea31bdd395214991135eaec873828950
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  host:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  run:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+
+about:
+  home: http://search.cpan.org/dist/XML-Parser/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl module for parsing XML documents"
+  description: |
+        This module provides ways to parse XML documents. It is built on top of
+        XML::Parser::Expat, which is a lower level interface to James Clark's expat
+        library. Each call to one of the parsing methods creates a new instance of
+        XML::Parser::Expat which is then used to parse the document. Expat options may
+        be provided when the XML::Parser object is created. These options are then
+        passed on to the Expat object on each parse call. They can also be given as
+        extra arguments to the parse methods, in which case they override options
+        given at XML::Parser creation time.
+
+extras:
+  rpm_name: perl-XML-Parser

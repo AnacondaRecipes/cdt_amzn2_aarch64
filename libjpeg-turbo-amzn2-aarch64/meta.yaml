@@ -1,0 +1,42 @@
+package:
+  name: libjpeg-turbo-amzn2-aarch64
+  version: 1.2.90
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libjpeg-turbo-1.2.90-6.amzn2.0.3.aarch64.rpm
+    sha256: c3fe9b5614f2aff643b6a1cbd05fca96c70f22e45fec37c413633bdc052821a5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libjpeg-turbo-1.2.90-6.amzn2.0.3.src.rpm
+    sha256: e794ed128610a4f2044102cc040228dad73ff19484a9ed63dd9d349a6c87dfbc
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://sourceforge.net/projects/libjpeg-turbo
+  license: IJG
+  license_family: Other
+  summary: "(CDT) A MMX/SSE2 accelerated library for manipulating JPEG image files"
+  description: |
+        The libjpeg-turbo package contains a library of functions for manipulating
+        JPEG images.
+
+extras:
+  rpm_name: libjpeg-turbo

@@ -1,0 +1,62 @@
+package:
+  name: glib2-devel-amzn2-aarch64
+  version: 2.56.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glib2-devel-2.56.1-7.amzn2.0.1.aarch64.rpm
+    sha256: 401d21d6c50c3eaf033b1299431be52f101a72672797333edc6dc0732881d8f5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glib2-2.56.1-7.amzn2.0.1.src.rpm
+    sha256: 8ddbb329b8aa21536459692fbc8a9cdf4b2c88037b274b30b843f81bdecfd007
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - pcre-amzn2-aarch64 ==8.32
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.gtk.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A library of handy utility functions"
+  description: |
+        The glib2-devel package includes the header files for the GLib library.
+
+extras:
+  rpm_name: glib2-devel

@@ -1,0 +1,53 @@
+package:
+  name: perl-pathtools-amzn2-aarch64
+  version: 3.40
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-PathTools-3.40-5.amzn2.0.2.aarch64.rpm
+    sha256: 48a1347e46daec4febed82cc3b373b52798073282eecd058c77603dbf4358003
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-PathTools-3.40-5.amzn2.0.2.src.rpm
+    sha256: aa02cb6a837f27da8549b69b4b66a09e6f2f1c7ebcf7678a7d372983427b4987
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+
+about:
+  home: http://search.cpan.org/dist/PathTools/
+  license: (GPL+ or Artistic) and BSD
+  license_family: GPL
+  summary: "(CDT) PathTools Perl module (Cwd, File::Spec)"
+  description: |
+        This is the combined distribution for the File::Spec and Cwd modules.
+
+extras:
+  rpm_name: perl-PathTools

@@ -1,0 +1,35 @@
+package:
+  name: gl-manpages-amzn2-aarch64
+  version: 1.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gl-manpages-1.1-7.20130122.amzn2.noarch.rpm
+    sha256: f7e9e66b970755b753e7053e76b5daff46b9a994f317b2b2edef100569ba3504
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gl-manpages-1.1-7.20130122.amzn2.src.rpm
+    sha256: 42345cc3de4ce6cf998a79274591b73fe947733318cff50bea4dc1afab391e0a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.opengl.org/wiki/Getting_started/XML_Toolchain_and_Man_Pages
+  license: MIT and Open Publication
+  license_family: MIT
+  summary: "(CDT) OpenGL manpages"
+  description: |
+        OpenGL manpages
+
+extras:
+  rpm_name: gl-manpages

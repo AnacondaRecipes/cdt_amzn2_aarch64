@@ -1,0 +1,45 @@
+package:
+  name: expat-amzn2-aarch64
+  version: 2.1.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/expat-2.1.0-12.amzn2.aarch64.rpm
+    sha256: 372e6f098bccfd85ddb354e4cd7dfc6dd8df42293770c9d31be51f5fa95d679b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/expat-2.1.0-12.amzn2.src.rpm
+    sha256: 95e5534999eef179a172c04292c0a2f85106b24b23ea78e22eced07a3b53a4e3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.libexpat.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) An XML parser library"
+  description: |
+        This is expat, the C library for parsing XML, written by James Clark. Expat is
+        a stream oriented XML parser. This means that you register handlers with the
+        parser prior to starting the parse. These handlers are called when the parser
+        discovers the associated structures in the document being parsed. A start tag
+        is an example of the kind of structures for which you may register handlers.
+
+extras:
+  rpm_name: expat

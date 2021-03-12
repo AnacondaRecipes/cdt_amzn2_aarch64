@@ -1,0 +1,77 @@
+package:
+  name: automake-amzn2-aarch64
+  version: 1.13.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/automake-1.13.4-3.1.amzn2.noarch.rpm
+    sha256: 44f1a8d18697b9891b5d0236bb3c385aaf7332a8d305ef3f94410c21dd3a03d2
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/automake-1.13.4-3.1.amzn2.src.rpm
+    sha256: a4da9e506564d3bae61e8fc25e77b8d88f168db96324a37009f2e9fd82e72fc7
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - autoconf-amzn2-aarch64 >=2.65
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-test-harness-amzn2-aarch64 ==3.28
+    - perl-thread-queue-amzn2-aarch64 ==3.02
+    - perl-threads-amzn2-aarch64 ==1.87
+  host:
+    - autoconf-amzn2-aarch64 >=2.65
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-test-harness-amzn2-aarch64 ==3.28
+    - perl-thread-queue-amzn2-aarch64 ==3.02
+    - perl-threads-amzn2-aarch64 ==1.87
+  run:
+    - autoconf-amzn2-aarch64 >=2.65
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-constant-amzn2-aarch64 ==1.27
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-file-path-amzn2-aarch64 ==2.09
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-test-harness-amzn2-aarch64 ==3.28
+    - perl-thread-queue-amzn2-aarch64 ==3.02
+    - perl-threads-amzn2-aarch64 ==1.87
+
+about:
+  home: http://www.gnu.org/software/automake/
+  license: GPLv2+ and GFDL and Public Domain and MIT
+  license_family: GPL2
+  summary: "(CDT) A GNU tool for automatically creating Makefiles"
+  description: |
+        Automake is a tool for automatically generating `Makefile.in' files compliant
+        with the GNU Coding Standards.  You should install Automake if you are
+        developing software and would like to use its ability to automatically
+        generate GNU standard Makefiles.
+
+extras:
+  rpm_name: automake

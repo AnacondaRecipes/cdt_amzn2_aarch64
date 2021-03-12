@@ -1,0 +1,35 @@
+package:
+  name: xorg-x11-proto-devel-amzn2-aarch64
+  version: 2018.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-proto-devel-2018.4-1.amzn2.0.2.noarch.rpm
+    sha256: 141b15ec75de2678961404ec1242105309e400b9ea2636f8f68b4018cbfb1b39
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-proto-devel-2018.4-1.amzn2.0.2.src.rpm
+    sha256: fa7063a8cb5eedcfac292ee0b7d447ba4cbe71007b17c599ecae76d91dfb0320
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: https://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 Protocol headers"
+  description: |
+        X.Org X11 Protocol headers
+
+extras:
+  rpm_name: xorg-x11-proto-devel

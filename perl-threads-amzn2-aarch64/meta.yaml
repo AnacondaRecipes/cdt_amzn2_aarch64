@@ -1,0 +1,55 @@
+package:
+  name: perl-threads-amzn2-aarch64
+  version: 1.87
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-threads-1.87-4.amzn2.0.2.aarch64.rpm
+    sha256: c2cdfaf5db027b3e1c774151e237db378c4f0243088b2b28d2170b37dfbd0822
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-threads-1.87-4.amzn2.0.2.src.rpm
+    sha256: 122a9e1dd2193651581b02990448cac527e261b266ce53afbdc2bd0e4f94a95e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+
+about:
+  home: http://search.cpan.org/dist/threads/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl interpreter-based threads"
+  description: |
+        Since Perl 5.8, thread programming has been available using a model called
+        interpreter threads which provides a new Perl interpreter for each thread,
+        and, by default, results in no data or state information being shared between
+        threads.  (Prior to Perl 5.8, 5005threads was available through the
+        "Thread.pm" API. This threading model has been deprecated, and was removed as
+        of Perl 5.10.0.)
+
+extras:
+  rpm_name: perl-threads

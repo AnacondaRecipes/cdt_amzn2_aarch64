@@ -1,0 +1,45 @@
+package:
+  name: avahi-libs-amzn2-aarch64
+  version: 0.6.31
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/avahi-libs-0.6.31-20.amzn2.aarch64.rpm
+    sha256: 2863639c69467bf7452eebac34c2484bb189c4991b2d24cfdd0a895a1d9b9acc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/avahi-0.6.31-20.amzn2.src.rpm
+    sha256: 642d9eaf502400374cb702579f92eea5cee081512762e791fd4776f34c103fef
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - dbus-libs-amzn2-aarch64 ==1.10.24
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://avahi.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Libraries for avahi run-time use"
+  description: |
+        The avahi-libs package contains the libraries needed to run programs that use
+        avahi.
+
+extras:
+  rpm_name: avahi-libs

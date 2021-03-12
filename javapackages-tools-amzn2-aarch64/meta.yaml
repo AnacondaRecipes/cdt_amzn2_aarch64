@@ -1,0 +1,53 @@
+package:
+  name: javapackages-tools-amzn2-aarch64
+  version: 3.4.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/javapackages-tools-3.4.1-11.amzn2.noarch.rpm
+    sha256: 39d7985af6b5b1f803124fbf6275539a8196c85e8b5debb2bf58829e3b5e6059
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/javapackages-tools-3.4.1-11.amzn2.src.rpm
+    sha256: 7b279e73b80141266fc87abd9ae6866834807a43d5ab435092e97bf21c4dc1ca
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - lua-amzn2-aarch64 ==5.1.4
+    - python-amzn2-aarch64 ==2.7.18
+    - python-javapackages-amzn2-aarch64 ==3.4.1
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - lua-amzn2-aarch64 ==5.1.4
+    - python-amzn2-aarch64 ==2.7.18
+    - python-javapackages-amzn2-aarch64 ==3.4.1
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+    - libxslt-amzn2-aarch64 ==1.1.28
+    - lua-amzn2-aarch64 ==5.1.4
+    - python-amzn2-aarch64 ==2.7.18
+    - python-javapackages-amzn2-aarch64 ==3.4.1
+
+about:
+  home: https://fedorahosted.org/javapackages/
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Macros and scripts for Java packaging support"
+  description: |
+        This package provides macros and scripts to support Java packaging.
+
+extras:
+  rpm_name: javapackages-tools

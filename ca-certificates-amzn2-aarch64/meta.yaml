@@ -1,0 +1,45 @@
+package:
+  name: ca-certificates-amzn2-aarch64
+  version: 2019.2.32
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ca-certificates-2019.2.32-76.amzn2.0.3.noarch.rpm
+    sha256: b6ab2323d488b97b36acfbcf30164d20842e37dcc6b4dff5d2ef46778f94662d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ca-certificates-2019.2.32-76.amzn2.0.3.src.rpm
+    sha256: 5a7d536e13574c8b193b35e0d09e3cb260ac3696f45a5042f3f944c1eff8ee26
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - p11-kit-amzn2-aarch64 >=0.23.5
+    - p11-kit-trust-amzn2-aarch64 >=0.23.5
+  host:
+    - p11-kit-amzn2-aarch64 >=0.23.5
+    - p11-kit-trust-amzn2-aarch64 >=0.23.5
+  run:
+    - p11-kit-amzn2-aarch64 >=0.23.5
+    - p11-kit-trust-amzn2-aarch64 >=0.23.5
+
+about:
+  home: http://www.mozilla.org/
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) The Mozilla CA root certificate bundle"
+  description: |
+        This package contains the set of CA certificates chosen by the Mozilla
+        Foundation for use with the Internet PKI.
+
+extras:
+  rpm_name: ca-certificates

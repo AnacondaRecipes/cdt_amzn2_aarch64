@@ -1,0 +1,41 @@
+package:
+  name: libxdamage-devel-amzn2-aarch64
+  version: 1.1.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXdamage-devel-1.1.4-4.1.amzn2.0.2.aarch64.rpm
+    sha256: 01c327ca61d36c81f1c4cd2bbac7285e2b72605b66dc3f40afe9110c30d76a36
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXdamage-1.1.4-4.1.amzn2.0.2.src.rpm
+    sha256: 4ff0f0c751793764c251d9594757d330ffa7aa0ae71250ac780a13eddfa7dea0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxdamage-amzn2-aarch64 ==1.1.4
+  host:
+    - libxdamage-amzn2-aarch64 ==1.1.4
+  run:
+    - libxdamage-amzn2-aarch64 ==1.1.4
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libXdamage"
+  description: |
+        X.Org X11 libXdamage development package.
+
+extras:
+  rpm_name: libXdamage-devel

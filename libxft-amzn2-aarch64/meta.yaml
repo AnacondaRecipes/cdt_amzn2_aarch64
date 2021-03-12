@@ -1,0 +1,56 @@
+package:
+  name: libxft-amzn2-aarch64
+  version: 2.3.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXft-2.3.2-2.amzn2.0.2.aarch64.rpm
+    sha256: 2e79878c36e85980b6d1ef2e85ff88d1ed28b62af7a8a4280be9a38fa19b01bf
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXft-2.3.2-2.amzn2.0.2.src.rpm
+    sha256: 1cab0613c417f464ff015cd43dd20fa1fb4ec30cdb3abbea37c3bd9d620dc2e8
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - fontconfig-amzn2-aarch64 >=2.2
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxrender-amzn2-aarch64 ==0.9.10
+  host:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - fontconfig-amzn2-aarch64 >=2.2
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxrender-amzn2-aarch64 ==0.9.10
+  run:
+    - fontconfig-amzn2-aarch64 ==2.13.0
+    - fontconfig-amzn2-aarch64 >=2.2
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxrender-amzn2-aarch64 ==0.9.10
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXft runtime library"
+  description: |
+        X.Org X11 libXft runtime library
+
+extras:
+  rpm_name: libXft

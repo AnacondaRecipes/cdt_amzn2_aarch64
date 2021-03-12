@@ -1,0 +1,44 @@
+package:
+  name: libdrm-amzn2-aarch64
+  version: 2.4.97
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libdrm-2.4.97-2.amzn2.aarch64.rpm
+    sha256: 7e11c12ac10814b41ab6174740383cdbd1b721663095a7368096c946f8b3de51
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libdrm-2.4.97-2.amzn2.src.rpm
+    sha256: e4e00152bddaf47cea5b0b5aba356b1d2bf9c56cd69f2ea44d90cc9071bf2ee5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 ==219
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 ==219
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - systemd-amzn2-aarch64 ==219
+
+about:
+  home: http://dri.sourceforge.net
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Direct Rendering Manager runtime library"
+  description: |
+        Direct Rendering Manager runtime library
+
+extras:
+  rpm_name: libdrm

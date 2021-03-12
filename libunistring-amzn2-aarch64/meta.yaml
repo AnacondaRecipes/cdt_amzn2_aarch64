@@ -1,0 +1,48 @@
+package:
+  name: libunistring-amzn2-aarch64
+  version: 0.9.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libunistring-0.9.3-9.amzn2.0.2.aarch64.rpm
+    sha256: 53291941b01a1441e81cadb452f45277bd6101ddd4cb0052dded7e206653d279
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libunistring-0.9.3-9.amzn2.0.2.src.rpm
+    sha256: a679646faec5cf08ced31c6b0eb872e88e1267b76b4d3a43c1e553d4446732dd
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - info-amzn2-aarch64 ==5.1
+
+about:
+  home: http://www.gnu.org/software/libunistring/
+  license: LGPLv3+
+  license_family: LGPL
+  summary: "(CDT) GNU Unicode string library"
+  description: |
+        This portable C library implements Unicode string types in three flavours:
+        (UTF-8, UTF-16, UTF-32), together with functions for character processing
+        (names, classifications, properties) and functions for string processing
+        (iteration, formatted output, width, word breaks, line breaks, normalization,
+        case folding and regular expressions).
+
+extras:
+  rpm_name: libunistring

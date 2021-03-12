@@ -1,0 +1,42 @@
+package:
+  name: libasyncns-amzn2-aarch64
+  version: 0.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libasyncns-0.8-7.amzn2.0.2.aarch64.rpm
+    sha256: 9873e3183a3c7f36fdeb48ee941ab8358c6c82f73568ded9c7885f3180efde2d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libasyncns-0.8-7.amzn2.0.2.src.rpm
+    sha256: 86b0cb8bab5bd3126fad73e4d599fe5b1f9e78c4fba44ecd2eb10d38789dba6f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://0pointer.de/lennart/projects/libasyncns/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Asynchronous Name Service Library"
+  description: |
+        A small and lightweight library that implements easy to use asynchronous
+        wrappers around the libc NSS functions getaddrinfo(), res_query() and related.
+
+extras:
+  rpm_name: libasyncns

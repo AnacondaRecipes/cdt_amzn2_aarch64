@@ -1,0 +1,50 @@
+package:
+  name: libxmu-amzn2-aarch64
+  version: 1.1.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXmu-1.1.2-2.amzn2.0.2.aarch64.rpm
+    sha256: 3e928864932ca7a17814dc004520a1d1d7fe83275cb257cb1f641cbea7b2bb52
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXmu-1.1.2-2.amzn2.0.2.src.rpm
+    sha256: 9bd417de38911b73ccbb05968b6154b06875fe479e42d143a43b827585765947
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxt-amzn2-aarch64 ==1.1.5
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxt-amzn2-aarch64 ==1.1.5
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxt-amzn2-aarch64 ==1.1.5
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXmu/libXmuu runtime libraries"
+  description: |
+        X.Org X11 libXmu/libXmuu runtime libraries
+
+extras:
+  rpm_name: libXmu

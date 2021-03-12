@@ -1,0 +1,54 @@
+package:
+  name: xorg-x11-xauth-amzn2-aarch64
+  version: 1.0.9
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-xauth-1.0.9-1.amzn2.0.2.aarch64.rpm
+    sha256: 154d7d34ee358429674c83dc56f7b30f94a04cf1868e8e59938e2bbcf9df9c71
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-xauth-1.0.9-1.amzn2.0.2.src.rpm
+    sha256: 17368f9f924692b575a27c486e6a9413d086405b6c7a82900607ab3381130579
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxmu-amzn2-aarch64 ==1.1.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxmu-amzn2-aarch64 ==1.1.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxau-amzn2-aarch64 ==1.0.8
+    - libxext-amzn2-aarch64 ==1.3.3
+    - libxmu-amzn2-aarch64 ==1.1.2
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 X authority utilities"
+  description: |
+        xauth is used to edit and display the authorization information used in
+        connecting to an X server.
+
+extras:
+  rpm_name: xorg-x11-xauth

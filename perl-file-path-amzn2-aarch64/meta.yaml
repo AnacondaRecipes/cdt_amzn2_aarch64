@@ -1,0 +1,54 @@
+package:
+  name: perl-file-path-amzn2-aarch64
+  version: 2.09
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-File-Path-2.09-2.amzn2.noarch.rpm
+    sha256: 6d3b8fd407b146bbf9db1f47d9df760a72a656c3719f997c623a8ed15d7733fc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-File-Path-2.09-2.amzn2.src.rpm
+    sha256: 44598eb7d03a0812077a8c1e9df2086027cf65720d9778028e028ea8dee3e409
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.005_04
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 ==3.40
+  host:
+    - perl-amzn2-aarch64 >=5.005_04
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 ==3.40
+  run:
+    - perl-amzn2-aarch64 >=5.005_04
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 ==3.40
+
+about:
+  home: http://search.cpan.org/dist/File-Path/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Create or remove directory trees"
+  description: |
+        This module provides a convenient way to create directories of arbitrary depth
+        and to delete an entire directory subtree from the file system.
+
+extras:
+  rpm_name: perl-File-Path

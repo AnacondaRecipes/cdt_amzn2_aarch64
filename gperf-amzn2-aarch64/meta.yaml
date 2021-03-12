@@ -1,0 +1,50 @@
+package:
+  name: gperf-amzn2-aarch64
+  version: 3.0.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gperf-3.0.4-8.amzn2.0.2.aarch64.rpm
+    sha256: f01cf0cfd5a9cd43bd5d2c56ce077d3578d49e507f01e8c45b153e5f95a88dea
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gperf-3.0.4-8.amzn2.0.2.src.rpm
+    sha256: ba518909ed52c5111ddf7af7f5e29aae4e267b2efb29d54867cc46b5d776941b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.gnu.org/software/gperf/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) A perfect hash function generator"
+  description: |
+        Gperf is a perfect hash function generator written in C++. Simply stated, a
+        perfect hash function is a hash function and a data structure that allows
+        recognition of a key word in a set of words using exactly one probe into the
+        data structure.
+
+extras:
+  rpm_name: gperf

@@ -1,0 +1,49 @@
+package:
+  name: rubygem-json-amzn2-aarch64
+  version: 1.7.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rubygem-json-1.7.7-36.amzn2.0.1.aarch64.rpm
+    sha256: 93bfc7ff975d706b600fce9b958c14cf25780b3b3b48e8db8ec9fce2d44b03a8
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+
+about:
+  home: http://ruby-lang.org/
+  license: Ruby or GPLv2
+  license_family: GPL2
+  summary: "(CDT) This is a JSON implementation as a Ruby extension in C"
+  description: |
+        This is a implementation of the JSON specification according to RFC 4627. You
+        can think of it as a low fat alternative to XML, if you want to store data to
+        disk or transmit it over a network rather than use a verbose markup language.
+
+extras:
+  rpm_name: rubygem-json

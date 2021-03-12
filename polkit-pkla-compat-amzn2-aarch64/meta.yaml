@@ -1,0 +1,49 @@
+package:
+  name: polkit-pkla-compat-amzn2-aarch64
+  version: 0.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/polkit-pkla-compat-0.1-4.amzn2.0.2.aarch64.rpm
+    sha256: 877a4896b5e776190fb761fe372691d6e43f0f809b87f546aa8e00c830a9c705
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/polkit-pkla-compat-0.1-4.amzn2.0.2.src.rpm
+    sha256: 9056f219f24448b575438e25c1013f60185ed4af4b52a52b9873195d13742a52
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - polkit-amzn2-aarch64 ==0.112
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - polkit-amzn2-aarch64 ==0.112
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - polkit-amzn2-aarch64 ==0.112
+
+about:
+  home: https://fedorahosted.org/polkit-pkla-compat/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Rules for polkit to add compatibility with pklocalauthority"
+  description: |
+        A polkit JavaScript rule and associated helpers that mostly provide
+        compatibility with the .pkla file format supported in polkit <= 0.105 for
+        users of later polkit releases.
+
+extras:
+  rpm_name: polkit-pkla-compat

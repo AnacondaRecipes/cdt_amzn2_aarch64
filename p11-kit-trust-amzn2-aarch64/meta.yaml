@@ -1,0 +1,48 @@
+package:
+  name: p11-kit-trust-amzn2-aarch64
+  version: 0.23.22
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/p11-kit-trust-0.23.22-1.amzn2.0.1.aarch64.rpm
+    sha256: 5a44d1ad702dd95c5007e69742646f26f1a2b5d896860d1b71172889264eab6b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/p11-kit-0.23.22-1.amzn2.0.1.src.rpm
+    sha256: 79c2f1cc336aa17382372c2c5577054870d1d123e5ce606f33bc2443e9c91347
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libtasn1-amzn2-aarch64 ==4.10
+    - p11-kit-amzn2-aarch64 ==0.23.22
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libtasn1-amzn2-aarch64 ==4.10
+    - p11-kit-amzn2-aarch64 ==0.23.22
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libtasn1-amzn2-aarch64 ==4.10
+    - p11-kit-amzn2-aarch64 ==0.23.22
+
+about:
+  home: http://p11-glue.freedesktop.org/p11-kit.html
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) System trust module from p11-kit"
+  description: |
+        The p11-kit-trust package contains a system trust PKCS#11 module which
+        contains certificate anchors and black lists.
+
+extras:
+  rpm_name: p11-kit-trust

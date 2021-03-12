@@ -1,0 +1,49 @@
+package:
+  name: groff-base-amzn2-aarch64
+  version: 1.22.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/groff-base-1.22.2-8.amzn2.0.2.aarch64.rpm
+    sha256: 7c6fca47adcd587d3c415594eadd7d992594b0b954f2eb398f2ef2271c055347
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/groff-1.22.2-8.amzn2.0.2.src.rpm
+    sha256: d9b7c639e499dcfa1d6d3445d365bc1a51d7085ec185d0bd35e37e657e5ddad3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.gnu.org/software/groff/
+  license: GPLv3+ and GFDL and BSD and MIT
+  license_family: GPL3
+  summary: "(CDT) Parts of the groff formatting system required to display manual pages"
+  description: |
+        The groff-base package contains only necessary parts of groff formatting
+        system which are required to display manual pages, and the groff's default
+        display device (PostScript).
+
+extras:
+  rpm_name: groff-base

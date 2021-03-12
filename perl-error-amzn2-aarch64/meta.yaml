@@ -1,0 +1,56 @@
+package:
+  name: perl-error-amzn2-aarch64
+  version: 0.17020
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Error-0.17020-2.amzn2.noarch.rpm
+    sha256: 965fa8b9f49800080605d99ceaba1edd5033dfaf85ca27afdc5f5a656d0954aa
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Error-0.17020-2.amzn2.src.rpm
+    sha256: 266699d7c03402365b35479b44d7ac11efc0cca6a6add6bdf841f5347d160b11
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  host:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+  run:
+    - perl-amzn2-aarch64 >=5.004
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+
+about:
+  home: http://search.cpan.org/dist/Error/
+  license: (GPL+ or Artistic) and MIT
+  license_family: GPL
+  summary: "(CDT) Error/exception handling in an OO-ish way"
+  description: |
+        The Error package provides two interfaces. Firstly Error provides a procedural
+        interface to exception handling. Secondly Error is a base class for
+        errors/exceptions that can either be thrown, for subsequent catch, or can
+        simply be recorded.
+
+extras:
+  rpm_name: perl-Error

@@ -1,0 +1,56 @@
+package:
+  name: ruby-amzn2-aarch64
+  version: 2.0.0.648
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ruby-2.0.0.648-36.amzn2.0.1.aarch64.rpm
+    sha256: 8eb74f1caac686bb55f927ff7f3e1a461b8bfaffdf47651e6ccfece7a0788048
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-bigdecimal-amzn2-aarch64 >=1.2.0
+    - rubygems-amzn2-aarch64 >=2.0.14.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-bigdecimal-amzn2-aarch64 >=1.2.0
+    - rubygems-amzn2-aarch64 >=2.0.14.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-bigdecimal-amzn2-aarch64 >=1.2.0
+    - rubygems-amzn2-aarch64 >=2.0.14.1
+
+about:
+  home: http://ruby-lang.org/
+  license: (Ruby or BSD) and Public Domain
+  license_family: BSD
+  summary: "(CDT) An interpreter of object-oriented scripting language"
+  description: |
+        Ruby is the interpreted scripting language for quick and easy object-oriented
+        programming.  It has many features to process text files and to do system
+        management tasks (as in Perl).  It is simple, straight-forward, and
+        extensible.
+
+extras:
+  rpm_name: ruby

@@ -1,0 +1,47 @@
+package:
+  name: grep-amzn2-aarch64
+  version: 2.20
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/grep-2.20-3.amzn2.0.2.aarch64.rpm
+    sha256: aa1e048449049e415cfedf6295b77da3920985891ca405bfb8d58710fe0e7e74
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/grep-2.20-3.amzn2.0.2.src.rpm
+    sha256: 6a1fd83c54bc7f4701e6b979d8f5dcc9950e2b5116cbb1c27057f412bed54390
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - pcre-amzn2-aarch64 ==8.32
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - pcre-amzn2-aarch64 ==8.32
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - pcre-amzn2-aarch64 ==8.32
+
+about:
+  home: http://www.gnu.org/software/grep/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) Pattern matching utilities"
+  description: |
+        The GNU versions of commonly used grep utilities. Grep searches through
+        textual input for lines which contain a match to a specified pattern and then
+        prints the matching lines. GNU's grep utilities include grep, egrep and fgrep.
+        GNU grep is needed by many scripts, so it shall be installed on every system.
+
+extras:
+  rpm_name: grep

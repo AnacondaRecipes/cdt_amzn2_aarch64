@@ -1,0 +1,59 @@
+package:
+  name: perl-threads-shared-amzn2-aarch64
+  version: 1.43
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-threads-shared-1.43-6.amzn2.0.2.aarch64.rpm
+    sha256: ab06d71aad0039685fe25f2e0fe88df36cca900f7d58b92aeb4c426fef3e3620
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-threads-shared-1.43-6.amzn2.0.2.src.rpm
+    sha256: ef1b53f0f61ec6593743fcac0f6cb40288848523a31c4bc611d4925a96e7dd95
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+    - perl-threads-amzn2-aarch64 >=1.87
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+    - perl-threads-amzn2-aarch64 >=1.87
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-scalar-list-utils-amzn2-aarch64 ==1.27
+    - perl-threads-amzn2-aarch64 >=1.87
+
+about:
+  home: http://search.cpan.org/dist/threads-shared/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl extension for sharing data structures between threads"
+  description: |
+        By default, variables are private to each thread, and each newly created
+        thread gets a private copy of each existing variable. This module allows you
+        to share variables across different threads (and pseudo-forks on Win32). It is
+        used together with the threads module.
+
+extras:
+  rpm_name: perl-threads-shared

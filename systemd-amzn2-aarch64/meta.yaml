@@ -1,0 +1,134 @@
+package:
+  name: systemd-amzn2-aarch64
+  version: 219
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/systemd-219-57.amzn2.0.12.aarch64.rpm
+    sha256: 05fa0ea6d9b71e8922c69920ecfcd3d1af82aa3c734d54e2a769909a82a7455b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/systemd-219-57.amzn2.0.12.src.rpm
+    sha256: 497809f493ec44f17369a6efcedae9fa9dd3d77a453f4f70915e7e56a4e8c2ba
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - acl-amzn2-aarch64 ==2.2.51
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - cryptsetup-libs-amzn2-aarch64 ==1.7.4
+    - dbus-amzn2-aarch64 ==1.10.24
+    - diffutils-amzn2-aarch64 ==3.3
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - kmod-amzn2-aarch64 >=18
+    - kmod-libs-amzn2-aarch64 ==25
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libcap-amzn2-aarch64 ==2.22
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - qrencode-libs-amzn2-aarch64 ==3.4.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - system-release-amzn2-aarch64 >=2
+    - systemd-libs-amzn2-aarch64 ==219
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - acl-amzn2-aarch64 ==2.2.51
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - cryptsetup-libs-amzn2-aarch64 ==1.7.4
+    - dbus-amzn2-aarch64 ==1.10.24
+    - diffutils-amzn2-aarch64 ==3.3
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - kmod-amzn2-aarch64 >=18
+    - kmod-libs-amzn2-aarch64 ==25
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libcap-amzn2-aarch64 ==2.22
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - qrencode-libs-amzn2-aarch64 ==3.4.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - system-release-amzn2-aarch64 >=2
+    - systemd-libs-amzn2-aarch64 ==219
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - acl-amzn2-aarch64 ==2.2.51
+    - audit-libs-amzn2-aarch64 ==2.8.1
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - coreutils-amzn2-aarch64 ==8.22
+    - cryptsetup-libs-amzn2-aarch64 ==1.7.4
+    - dbus-amzn2-aarch64 ==1.10.24
+    - diffutils-amzn2-aarch64 ==3.3
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - gawk-amzn2-aarch64 ==4.0.2
+    - glibc-amzn2-aarch64 ==2.26
+    - kmod-amzn2-aarch64 >=18
+    - kmod-libs-amzn2-aarch64 ==25
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libcap-amzn2-aarch64 ==2.22
+    - libcrypt-amzn2-aarch64 ==2.26
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libmount-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - qrencode-libs-amzn2-aarch64 ==3.4.1
+    - sed-amzn2-aarch64 ==4.2.2
+    - system-release-amzn2-aarch64 >=2
+    - systemd-libs-amzn2-aarch64 ==219
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/systemd
+  license: LGPLv2+ and MIT and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) A System and Service Manager"
+  description: |
+        systemd is a system and service manager for Linux, compatible with SysV and
+        LSB init scripts. systemd provides aggressive parallelization capabilities,
+        uses socket and D-Bus activation for starting services, offers on-demand
+        starting of daemons, keeps track of processes using Linux cgroups, supports
+        snapshotting and restoring of the system state, maintains mount and automount
+        points and implements an elaborate transactional dependency-based service
+        control logic. It can work as a drop-in replacement for sysvinit.
+
+extras:
+  rpm_name: systemd

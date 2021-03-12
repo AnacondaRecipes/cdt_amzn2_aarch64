@@ -1,0 +1,42 @@
+package:
+  name: pangomm-devel-amzn2-aarch64
+  version: 2.40.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pangomm-devel-2.40.1-1.amzn2.0.2.aarch64.rpm
+    sha256: cd40c7484825a451768dcac386f60053248cf20e82b57dc2948778bbb1d883ed
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pangomm-2.40.1-1.amzn2.0.2.src.rpm
+    sha256: fba85a9184af8737853880bbbe8acd0812ad7fadaac59a7e0c221d3cbdfae583
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - pangomm-amzn2-aarch64 ==2.40.1
+  host:
+    - pangomm-amzn2-aarch64 ==2.40.1
+  run:
+    - pangomm-amzn2-aarch64 ==2.40.1
+
+about:
+  home: http://www.gtkmm.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Headers for developing programs that will use pangomm"
+  description: |
+        This package contains the libraries and header files needed for developing
+        pangomm applications.
+
+extras:
+  rpm_name: pangomm-devel

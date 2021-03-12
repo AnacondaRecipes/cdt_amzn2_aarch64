@@ -1,0 +1,52 @@
+package:
+  name: pcre-amzn2-aarch64
+  version: 8.32
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pcre-8.32-17.amzn2.0.2.aarch64.rpm
+    sha256: 80be911e2852dbd7d858060771e5332712468603c5a00e809b046c4720a2c484
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pcre-8.32-17.amzn2.0.2.src.rpm
+    sha256: c2b7d97e78a0b2fc29614992206919068a4f34f088bba431056abcb8802ce872
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://www.pcre.org/
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Perl-compatible regular expression library"
+  description: |
+        Perl-compatible regular expression library. PCRE has its own native API, but a
+        set of "wrapper" functions that are based on the POSIX API are also supplied
+        in the library libpcreposix. Note that this just provides a POSIX calling
+        interface to PCRE: the regular expressions themselves still follow Perl syntax
+        and semantics. The header file for the POSIX-style functions is called
+        pcreposix.h.
+
+extras:
+  rpm_name: pcre

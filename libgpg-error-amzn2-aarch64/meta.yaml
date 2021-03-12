@@ -1,0 +1,43 @@
+package:
+  name: libgpg-error-amzn2-aarch64
+  version: 1.12
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libgpg-error-1.12-3.amzn2.0.3.aarch64.rpm
+    sha256: 04720a21dad392a68ef0207962999113ffb6cd66571cdd0e16674fab145d0823
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libgpg-error-1.12-3.amzn2.0.3.src.rpm
+    sha256: 997de9d51396f20df5b00b7f41a4bc110b88c5243225ff5941026174850a6e6e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: ftp://ftp.gnupg.org/gcrypt/libgpg-error/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Library for error values used by GnuPG components"
+  description: |
+        This is a library that defines common error values for all GnuPG components.
+        Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard
+        Daemon and possibly more in the future.
+
+extras:
+  rpm_name: libgpg-error

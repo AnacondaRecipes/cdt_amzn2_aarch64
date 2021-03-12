@@ -1,0 +1,46 @@
+package:
+  name: pkgconfig-amzn2-aarch64
+  version: 0.27.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pkgconfig-0.27.1-4.amzn2.0.2.aarch64.rpm
+    sha256: 99f8c010467f1ab8a64a6de27d7d810fc36e066a514d25b907872485ba2b9005
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pkgconfig-0.27.1-4.amzn2.0.2.src.rpm
+    sha256: 70a23bcbb65ffafe97954c4067be0dbcc9fd4132393d4714005a8ea23750670c
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://pkgconfig.freedesktop.org
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) A tool for determining compilation options"
+  description: |
+        The pkgconfig tool determines compilation options. For each required library,
+        it reads the configuration file and outputs the necessary compiler and linker
+        flags.
+
+extras:
+  rpm_name: pkgconfig

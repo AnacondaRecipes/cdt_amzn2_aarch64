@@ -1,0 +1,73 @@
+package:
+  name: git-core-amzn2-aarch64
+  version: 2.23.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/git-core-2.23.3-1.amzn2.0.1.aarch64.rpm
+    sha256: 871978df1c6979098bb2e15143eee39cd903c8fc02002b59b462403103bc4e71
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/git-2.23.3-1.amzn2.0.1.src.rpm
+    sha256: 5d15b244f56fe4e1c91fa8edbbc2a352600d0110dcd0d65fe5ed7b1586480c49
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - less-amzn2-aarch64 ==458
+    - libcurl-amzn2-aarch64 >=7.61
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - openssh-clients-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pcre2-amzn2-aarch64 ==10.23
+    - zlib-amzn2-aarch64 >=1.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - less-amzn2-aarch64 ==458
+    - libcurl-amzn2-aarch64 >=7.61
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - openssh-clients-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pcre2-amzn2-aarch64 ==10.23
+    - zlib-amzn2-aarch64 >=1.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - less-amzn2-aarch64 ==458
+    - libcurl-amzn2-aarch64 >=7.61
+    - libcurl-amzn2-aarch64 ==7.61.1
+    - openssh-clients-amzn2-aarch64 ==7.4p1
+    - openssl-libs-amzn2-aarch64 ==1.0.2k
+    - pcre2-amzn2-aarch64 ==10.23
+    - zlib-amzn2-aarch64 >=1.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: https://git-scm.com/
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) Core package of git with minimal functionality"
+  description: |
+        Git is a fast, scalable, distributed revision control system with an unusually
+        rich command set that provides both high-level operations and full access to
+        internals.  The git-core rpm installs really the core tools with minimal
+        dependencies. Install git package for common set of tools. To install all git
+        packages, including tools for integrating with other SCMs, install the git-all
+        meta-package.
+
+extras:
+  rpm_name: git-core

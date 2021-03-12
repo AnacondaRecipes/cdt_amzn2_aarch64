@@ -1,0 +1,52 @@
+package:
+  name: glibc-amzn2-aarch64
+  version: 2.26
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/glibc-2.26-39.amzn2.aarch64.rpm
+    sha256: 951f9895db88e559f50bb8e7cfe98b1293d002dd4fed2fcab1b6de3c0ccd66fc
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/glibc-2.26-39.amzn2.src.rpm
+    sha256: 29947b1cc20ab2b58472fbfe2c4c8394d4067876f0d8bc1491ea9ba17f99c12e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - basesystem-amzn2-aarch64 ==10.0
+    - glibc-common-amzn2-aarch64 ==2.26
+    - glibc-minimal-langpack-amzn2-aarch64 ==2.26
+  host:
+    - basesystem-amzn2-aarch64 ==10.0
+    - glibc-common-amzn2-aarch64 ==2.26
+    - glibc-minimal-langpack-amzn2-aarch64 ==2.26
+  run:
+    - basesystem-amzn2-aarch64 ==10.0
+    - glibc-common-amzn2-aarch64 ==2.26
+    - glibc-minimal-langpack-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.gnu.org/software/glibc/
+  license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) The GNU libc libraries"
+  description: |
+        The glibc package contains standard libraries which are used by multiple
+        programs on the system. In order to save disk space and memory, as well as to
+        make upgrading easier, common system code is kept in one place and shared
+        between programs. This particular package contains the most important sets of
+        shared libraries: the standard C library and the standard math library.
+        Without these two libraries, a Linux system will not function.
+
+extras:
+  rpm_name: glibc

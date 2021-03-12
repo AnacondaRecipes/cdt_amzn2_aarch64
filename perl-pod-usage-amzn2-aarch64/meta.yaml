@@ -1,0 +1,59 @@
+package:
+  name: perl-pod-usage-amzn2-aarch64
+  version: 1.63
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Pod-Usage-1.63-3.amzn2.noarch.rpm
+    sha256: c78c27f0c3bec47bc86252c1a84264685bed3fa5bbf1b5a1d18e47f58f6c0cec
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-Pod-Usage-1.63-3.amzn2.src.rpm
+    sha256: 4c457a3263982d0ef201abc908e3cb3d931728c331a0e63259edbdcf3f9b4afb
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 >=3.40
+  host:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 >=3.40
+  run:
+    - perl-amzn2-aarch64 >=5.006
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+    - perl-exporter-amzn2-aarch64 ==5.68
+    - perl-pathtools-amzn2-aarch64 >=3.40
+
+about:
+  home: http://search.cpan.org/dist/Pod-Usage/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Print a usage message from embedded POD documentation"
+  description: |
+        pod2usage will print a usage message for the invoking script (using its
+        embedded POD documentation) and then exit the script with the desired exit
+        status. The usage message printed may have any one of three levels of
+        "verboseness": If the verbose level is 0, then only a synopsis is printed. If
+        the verbose level is 1, then the synopsis is printed along with a description
+        (if present) of the command line options and arguments. If the verbose level
+        is 2, then the entire manual page is printed.
+
+extras:
+  rpm_name: perl-Pod-Usage

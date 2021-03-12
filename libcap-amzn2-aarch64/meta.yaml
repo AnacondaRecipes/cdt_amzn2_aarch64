@@ -1,0 +1,45 @@
+package:
+  name: libcap-amzn2-aarch64
+  version: 2.22
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libcap-2.22-9.amzn2.0.2.aarch64.rpm
+    sha256: 277e566989b4aca21ff55ae819f8a63e2ea245b95fcfddbe2a337c920d13e627
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libcap-2.22-9.amzn2.0.2.src.rpm
+    sha256: eb7b89ef09d8fcfa7e14b00d94d983ab918a56db1b8a0ca89667e8fac94467dd
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libattr-amzn2-aarch64 ==2.4.46
+
+about:
+  home: http://ftp.kernel.org/pub/linux/libs/security/linux-privs/kernel-2.6/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Library for getting and setting POSIX.1e capabilities"
+  description: |
+        libcap is a library for getting and setting POSIX.1e (formerly POSIX 6) draft
+        15 capabilities.
+
+extras:
+  rpm_name: libcap

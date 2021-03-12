@@ -1,0 +1,51 @@
+package:
+  name: xorg-x11-util-macros-amzn2-aarch64
+  version: 1.19.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-util-macros-1.19.0-3.amzn2.noarch.rpm
+    sha256: 2b8e9f22418e75bb54b5942b3cc0354f4ec85c1105c1bb8254d0b94899328d20
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-util-macros-1.19.0-3.amzn2.src.rpm
+    sha256: a1e63cf87594e30074d7d9d4e40deda4157e43530836c60da5ce8869d423eeeb
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - libtool-amzn2-aarch64 ==2.4.2
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - libtool-amzn2-aarch64 ==2.4.2
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - autoconf-amzn2-aarch64 ==2.69
+    - automake-amzn2-aarch64 ==1.13.4
+    - libtool-amzn2-aarch64 ==2.4.2
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 Autotools macros"
+  description: |
+        X.Org X11 autotools macros required for building the various packages that
+        comprise the X Window System.
+
+extras:
+  rpm_name: xorg-x11-util-macros

@@ -1,0 +1,59 @@
+package:
+  name: nss-softokn-amzn2-aarch64
+  version: 3.53.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nss-softokn-3.53.1-6.amzn2.aarch64.rpm
+    sha256: 09b77bcb9c5ba5cf3602790be293685e993d58cb547f93e64d0faaed79275e5e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nss-softokn-3.53.1-6.amzn2.src.rpm
+    sha256: 4dbb73c4f123686d4098650c59185d23fb37a5339677c2e0d1dd155fe21397bd
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-softokn-freebl-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-softokn-freebl-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 >=4.25.0
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-softokn-freebl-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 >=3.53.1
+    - nss-util-amzn2-aarch64 ==3.53.1
+    - sqlite-amzn2-aarch64 ==3.7.17
+
+about:
+  home: http://www.mozilla.org/projects/security/pki/nss/
+  license: MPLv2.0
+  license_family: Other
+  summary: "(CDT) Network Security Services Softoken Module"
+  description: |
+        Network Security Services Softoken Cryptographic Module
+
+extras:
+  rpm_name: nss-softokn

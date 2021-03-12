@@ -1,0 +1,54 @@
+package:
+  name: freetype-amzn2-aarch64
+  version: 2.8
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/freetype-2.8-14.amzn2.1.aarch64.rpm
+    sha256: 442738ea2548abacd8b656382bad92f6f473195ca326cabadcca0f293b734494
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/freetype-2.8-14.amzn2.1.src.rpm
+    sha256: 6d823c73999355231a92f651c352ef84fbbe1c4faea18662b755e3bf33be45df
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - glibc-amzn2-aarch64 ==2.26
+    - libpng-amzn2-aarch64 ==1.5.13
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.freetype.org
+  license: (FTL or GPLv2+) and BSD and MIT and Public Domain and zlib with acknowledgement
+  license_family: GPL2
+  summary: "(CDT) A free and portable font rendering engine"
+  description: |
+        The FreeType engine is a free and portable font rendering engine, developed to
+        provide advanced font support for a variety of platforms and environments.
+        FreeType is a library which can open and manages font files as well as
+        efficiently load, hint and render individual glyphs. FreeType is not a font
+        server or a complete text-rendering library.
+
+extras:
+  rpm_name: freetype

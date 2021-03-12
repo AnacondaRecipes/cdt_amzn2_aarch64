@@ -1,0 +1,42 @@
+package:
+  name: libart_lgpl-amzn2-aarch64
+  version: 2.3.21
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libart_lgpl-2.3.21-10.amzn2.0.2.aarch64.rpm
+    sha256: ff0a8243ecdb72da4ca88b6746a299b48a05fc4a184a6159770ec3d0db0a9fe2
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libart_lgpl-2.3.21-10.amzn2.0.2.src.rpm
+    sha256: 9258ad7d43b607b658144b18d3c7a66f4538202f3a2c7f8158a5239b6f070195
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.gnome.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Library of graphics routines used by libgnomecanvas"
+  description: |
+        Graphics routines used by the GnomeCanvas widget and some other applications.
+        libart renders vector paths and the like.
+
+extras:
+  rpm_name: libart_lgpl

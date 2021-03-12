@@ -1,0 +1,50 @@
+package:
+  name: libxfont2-amzn2-aarch64
+  version: 2.0.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXfont2-2.0.3-1.amzn2.aarch64.rpm
+    sha256: 0bdb4db4b6eb7610afc86a496c83c98ec1e9857fa1bd88b883b690694e159f72
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXfont2-2.0.3-1.amzn2.src.rpm
+    sha256: bc6327de8e292d381ca28ab9b575609532e9a38a27e4552d5aef1c215d63ec2d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libfontenc-amzn2-aarch64 ==1.1.3
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libfontenc-amzn2-aarch64 ==1.1.3
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - freetype-amzn2-aarch64 ==2.8
+    - glibc-amzn2-aarch64 ==2.26
+    - libfontenc-amzn2-aarch64 ==1.1.3
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: https://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 libXfont2 runtime library"
+  description: |
+        X.Org X11 libXfont2 runtime library
+
+extras:
+  rpm_name: libXfont2

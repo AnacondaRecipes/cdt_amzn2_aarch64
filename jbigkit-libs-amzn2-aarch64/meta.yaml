@@ -1,0 +1,49 @@
+package:
+  name: jbigkit-libs-amzn2-aarch64
+  version: 2.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/jbigkit-libs-2.0-11.amzn2.0.2.aarch64.rpm
+    sha256: 9fc88c94cd1f5dcb89ade842c2516be712eb97f323eeb0fc2e5a93ad3508f1a0
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/jbigkit-2.0-11.amzn2.0.2.src.rpm
+    sha256: 259e3feaab686421791bb2c9f970d967922b9bef69579d4156381168b31621ed
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://www.cl.cam.ac.uk/~mgk25/jbigkit/
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) JBIG1 lossless image compression library"
+  description: |
+        JBIG-KIT provides a portable library of compression and decompression
+        functions with a documented interface that you can include very easily into
+        your image or document processing software. In addition, JBIG-KIT provides
+        ready-to-use compression and decompression programs with a simple command line
+        interface (similar to the converters found in netpbm).  JBIG-KIT implements
+        the specification:     ISO/IEC 11544:1993 and ITU-T Recommendation T.82(1993):
+        Information technology — Coded representation of picture and audio
+        information — Progressive bi-level image compression  which is commonly
+        referred to as the “JBIG1 standard”
+
+extras:
+  rpm_name: jbigkit-libs

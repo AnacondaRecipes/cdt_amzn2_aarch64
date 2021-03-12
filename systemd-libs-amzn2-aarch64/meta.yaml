@@ -1,0 +1,68 @@
+package:
+  name: systemd-libs-amzn2-aarch64
+  version: 219
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/systemd-libs-219-57.amzn2.0.12.aarch64.rpm
+    sha256: 9503db848e0a63c1400f9ed96f40c2e32bc756148cae119a39f6c9a63ecdb425
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/systemd-219-57.amzn2.0.12.src.rpm
+    sha256: 497809f493ec44f17369a6efcedae9fa9dd3d77a453f4f70915e7e56a4e8c2ba
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - xz-libs-amzn2-aarch64 ==5.2.2
+  host:
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - xz-libs-amzn2-aarch64 ==5.2.2
+  run:
+    - elfutils-libs-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libselinux-amzn2-aarch64 ==2.5
+    - lz4-amzn2-aarch64 ==1.7.5
+    - pam-amzn2-aarch64 ==1.1.8
+    - xz-libs-amzn2-aarch64 ==5.2.2
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/systemd
+  license: LGPLv2+ and MIT
+  license_family: LGPL
+  summary: "(CDT) systemd libraries"
+  description: |
+        Libraries for systemd and udev, as well as the systemd PAM module.
+
+extras:
+  rpm_name: systemd-libs

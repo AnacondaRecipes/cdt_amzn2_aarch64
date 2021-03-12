@@ -1,0 +1,43 @@
+package:
+  name: filesystem-amzn2-aarch64
+  version: 3.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/filesystem-3.2-25.amzn2.0.4.aarch64.rpm
+    sha256: 8f5271c109285f8a2d31e37160c1102f6b97244da2cee9bfd1b6852fd86f1eb6
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/filesystem-3.2-25.amzn2.0.4.src.rpm
+    sha256: c1bdb520a838326c15c1c86b0a1314c9e44f7689de956010d7a8e4bfda7d34e4
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - setup-amzn2-aarch64 ==2.8.71
+  host:
+    - setup-amzn2-aarch64 ==2.8.71
+  run:
+    - setup-amzn2-aarch64 ==2.8.71
+
+about:
+  home: https://pagure.io/filesystem
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) The basic directory layout for a Linux system"
+  description: |
+        The filesystem package is one of the basic packages that is installed on a
+        Linux system. Filesystem contains the basic directory layout for a Linux
+        operating system, including the correct permissions for the directories.
+
+extras:
+  rpm_name: filesystem

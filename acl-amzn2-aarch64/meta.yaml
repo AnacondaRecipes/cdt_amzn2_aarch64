@@ -1,0 +1,48 @@
+package:
+  name: acl-amzn2-aarch64
+  version: 2.2.51
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/acl-2.2.51-14.amzn2.aarch64.rpm
+    sha256: 45e1f23b1e63dc6f2d751ee5b3364998f5893318ccf5f0b21df517c491a0f6af
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/acl-2.2.51-14.amzn2.src.rpm
+    sha256: d21969f8fbccf539fa601961f20352b7c95b4cf593c9fa5dad2ac4896c7ca6c9
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libattr-amzn2-aarch64 ==2.4.46
+
+about:
+  home: http://acl.bestbits.at/
+  license: GPL (>= 2)
+  license_family: GPL3
+  summary: "(CDT) Access control list utilities"
+  description: |
+        This package contains the getfacl and setfacl utilities needed for
+        manipulating access control lists.
+
+extras:
+  rpm_name: acl

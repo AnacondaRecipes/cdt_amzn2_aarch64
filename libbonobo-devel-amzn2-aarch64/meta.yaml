@@ -1,0 +1,51 @@
+package:
+  name: libbonobo-devel-amzn2-aarch64
+  version: 2.32.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libbonobo-devel-2.32.1-7.amzn2.0.2.aarch64.rpm
+    sha256: a4c326bca717485a946c033b9fccc87f822fdfc76c25689a2c0c0a543e90c272
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libbonobo-2.32.1-7.amzn2.0.2.src.rpm
+    sha256: 9a6ae812296ff5385fe3359cee210a84e62b4ec44759894eb16e9bf1c1fc76c0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libxml2-devel-amzn2-aarch64 >=2.4.21
+    - orbit2-devel-amzn2-aarch64 >=2.7.5
+    - popt-devel-amzn2-aarch64 ==1.13
+  host:
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libxml2-devel-amzn2-aarch64 >=2.4.21
+    - orbit2-devel-amzn2-aarch64 >=2.7.5
+    - popt-devel-amzn2-aarch64 ==1.13
+  run:
+    - libbonobo-amzn2-aarch64 ==2.32.1
+    - libxml2-devel-amzn2-aarch64 >=2.4.21
+    - orbit2-devel-amzn2-aarch64 >=2.7.5
+    - popt-devel-amzn2-aarch64 ==1.13
+
+about:
+  home: http://ftp.gnome.org
+  license: GPLv2+ and LGPLv2+
+  license_family: GPL2
+  summary: "(CDT) Libraries and headers for libbonobo"
+  description: |
+        Bonobo is a component system based on CORBA, used by the GNOME desktop.  This
+        package contains header files used to compile programs that use Bonobo.
+
+extras:
+  rpm_name: libbonobo-devel

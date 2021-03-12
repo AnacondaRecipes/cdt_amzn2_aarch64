@@ -1,0 +1,45 @@
+package:
+  name: libgcrypt-amzn2-aarch64
+  version: 1.5.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libgcrypt-1.5.3-14.amzn2.0.2.aarch64.rpm
+    sha256: 50d80e2554599f958dc3891883d1bd281d2f52eec5746322675b985a4d410d97
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libgcrypt-1.5.3-14.amzn2.0.2.src.rpm
+    sha256: ddfd604706fbb66bc5d000e6f198469a67859ffd99df4344918ba6d329f79bb0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgpg-error-amzn2-aarch64 ==1.12
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgpg-error-amzn2-aarch64 ==1.12
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgpg-error-amzn2-aarch64 ==1.12
+
+about:
+  home: http://www.gnupg.org/
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) A general-purpose cryptography library"
+  description: |
+        Libgcrypt is a general purpose crypto library based on the code used in GNU
+        Privacy Guard.  This is a development version.
+
+extras:
+  rpm_name: libgcrypt

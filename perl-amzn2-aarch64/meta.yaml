@@ -1,0 +1,58 @@
+package:
+  name: perl-amzn2-aarch64
+  version: 5.16.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-5.16.3-294.amzn2.aarch64.rpm
+    sha256: 5b604e2b1bb321d82bfa40ac19216a007ced7f379811904606d0b7c53bb399b8
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-5.16.3-294.amzn2.src.rpm
+    sha256: 0c816ac5bcd69fcd1363cdffdac8a351de636098f2b9b2d5344abc73ba9e189d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - perl-libs-amzn2-aarch64 ==5.16.3
+  host:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - perl-libs-amzn2-aarch64 ==5.16.3
+  run:
+    - gdbm-amzn2-aarch64 ==1.13
+    - glibc-amzn2-aarch64 ==2.26
+    - libcrypt-amzn2-aarch64 ==2.26
+    - perl-libs-amzn2-aarch64 ==5.16.3
+
+about:
+  home: http://www.perl.org/
+  license: (GPL+ or Artistic) and (GPLv2+ or Artistic) and Copyright Only and MIT and Public Domain and UCD
+  license_family: GPL2
+  summary: "(CDT) Practical Extraction and Report Language"
+  description: |
+        Perl is a high-level programming language with roots in C, sed, awk and shell
+        scripting.  Perl is good at handling processes and files, and is especially
+        good at handling text.  Perl's hallmarks are practicality and efficiency.
+        While it is used to do a lot of different things, Perl's most common
+        applications are system administration utilities and web programming.  A large
+        proportion of the CGI scripts on the web are written in Perl.  You need the
+        perl package installed on your system so that your system can handle Perl
+        scripts.  Install this package if you want to program in Perl or enable your
+        system to handle Perl scripts.
+
+extras:
+  rpm_name: perl

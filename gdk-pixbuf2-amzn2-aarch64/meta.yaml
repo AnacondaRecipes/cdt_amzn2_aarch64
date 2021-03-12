@@ -1,0 +1,66 @@
+package:
+  name: gdk-pixbuf2-amzn2-aarch64
+  version: 2.36.12
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gdk-pixbuf2-2.36.12-3.amzn2.aarch64.rpm
+    sha256: 5ac93f983da4862a3d0dbfa95dc888824dcacbe119ea9df53df3cdb03b586655
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gdk-pixbuf2-2.36.12-3.amzn2.src.rpm
+    sha256: 66c0234ee1599c3c05a52f8833491fd4aacdc4bb476fe4148153440c07e2632f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - jasper-libs-amzn2-aarch64 ==1.900.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libtiff-amzn2-aarch64 ==4.0.3
+    - libx11-amzn2-aarch64 ==1.6.7
+    - shared-mime-info-amzn2-aarch64 ==1.8
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - jasper-libs-amzn2-aarch64 ==1.900.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libtiff-amzn2-aarch64 ==4.0.3
+    - libx11-amzn2-aarch64 ==1.6.7
+    - shared-mime-info-amzn2-aarch64 ==1.8
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-amzn2-aarch64 >=2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - jasper-libs-amzn2-aarch64 ==1.900.1
+    - libjpeg-turbo-amzn2-aarch64 ==1.2.90
+    - libpng-amzn2-aarch64 ==1.5.13
+    - libtiff-amzn2-aarch64 ==4.0.3
+    - libx11-amzn2-aarch64 ==1.6.7
+    - shared-mime-info-amzn2-aarch64 ==1.8
+
+about:
+  home: http://www.gtk.org
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) An image loading library"
+  description: |
+        gdk-pixbuf is an image loading library that can be extended by loadable
+        modules for new image formats. It is used by toolkits such as GTK+ or clutter.
+
+extras:
+  rpm_name: gdk-pixbuf2

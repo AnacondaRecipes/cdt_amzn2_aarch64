@@ -1,0 +1,69 @@
+package:
+  name: orbit2-devel-amzn2-aarch64
+  version: 2.14.19
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/ORBit2-devel-2.14.19-13.amzn2.0.2.aarch64.rpm
+    sha256: b2fcbcc21e9b23122f70c9a2eedcb2e86222fec1593e56faae8b7888e9f46084
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ORBit2-2.14.19-13.amzn2.0.2.src.rpm
+    sha256: d64e7b215c91d3f49e7f12911b1ffac71afd6b1cb7ba60e9dcff41d399fbc6f3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - automake-amzn2-aarch64 ==1.13.4
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.2.0
+    - glibc-amzn2-aarch64 ==2.26
+    - indent-amzn2-aarch64 ==2.2.11
+    - libidl-amzn2-aarch64 ==0.8.14
+    - libidl-devel-amzn2-aarch64 >=0.8.2
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - automake-amzn2-aarch64 ==1.13.4
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.2.0
+    - glibc-amzn2-aarch64 ==2.26
+    - indent-amzn2-aarch64 ==2.2.11
+    - libidl-amzn2-aarch64 ==0.8.14
+    - libidl-devel-amzn2-aarch64 >=0.8.2
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - automake-amzn2-aarch64 ==1.13.4
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glib2-devel-amzn2-aarch64 >=2.2.0
+    - glibc-amzn2-aarch64 ==2.26
+    - indent-amzn2-aarch64 ==2.2.11
+    - libidl-amzn2-aarch64 ==0.8.14
+    - libidl-devel-amzn2-aarch64 >=0.8.2
+    - orbit2-amzn2-aarch64 ==2.14.19
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://www.gnome.org/projects/ORBit2
+  license: LGPLv2+ and GPLv2+
+  license_family: GPL2
+  summary: "(CDT) Development libraries, header files and utilities for ORBit"
+  description: |
+        ORBit is a high-performance CORBA (Common Object Request Broker Architecture)
+        ORB (object request broker) with support for the C language.  This package
+        contains the header files, libraries and utilities necessary to write programs
+        that use CORBA technology. If you want to write such programs, you'll also
+        need to install the ORBIT package.
+
+extras:
+  rpm_name: ORBit2-devel

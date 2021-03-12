@@ -1,0 +1,44 @@
+package:
+  name: pixman-devel-amzn2-aarch64
+  version: 0.34.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pixman-devel-0.34.0-1.amzn2.0.2.aarch64.rpm
+    sha256: 89402f7aa42b41aaaca591554091037f0d85052e8ba1203b1f3dd77235d3351b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pixman-0.34.0-1.amzn2.0.2.src.rpm
+    sha256: 7ca6e19d2329b5a85760de2cf8e9792b4d906c07fbaefed31fdb85d0f6ad1c94
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - pixman-amzn2-aarch64 ==0.34.0
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  host:
+    - pixman-amzn2-aarch64 ==0.34.0
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+  run:
+    - pixman-amzn2-aarch64 ==0.34.0
+    - pkgconfig-amzn2-aarch64 ==0.27.1
+
+about:
+  home: http://cgit.freedesktop.org/pixman/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Pixel manipulation library development package"
+  description: |
+        Development library for pixman.
+
+extras:
+  rpm_name: pixman-devel

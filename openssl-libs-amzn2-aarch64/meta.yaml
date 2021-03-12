@@ -1,0 +1,55 @@
+package:
+  name: openssl-libs-amzn2-aarch64
+  version: 1.0.2k
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/openssl-libs-1.0.2k-19.amzn2.0.4.aarch64.rpm
+    sha256: dc1591cb79394efbc4ec7194e7cc4e5e05481d28994f5811d97c5ad8a740cabd
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/openssl-1.0.2k-19.amzn2.0.4.src.rpm
+    sha256: 00cb374f99a5b72b94488de57839437aa5c13e3223ab300c6cad54784e65831b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - ca-certificates-amzn2-aarch64 >=2008
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - ca-certificates-amzn2-aarch64 >=2008
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - ca-certificates-amzn2-aarch64 >=2008
+    - glibc-amzn2-aarch64 ==2.26
+    - krb5-libs-amzn2-aarch64 ==1.15.1
+    - libcom_err-amzn2-aarch64 ==1.42.9
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.openssl.org/
+  license: OpenSSL
+  license_family: Other
+  summary: "(CDT) A general purpose cryptography library with TLS implementation"
+  description: |
+        OpenSSL is a toolkit for supporting cryptography. The openssl-libs package
+        contains the libraries that are used by various applications which support
+        cryptographic algorithms and protocols.
+
+extras:
+  rpm_name: openssl-libs

@@ -1,0 +1,41 @@
+package:
+  name: hicolor-icon-theme-amzn2-aarch64
+  version: 0.12
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/hicolor-icon-theme-0.12-7.amzn2.noarch.rpm
+    sha256: 533ce0e5ab164f59ee793733ba727b7e5b32e13e4ede4715c1477d22220a1e93
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/hicolor-icon-theme-0.12-7.amzn2.src.rpm
+    sha256: 5ec9f98bda6cca98b72c234ece652e100f685a06682b1fe68b9f9a4fa75088bb
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - coreutils-amzn2-aarch64 ==8.22
+  host:
+    - coreutils-amzn2-aarch64 ==8.22
+  run:
+    - coreutils-amzn2-aarch64 ==8.22
+
+about:
+  home: http://icon-theme.freedesktop.org/wiki/HicolorTheme
+  license: GPL+
+  license_family: GPL
+  summary: "(CDT) Basic requirement for icon themes"
+  description: |
+        Contains the basic directories and files needed for icon theme support.
+
+extras:
+  rpm_name: hicolor-icon-theme

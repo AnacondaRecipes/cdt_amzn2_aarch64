@@ -1,0 +1,42 @@
+package:
+  name: libxshmfence-devel-amzn2-aarch64
+  version: 1.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxshmfence-devel-1.2-1.amzn2.0.2.aarch64.rpm
+    sha256: b63a0143158d55ba3489fff53ab099ab29aeffea5397e320fcc9177ca761e81a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libxshmfence-1.2-1.amzn2.0.2.src.rpm
+    sha256: b80a9f3e65914e3f00d8176667cdc2e7d577820d7ca57ba74828dbfdb01d1eed
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libxshmfence-amzn2-aarch64 ==1.2
+  host:
+    - libxshmfence-amzn2-aarch64 ==1.2
+  run:
+    - libxshmfence-amzn2-aarch64 ==1.2
+
+about:
+  home: http://www.x.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libxshmfence"
+  description: |
+        The libxshmfence-devel package contains libraries and header files for
+        developing applications that use libxshmfence.
+
+extras:
+  rpm_name: libxshmfence-devel

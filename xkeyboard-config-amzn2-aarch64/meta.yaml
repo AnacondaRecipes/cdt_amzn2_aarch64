@@ -1,0 +1,37 @@
+package:
+  name: xkeyboard-config-amzn2-aarch64
+  version: 2.20
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xkeyboard-config-2.20-1.amzn2.noarch.rpm
+    sha256: ca951573b58ef7fa047128499c2ba053d171137b8af7b84558838e66eb06cbeb
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xkeyboard-config-2.20-1.amzn2.src.rpm
+    sha256: c70765caeddba34dfaf8a394aa492950be4a86e99bcf14423b108552b6f9f0d3
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/XKeyboardConfig
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X Keyboard Extension configuration data"
+  description: |
+        This package contains configuration data used by the X Keyboard Extension
+        (XKB), which allows selection of keyboard layouts when using a graphical
+        interface.
+
+extras:
+  rpm_name: xkeyboard-config

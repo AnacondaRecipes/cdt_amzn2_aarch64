@@ -1,0 +1,59 @@
+package:
+  name: mesa-libgbm-amzn2-aarch64
+  version: 18.3.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mesa-libgbm-18.3.4-5.amzn2.0.1.aarch64.rpm
+    sha256: b321b0511a3a1221d943c5aba4ad79c5dc9eb42c686f2262ec44a196dcaa0d30
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mesa-18.3.4-5.amzn2.0.1.src.rpm
+    sha256: 6a8b6b5fe494d93ba576820d4cfa246c67108428b877558a3fbc9c4f2fe9e8af
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libwayland-server-amzn2-aarch64 ==1.17.0
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libwayland-server-amzn2-aarch64 ==1.17.0
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - expat-amzn2-aarch64 ==2.1.0
+    - glibc-amzn2-aarch64 ==2.26
+    - libdrm-amzn2-aarch64 >=2.4.83
+    - libdrm-amzn2-aarch64 ==2.4.97
+    - libwayland-server-amzn2-aarch64 ==1.17.0
+    - mesa-libglapi-amzn2-aarch64 ==18.3.4
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Mesa gbm library"
+  description: |
+        Mesa gbm runtime library.
+
+extras:
+  rpm_name: mesa-libgbm

@@ -1,0 +1,50 @@
+package:
+  name: libmount-amzn2-aarch64
+  version: 2.30.2
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libmount-2.30.2-2.amzn2.0.4.aarch64.rpm
+    sha256: 7a752555de227872bed83e4b859b3bf37d7264bee146b7108b492b2c8ba28814
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/util-linux-2.30.2-2.amzn2.0.4.src.rpm
+    sha256: 7967325dfd44cdb0fd0caa45b27d56da920dd3110a5989c3ae52364b44ae7d82
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - libuuid-amzn2-aarch64 ==2.30.2
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - libuuid-amzn2-aarch64 ==2.30.2
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libblkid-amzn2-aarch64 ==2.30.2
+    - libselinux-amzn2-aarch64 ==2.5
+    - libuuid-amzn2-aarch64 ==2.30.2
+
+about:
+  home: http://en.wikipedia.org/wiki/Util-linux
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Device mounting library"
+  description: |
+        This is the device mounting library, part of util-linux.
+
+extras:
+  rpm_name: libmount

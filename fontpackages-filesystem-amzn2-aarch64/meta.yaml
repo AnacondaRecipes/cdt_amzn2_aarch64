@@ -1,0 +1,36 @@
+package:
+  name: fontpackages-filesystem-amzn2-aarch64
+  version: 1.44
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/fontpackages-filesystem-1.44-8.amzn2.noarch.rpm
+    sha256: cfa36b7401b2969db241ccb35c143b83a7d0414e8724b827cb011e6c7fbbc9c6
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/fontpackages-1.44-8.amzn2.src.rpm
+    sha256: a7c49b56992c5deec79f1d6b1cadaf4a1210c7f5cefea9dab4b353e83eeb6ab5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://fedoraproject.org/wiki/fontpackages
+  license: Public-Domain
+  license_family: Public-Domain
+  summary: "(CDT) Directories used by font packages"
+  description: |
+        This package contains the basic directory layout used by font packages,
+        including the correct permissions for the directories.
+
+extras:
+  rpm_name: fontpackages-filesystem

@@ -1,0 +1,42 @@
+package:
+  name: zlib-devel-amzn2-aarch64
+  version: 1.2.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/zlib-devel-1.2.7-18.amzn2.aarch64.rpm
+    sha256: 1a101e5cb201be1a0d30a8eb091eef87d9ff3e250430ac0ed16caea8c47b12c3
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/zlib-1.2.7-18.amzn2.src.rpm
+    sha256: b647167c530b0f50390e7cc0820b6705d26f9a415cf0c5ac90c00379c3854636
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.zlib.net/
+  license: zlib and Boost
+  license_family: Other
+  summary: "(CDT) Header files and libraries for Zlib development"
+  description: |
+        The zlib-devel package contains the header files and libraries needed to
+        develop programs that use the zlib compression and decompression library.
+
+extras:
+  rpm_name: zlib-devel

@@ -1,0 +1,56 @@
+package:
+  name: libxcursor-amzn2-aarch64
+  version: 1.1.15
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXcursor-1.1.15-1.amzn2.aarch64.rpm
+    sha256: 3137ad91a344ba2b2e71118d8ba5a45e55e111d6f84260eab615ee65c617d04a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXcursor-1.1.15-1.amzn2.src.rpm
+    sha256: 24e11c92b3f0611a6e1a601d38116e49adc9dd7c81a9bf670623f2b0dea949dc
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 >=1.5.99.902
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+    - libxrender-amzn2-aarch64 ==0.9.10
+
+about:
+  home: https://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Cursor management library"
+  description: |
+        This is  a simple library designed to help locate and load cursors. Cursors
+        can be loaded from files or memory. A library of common cursors exists which
+        map to the standard X cursor names.Cursors can exist in several sizes and the
+        library automatically picks the best size.
+
+extras:
+  rpm_name: libXcursor

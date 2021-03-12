@@ -1,0 +1,48 @@
+package:
+  name: libpng-amzn2-aarch64
+  version: 1.5.13
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libpng-1.5.13-8.amzn2.aarch64.rpm
+    sha256: e3af8a7342436a9b44456950f4bfbfe7501e59d213f60d5433a56aa485f837f2
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libpng-1.5.13-8.amzn2.src.rpm
+    sha256: 720670090e9da15bd9f60e8f1dc38a55d3663dd2277ed7b27fb7b567a1c39d39
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.libpng.org/pub/png/
+  license: zlib
+  license_family: Other
+  summary: "(CDT) A library of functions for manipulating PNG image format files"
+  description: |
+        The libpng package contains a library of functions for creating and
+        manipulating PNG (Portable Network Graphics) image format files.  PNG is a
+        bit-mapped graphics format similar to the GIF format.  PNG was created to
+        replace the GIF format, since GIF uses a patented data compression algorithm.
+        Libpng should be installed if you need to manipulate PNG format image files.
+
+extras:
+  rpm_name: libpng

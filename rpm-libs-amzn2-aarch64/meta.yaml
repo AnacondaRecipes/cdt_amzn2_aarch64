@@ -1,0 +1,77 @@
+package:
+  name: rpm-libs-amzn2-aarch64
+  version: 4.11.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rpm-libs-4.11.3-40.amzn2.0.5.aarch64.rpm
+    sha256: 5e51a22f552cadeccf6d6b91b82fca33b2ccb80185bcbddae28930687dc694cf
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/rpm-4.11.3-40.amzn2.0.5.src.rpm
+    sha256: d62ad87fc4f99ce5544760ef4bedaac867cd9c61474d4f68079d609d5cc2ce9f
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libcap-amzn2-aarch64 >=2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 ==1.13
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libcap-amzn2-aarch64 >=2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 ==1.13
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - bzip2-libs-amzn2-aarch64 ==1.0.6
+    - elfutils-libelf-amzn2-aarch64 ==0.176
+    - glibc-amzn2-aarch64 ==2.26
+    - libacl-amzn2-aarch64 ==2.2.51
+    - libcap-amzn2-aarch64 ==2.22
+    - libcap-amzn2-aarch64 >=2.22
+    - libdb-amzn2-aarch64 ==5.3.21
+    - libselinux-amzn2-aarch64 ==2.5
+    - lua-amzn2-aarch64 ==5.1.4
+    - nss-amzn2-aarch64 ==3.53.1
+    - popt-amzn2-aarch64 ==1.13
+    - xz-libs-amzn2-aarch64 ==5.2.2
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://www.rpm.org/
+  license: GPLv2+ and LGPLv2+ with exceptions
+  license_family: GPL2
+  summary: "(CDT) Libraries for manipulating RPM packages"
+  description: |
+        This package contains the RPM shared libraries.
+
+extras:
+  rpm_name: rpm-libs

@@ -1,0 +1,51 @@
+package:
+  name: mpfr-amzn2-aarch64
+  version: 3.1.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mpfr-3.1.1-4.amzn2.0.2.aarch64.rpm
+    sha256: 097f0230a340a9d8b55b8243a176e4b73643b7f9207d3ba52dc08c21cd7f80fb
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/mpfr-3.1.1-4.amzn2.0.2.src.rpm
+    sha256: 2557af4f1b194aecfe2cbe896608848a24afffc5526f326d518bd29c15c507b2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 >=4.2.1
+    - gmp-amzn2-aarch64 ==6.0.0
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 >=4.2.1
+    - gmp-amzn2-aarch64 ==6.0.0
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - gmp-amzn2-aarch64 >=4.2.1
+    - gmp-amzn2-aarch64 ==6.0.0
+
+about:
+  home: http://www.mpfr.org/
+  license: LGPLv3+ and GPLv3+ and GFDL
+  license_family: GPL3
+  summary: "(CDT) A C library for multiple-precision floating-point computations"
+  description: |
+        The MPFR library is a C library for multiple-precision floating-point
+        computations with "correct rounding". The MPFR is efficient and also has a
+        well-defined semantics. It copies the good ideas from the ANSI/IEEE-754
+        standard for double-precision floating-point arithmetic (53-bit mantissa).
+        MPFR is based on the GMP multiple-precision library.
+
+extras:
+  rpm_name: mpfr

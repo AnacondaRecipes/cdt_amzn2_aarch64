@@ -1,0 +1,56 @@
+package:
+  name: perl-constant-amzn2-aarch64
+  version: 1.27
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-constant-1.27-2.amzn2.0.1.noarch.rpm
+    sha256: ad212808329eace0a84c7100818adfd4a05eeddc3be25505d013e872f8ba1d25
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-constant-1.27-2.amzn2.0.1.src.rpm
+    sha256: c3f791d5e6e12a054558b26393ea628ef3db58ff237f9d38e66b0c865d97dd7a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  host:
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+  run:
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-carp-amzn2-aarch64 ==1.26
+
+about:
+  home: http://search.cpan.org/dist/constant/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl pragma to declare constants"
+  description: |
+        This pragma allows you to declare constants at compile-time:  use constant PI
+        => 4 * atan2(1, 1);  When you declare a constant such as "PI" using the method
+        shown above, each machine your script runs upon can have as many digits of
+        accuracy as it can use. Also, your program will be easier to read, more likely
+        to be maintained (and maintained correctly), and far less likely to send a
+        space probe to the wrong planet because nobody noticed the one equation in
+        which you wrote 3.14195.  When a constant is used in an expression, Perl
+        replaces it with its value at compile time, and may then optimize the
+        expression further. In particular, any code in an "if (CONSTANT)" block will
+        be optimized away if the constant is false.
+
+extras:
+  rpm_name: perl-constant

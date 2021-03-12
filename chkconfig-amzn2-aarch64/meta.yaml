@@ -1,0 +1,53 @@
+package:
+  name: chkconfig-amzn2-aarch64
+  version: 1.7.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/chkconfig-1.7.4-1.amzn2.0.2.aarch64.rpm
+    sha256: 1ccc85985bbfcf48107084dfb827ca4565367e3c423da4405ee2b42d3e273c01
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/chkconfig-1.7.4-1.amzn2.0.2.src.rpm
+    sha256: 227e42c03e4cdcc55a1851cfe633f2a280cb53eea907a581d95422575f584465
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - popt-amzn2-aarch64 ==1.13
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - popt-amzn2-aarch64 ==1.13
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libselinux-amzn2-aarch64 ==2.5
+    - libsepol-amzn2-aarch64 ==2.5
+    - popt-amzn2-aarch64 ==1.13
+
+about:
+  home: https://github.com/fedora-sysv/chkconfig
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) A system tool for maintaining the /etc/rc*.d hierarchy"
+  description: |
+        Chkconfig is a basic system utility.  It updates and queries runlevel
+        information for system services.  Chkconfig manipulates the numerous symbolic
+        links in /etc/rc.d, to relieve system administrators of some of the drudgery
+        of manually editing the symbolic links.
+
+extras:
+  rpm_name: chkconfig

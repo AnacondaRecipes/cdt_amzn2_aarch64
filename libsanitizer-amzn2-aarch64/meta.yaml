@@ -1,0 +1,53 @@
+package:
+  name: libsanitizer-amzn2-aarch64
+  version: 7.3.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsanitizer-7.3.1-12.amzn2.aarch64.rpm
+    sha256: c0a344e612fbf921a26c9ee3ec6c47c1c0e6f39ae989376cd702a5bed5b3d14a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gcc-7.3.1-12.amzn2.src.rpm
+    sha256: f32f053ece942d6fcf5b871bd5cf53634d56977f7c5783d2a026a65ba5394cf5
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcc-amzn2-aarch64 ==7.3.1
+    - libstdcxx-amzn2-aarch64 ==7.3.1
+
+about:
+  home: http://gcc.gnu.org
+  license: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+  license_family: GPL3
+  summary: "(CDT) Sanitizer runtime library"
+  description: |
+        This package contains sanitizer libraries which are automatically used when
+        the appropriate -fsanitize option is used for instrumented programs
+        -fsanitize=address           will use the Address Sanitizer (libasan)
+        -fsanitize=thread            will use the Thread Sanitizer (libtsan)
+        -fsanitize=undefined         will use the Undefined Behaviour Sanitizer
+        (libubsan)    -fsanitize=leak              will use the Leak Sanitizer library
+        (liblsan)
+
+extras:
+  rpm_name: libsanitizer

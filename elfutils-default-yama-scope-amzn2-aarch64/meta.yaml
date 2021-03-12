@@ -1,0 +1,39 @@
+package:
+  name: elfutils-default-yama-scope-amzn2-aarch64
+  version: 0.176
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/elfutils-default-yama-scope-0.176-2.amzn2.noarch.rpm
+    sha256: 6e421eba9bbfea98fee3779b2a09d8206f9846e263b1535681878b9ae373031b
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/elfutils-0.176-2.amzn2.src.rpm
+    sha256: 7f6cc4b60d3a0fb8499726d64a830d91c97b301955f44418c3f1de3fb6304228
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://elfutils.org/
+  license: GPLv2+ or LGPLv3+
+  license_family: GPL2
+  summary: "(CDT) Default yama attach scope sysctl setting"
+  description: |
+        Yama sysctl setting to enable default attach scope settings enabling programs
+        to use ptrace attach, access to /proc/PID/{mem,personality,stack,syscall}, and
+        the syscalls process_vm_readv and process_vm_writev which are used for
+        interprocess services, communication and introspection (like synchronisation,
+        signaling, debugging, tracing and profiling) of processes.
+
+extras:
+  rpm_name: elfutils-default-yama-scope

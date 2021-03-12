@@ -1,0 +1,43 @@
+package:
+  name: popt-devel-amzn2-aarch64
+  version: 1.13
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/popt-devel-1.13-16.amzn2.0.2.aarch64.rpm
+    sha256: 85124e32292dd939607cb4228ca4e3de5d30594ca560bcfccdcfaa282a3db5d5
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/popt-1.13-16.amzn2.0.2.src.rpm
+    sha256: 849bd178ea42fbff69e6c5e765042ab80fb56a96bcadc7218926b13765282945
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - popt-amzn2-aarch64 ==1.13
+  host:
+    - popt-amzn2-aarch64 ==1.13
+  run:
+    - popt-amzn2-aarch64 ==1.13
+
+about:
+  home: http://www.rpm5.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for the popt library"
+  description: |
+        The popt-devel package includes header files and libraries necessary for
+        developing programs which use the popt C library. It contains the API
+        documentation of the popt library, too.
+
+extras:
+  rpm_name: popt-devel

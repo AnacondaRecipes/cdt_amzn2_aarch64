@@ -1,0 +1,48 @@
+package:
+  name: perl-pod-escapes-amzn2-aarch64
+  version: 1.04
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/perl-Pod-Escapes-1.04-294.amzn2.noarch.rpm
+    sha256: 3b71e51cf2599de3539a61008091f6488d505a7875adb96dd26fe9b1e8b889a2
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/perl-5.16.3-294.amzn2.src.rpm
+    sha256: 0c816ac5bcd69fcd1363cdffdac8a351de636098f2b9b2d5344abc73ba9e189d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+  host:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+  run:
+    - perl-amzn2-aarch64 >=5
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-exporter-amzn2-aarch64 ==5.68
+
+about:
+  home: http://www.perl.org/
+  license: GPL+ or Artistic
+  license_family: GPL
+  summary: "(CDT) Perl module for resolving POD escape sequences"
+  description: |
+        This module provides things that are useful in decoding Pod E<...> sequences.
+        Presumably, it should be used only by Pod parsers and/or formatters.
+
+extras:
+  rpm_name: perl-Pod-Escapes

@@ -1,0 +1,45 @@
+package:
+  name: python-javapackages-amzn2-aarch64
+  version: 3.4.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/python-javapackages-3.4.1-11.amzn2.noarch.rpm
+    sha256: 36c177877a12cf48332e9500e6a7904b951f722733a9896d014e4b4898c6623d
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/javapackages-tools-3.4.1-11.amzn2.src.rpm
+    sha256: 7b279e73b80141266fc87abd9ae6866834807a43d5ab435092e97bf21c4dc1ca
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - python-lxml-amzn2-aarch64 ==3.2.1
+    - python3-amzn2-aarch64 ==3.7.9
+  host:
+    - python-lxml-amzn2-aarch64 ==3.2.1
+    - python3-amzn2-aarch64 ==3.7.9
+  run:
+    - python-lxml-amzn2-aarch64 ==3.2.1
+    - python3-amzn2-aarch64 ==3.7.9
+
+about:
+  home: https://fedorahosted.org/javapackages/
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Module for handling various files for Java packaging"
+  description: |
+        Module for handling, querying and manipulating of various files for Java
+        packaging in Linux distributions
+
+extras:
+  rpm_name: python-javapackages

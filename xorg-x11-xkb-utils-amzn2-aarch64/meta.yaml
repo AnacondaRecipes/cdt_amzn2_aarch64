@@ -1,0 +1,47 @@
+package:
+  name: xorg-x11-xkb-utils-amzn2-aarch64
+  version: 7.7
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xorg-x11-xkb-utils-7.7-14.amzn2.aarch64.rpm
+    sha256: 162ce1463da19e397647967781aa1aac690fcce68c0acd1ad1b130cc5b1c5ce4
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xorg-x11-xkb-utils-7.7-14.amzn2.src.rpm
+    sha256: 087d1ec819301163f896041c28088ad674dfb423a083886f39da0998700e6a92
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X.Org X11 xkb utilities"
+  description: |
+        X.Org X11 xkb core utilities.
+
+extras:
+  rpm_name: xorg-x11-xkb-utils

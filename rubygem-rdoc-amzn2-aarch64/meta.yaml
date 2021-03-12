@@ -1,0 +1,49 @@
+package:
+  name: rubygem-rdoc-amzn2-aarch64
+  version: 4.0.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/rubygem-rdoc-4.0.0-36.amzn2.0.1.noarch.rpm
+    sha256: ad1906d2c30753e82abac39ade9600c3a640edc983b3490d38e12d7e1d617b1a
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/ruby-2.0.0.648-36.amzn2.0.1.src.rpm
+    sha256: 119f0f5dcc68a7d4d9cab0e8d8330f4715d64b866318037b0ea1c452ce49fc9e
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - ruby-irb-amzn2-aarch64 ==2.0.0.648
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-json-amzn2-aarch64 >=1.7.7
+  host:
+    - ruby-irb-amzn2-aarch64 ==2.0.0.648
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-json-amzn2-aarch64 >=1.7.7
+  run:
+    - ruby-irb-amzn2-aarch64 ==2.0.0.648
+    - ruby-libs-amzn2-aarch64 ==2.0.0.648
+    - rubygem-json-amzn2-aarch64 >=1.7.7
+
+about:
+  home: http://ruby-lang.org/
+  license: GPLv2 and Ruby and MIT
+  license_family: GPL2
+  summary: "(CDT) A tool to generate HTML and command-line documentation for Ruby projects"
+  description: |
+        RDoc produces HTML and command-line documentation for Ruby projects.  RDoc
+        includes the 'rdoc' and 'ri' tools for generating and displaying online
+        documentation.
+
+extras:
+  rpm_name: rubygem-rdoc

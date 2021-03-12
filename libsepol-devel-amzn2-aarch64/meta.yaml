@@ -1,0 +1,42 @@
+package:
+  name: libsepol-devel-amzn2-aarch64
+  version: 2.5
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libsepol-devel-2.5-8.1.amzn2.0.2.aarch64.rpm
+    sha256: d5ff1b6ad88745d5b29cd1657677d9ad565c6b88018afdcc12df4c144a7d6dce
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libsepol-2.5-8.1.amzn2.0.2.src.rpm
+    sha256: c5597168fd76decdd14b8c307ea2ab87a22f7e2236cf9c2ff4cf438c0e6d4120
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libsepol-amzn2-aarch64 ==2.5
+  host:
+    - libsepol-amzn2-aarch64 ==2.5
+  run:
+    - libsepol-amzn2-aarch64 ==2.5
+
+about:
+  home: https://github.com/SELinuxProject/selinux/wiki
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) Header files and libraries used to build policy manipulation tools"
+  description: |
+        The libsepol-devel package contains the libraries and header files needed for
+        developing applications that manipulate binary policies.
+
+extras:
+  rpm_name: libsepol-devel

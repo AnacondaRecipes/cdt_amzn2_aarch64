@@ -1,0 +1,50 @@
+package:
+  name: libbonobo-amzn2-aarch64
+  version: 2.32.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libbonobo-2.32.1-7.amzn2.0.2.aarch64.rpm
+    sha256: 00cd8de437fb3b25cd2dbf3aca56e6b0d2417193c07d7c4e8ceb89dd6ef15c4e
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libbonobo-2.32.1-7.amzn2.0.2.src.rpm
+    sha256: 9a6ae812296ff5385fe3359cee210a84e62b4ec44759894eb16e9bf1c1fc76c0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - orbit2-amzn2-aarch64 ==2.14.19
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - orbit2-amzn2-aarch64 ==2.14.19
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - orbit2-amzn2-aarch64 ==2.14.19
+
+about:
+  home: http://ftp.gnome.org
+  license: GPLv2+ and LGPLv2+
+  license_family: GPL2
+  summary: "(CDT) Bonobo component system"
+  description: |
+        Bonobo is a component system based on CORBA, used by the GNOME desktop.
+
+extras:
+  rpm_name: libbonobo

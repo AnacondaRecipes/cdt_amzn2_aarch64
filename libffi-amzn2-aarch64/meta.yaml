@@ -1,0 +1,59 @@
+package:
+  name: libffi-amzn2-aarch64
+  version: 3.0.13
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libffi-3.0.13-18.amzn2.0.2.aarch64.rpm
+    sha256: c8cb9f2fbe1e5192adf4104bee8f6dd98d864c542e2e139d885366d051a05532
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libffi-3.0.13-18.amzn2.0.2.src.rpm
+    sha256: 6d795273d9b8725efa8069ecb46398043d7100cfd4979b9c31489e35504e31f7
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://sourceware.org/libffi
+  license: MIT and Public Domain
+  license_family: MIT
+  summary: "(CDT) A portable foreign function interface library"
+  description: |
+        Compilers for high level languages generate code that follow certain
+        conventions.  These conventions are necessary, in part, for separate
+        compilation to work.  One such convention is the "calling convention". The
+        calling convention is a set of assumptions made by the compiler about where
+        function arguments will be found on entry to a function.  A calling convention
+        also specifies where the return value for a function is found.  Some programs
+        may not know at the time of compilation what arguments are to be passed to a
+        function.  For instance, an interpreter may be told at run-time about the
+        number and types of arguments used to call a given function.  `Libffi' can be
+        used in such programs to provide a bridge from the interpreter program to
+        compiled code.  The `libffi' library provides a portable, high level
+        programming interface to various calling conventions.  This allows a
+        programmer to call any function specified by a call interface description at
+        run time.  FFI stands for Foreign Function Interface.  A foreign function
+        interface is the popular name for the interface that allows code written in
+        one language to call code written in another language.  The `libffi' library
+        really only provides the lowest, machine dependent layer of a fully featured
+        foreign function interface.  A layer must exist above `libffi' that handles
+        type conversions for values passed between the two languages.
+
+extras:
+  rpm_name: libffi

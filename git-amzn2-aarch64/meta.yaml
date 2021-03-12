@@ -1,0 +1,72 @@
+package:
+  name: git-amzn2-aarch64
+  version: 2.23.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/git-2.23.3-1.amzn2.0.1.aarch64.rpm
+    sha256: afe8204656dbe5c37fe5c4202294c67c79956ca17b78ff7e468d0e41fb8ba2a9
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/git-2.23.3-1.amzn2.0.1.src.rpm
+    sha256: 5d15b244f56fe4e1c91fa8edbbc2a352600d0110dcd0d65fe5ed7b1586480c49
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - emacs-filesystem-amzn2-aarch64 >=25.3
+    - git-core-amzn2-aarch64 ==2.23.3
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libsecret-amzn2-aarch64 ==0.18.5
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-termreadkey-amzn2-aarch64 ==2.30
+  host:
+    - emacs-filesystem-amzn2-aarch64 >=25.3
+    - git-core-amzn2-aarch64 ==2.23.3
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libsecret-amzn2-aarch64 ==0.18.5
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-termreadkey-amzn2-aarch64 ==2.30
+  run:
+    - emacs-filesystem-amzn2-aarch64 >=25.3
+    - git-core-amzn2-aarch64 ==2.23.3
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libsecret-amzn2-aarch64 ==0.18.5
+    - perl-amzn2-aarch64 >=5.008
+    - perl-amzn2-aarch64 ==5.16.3
+    - perl-getopt-long-amzn2-aarch64 ==2.40
+    - perl-pathtools-amzn2-aarch64 ==3.40
+    - perl-termreadkey-amzn2-aarch64 ==2.30
+
+about:
+  home: https://git-scm.com/
+  license: GPLv2
+  license_family: GPL2
+  summary: "(CDT) Fast Version Control System"
+  description: |
+        Git is a fast, scalable, distributed revision control system with an unusually
+        rich command set that provides both high-level operations and full access to
+        internals.  The git rpm installs common set of tools which are usually using
+        with small amount of dependencies. To install all git packages, including
+        tools for integrating with other SCMs, install the git-all meta-package.
+
+extras:
+  rpm_name: git

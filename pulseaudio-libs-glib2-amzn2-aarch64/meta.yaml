@@ -1,0 +1,51 @@
+package:
+  name: pulseaudio-libs-glib2-amzn2-aarch64
+  version: 10.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/pulseaudio-libs-glib2-10.0-3.amzn2.0.3.aarch64.rpm
+    sha256: 4fdf73e1828cddd94f62b36cb38bf9e511f02964f61b8d2d0921fa9d2627586f
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/pulseaudio-10.0-3.amzn2.0.3.src.rpm
+    sha256: 614c5717425ddbe454704382dadc7bed8aad353ea67283b9897717e10e1150c2
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - pulseaudio-libs-amzn2-aarch64 ==10.0
+  host:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - pulseaudio-libs-amzn2-aarch64 ==10.0
+  run:
+    - glib2-amzn2-aarch64 ==2.56.1
+    - glibc-amzn2-aarch64 ==2.26
+    - libcap-amzn2-aarch64 ==2.22
+    - pulseaudio-libs-amzn2-aarch64 ==10.0
+
+about:
+  home: http://www.freedesktop.org/wiki/Software/PulseAudio
+  license: LGPL (>= 2)
+  license_family: LGPL
+  summary: "(CDT) GLIB 2.x bindings for PulseAudio clients"
+  description: |
+        This package contains bindings to integrate the PulseAudio client library with
+        a GLIB 2.x based application.
+
+extras:
+  rpm_name: pulseaudio-libs-glib2

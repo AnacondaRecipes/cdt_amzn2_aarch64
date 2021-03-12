@@ -1,0 +1,47 @@
+package:
+  name: libxdamage-amzn2-aarch64
+  version: 1.1.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libXdamage-1.1.4-4.1.amzn2.0.2.aarch64.rpm
+    sha256: 42d09aad8d7fdff8dec732ad95f15d96fd99ed8387e64a89a44cee4a9db750e8
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libXdamage-1.1.4-4.1.amzn2.0.2.src.rpm
+    sha256: 4ff0f0c751793764c251d9594757d330ffa7aa0ae71250ac780a13eddfa7dea0
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libx11-amzn2-aarch64 ==1.6.7
+    - libxfixes-amzn2-aarch64 ==5.0.3
+
+about:
+  home: http://www.x.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) X Damage extension library"
+  description: |
+        X.Org X11 libXdamage runtime library.
+
+extras:
+  rpm_name: libXdamage

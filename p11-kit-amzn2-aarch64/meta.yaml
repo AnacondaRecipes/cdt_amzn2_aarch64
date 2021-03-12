@@ -1,0 +1,46 @@
+package:
+  name: p11-kit-amzn2-aarch64
+  version: 0.23.22
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/p11-kit-0.23.22-1.amzn2.0.1.aarch64.rpm
+    sha256: adf71b8b4f1a82fa213b374f7ee4c30254cf82cfbe4709229b61ab1939964f0c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/p11-kit-0.23.22-1.amzn2.0.1.src.rpm
+    sha256: 79c2f1cc336aa17382372c2c5577054870d1d123e5ce606f33bc2443e9c91347
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libffi-amzn2-aarch64 ==3.0.13
+
+about:
+  home: http://p11-glue.freedesktop.org/p11-kit.html
+  license: BSD
+  license_family: BSD
+  summary: "(CDT) Library for loading and sharing PKCS#11 modules"
+  description: |
+        p11-kit provides a way to load and enumerate PKCS#11 modules, as well as a
+        standard configuration setup for installing PKCS#11 modules in such a way that
+        they're discoverable.
+
+extras:
+  rpm_name: p11-kit

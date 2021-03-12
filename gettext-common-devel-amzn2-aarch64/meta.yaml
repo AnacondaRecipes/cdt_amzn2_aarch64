@@ -1,0 +1,36 @@
+package:
+  name: gettext-common-devel-amzn2-aarch64
+  version: 0.19.8.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/gettext-common-devel-0.19.8.1-3.amzn2.noarch.rpm
+    sha256: dcc6193962b2d65fca27fd0ce518a68cfcbfc970a977aa517cead380bddcd0b1
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/gettext-0.19.8.1-3.amzn2.src.rpm
+    sha256: dcec779a471f2b55af8108d559d3c4223843cb7f793ab80ae150b45ec28e873d
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+
+
+about:
+  home: http://www.gnu.org/software/gettext/
+  license: GPLv3+
+  license_family: GPL3
+  summary: "(CDT) Common development files for gettext"
+  description: |
+        This package contains common architecture independent gettext development
+        files.
+
+extras:
+  rpm_name: gettext-common-devel

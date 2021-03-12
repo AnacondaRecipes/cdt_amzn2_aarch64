@@ -1,0 +1,48 @@
+package:
+  name: nss-pem-amzn2-aarch64
+  version: 1.0.3
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/nss-pem-1.0.3-5.amzn2.aarch64.rpm
+    sha256: 8d99eda98f1346f969c0d36d9ed42ff43b5a90394dda798eae6dd37cd9082852
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/nss-pem-1.0.3-5.amzn2.src.rpm
+    sha256: 704279710518c94532cf67062b10877693d651e1b652fb60ed1ce1fa0cb49d7a
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-util-amzn2-aarch64 ==3.53.1
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-util-amzn2-aarch64 ==3.53.1
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - nspr-amzn2-aarch64 ==4.25.0
+    - nss-util-amzn2-aarch64 ==3.53.1
+
+about:
+  home: https://github.com/kdudka/nss-pem
+  license: MPLv1.1
+  license_family: Other
+  summary: "(CDT) PEM file reader for Network Security Services (NSS)"
+  description: |
+        PEM file reader for Network Security Services (NSS), implemented as a PKCS#11
+        module.
+
+extras:
+  rpm_name: nss-pem

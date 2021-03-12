@@ -1,0 +1,56 @@
+package:
+  name: libxslt-amzn2-aarch64
+  version: 1.1.28
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxslt-1.1.28-6.amzn2.aarch64.rpm
+    sha256: ceb00fbd38e17b8a6b3c4d4bf1392b4fd366e597aaef1089fc7632f51467e75c
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libxslt-1.1.28-6.amzn2.src.rpm
+    sha256: 67d2eee5f65d9b5aa11b6e6cca6bc0346e1b8a3569d3e0f95067ec7e651e1403
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - zlib-amzn2-aarch64 ==1.2.7
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+    - libgcrypt-amzn2-aarch64 ==1.5.3
+    - libgpg-error-amzn2-aarch64 ==1.12
+    - libxml2-amzn2-aarch64 ==2.9.1
+    - zlib-amzn2-aarch64 ==1.2.7
+
+about:
+  home: http://xmlsoft.org/XSLT/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Library providing the Gnome XSLT engine"
+  description: |
+        This C library allows to transform XML files into other XML files (or HTML,
+        text, ...) using the standard XSLT stylesheet transformation mechanism. To use
+        it you need to have a version of libxml2 >= 2.6.27 installed. The xsltproc
+        command is a command line interface to the XSLT engine
+
+extras:
+  rpm_name: libxslt

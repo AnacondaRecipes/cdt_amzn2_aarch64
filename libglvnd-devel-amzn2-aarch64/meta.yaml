@@ -1,0 +1,57 @@
+package:
+  name: libglvnd-devel-amzn2-aarch64
+  version: 1.0.1
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libglvnd-devel-1.0.1-0.1.git5baa1e5.amzn2.0.1.aarch64.rpm
+    sha256: b18f02a2dd1e5163b3aca88ddf7d96f813c068a8c2aac9cb7fe98fe04d80a323
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libglvnd-1.0.1-0.1.git5baa1e5.amzn2.0.1.src.rpm
+    sha256: 8de516b03b41124fda9642b96b8bea7cf60604c31ffd82c4a6e93e9cb9b3b765
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - libglvnd-amzn2-aarch64 ==1.0.1
+    - libglvnd-core-devel-amzn2-aarch64 ==1.0.1
+    - libglvnd-egl-amzn2-aarch64 ==1.0.1
+    - libglvnd-gles-amzn2-aarch64 ==1.0.1
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libglvnd-opengl-amzn2-aarch64 ==1.0.1
+  host:
+    - libglvnd-amzn2-aarch64 ==1.0.1
+    - libglvnd-core-devel-amzn2-aarch64 ==1.0.1
+    - libglvnd-egl-amzn2-aarch64 ==1.0.1
+    - libglvnd-gles-amzn2-aarch64 ==1.0.1
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libglvnd-opengl-amzn2-aarch64 ==1.0.1
+  run:
+    - libglvnd-amzn2-aarch64 ==1.0.1
+    - libglvnd-core-devel-amzn2-aarch64 ==1.0.1
+    - libglvnd-egl-amzn2-aarch64 ==1.0.1
+    - libglvnd-gles-amzn2-aarch64 ==1.0.1
+    - libglvnd-glx-amzn2-aarch64 ==1.0.1
+    - libglvnd-opengl-amzn2-aarch64 ==1.0.1
+
+about:
+  home: https://github.com/NVIDIA/libglvnd
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Development files for libglvnd"
+  description: |
+        The libglvnd-devel package contains libraries and header files for developing
+        applications that use libglvnd.
+
+extras:
+  rpm_name: libglvnd-devel
