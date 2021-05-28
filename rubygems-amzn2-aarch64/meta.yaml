@@ -13,11 +13,9 @@ source:
     folder: source
 
 build:
-  number: 3
+  number: 5
   noarch: generic
-  rpaths:
-    - lib
-    - lib64
+
   missing_dso_whitelist:
     - '*'
 
