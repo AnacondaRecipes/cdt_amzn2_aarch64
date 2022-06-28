@@ -1,0 +1,43 @@
+package:
+  name: -amzn2-aarch64
+  version: 2.0.9
+# numactl, 2.0.9-7.amzn2
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/numactl-2.0.9-7.amzn2.aarch64.rpm
+    sha256: f55a6830cf42ad4b8caff053b18e8c53c6fd73aaddc33653887e85eea1006ad7
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/numactl-2.0.9-7.amzn2.src.rpm
+    sha256: ad4877c82f4213585bf9161919c5345f1715f9d7c496eed4a9de37d9731fdaaa
+    no_hoist: true
+    folder: source
+
+build:
+  number: 3
+  noarch: generic
+  rpaths:
+    - lib
+    - lib64
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: https://github.com/numactl/numactl
+  license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+  license_family: GPL2
+  license: 
+  summary: "(CDT) The numactl"
+  description: |
+        Zlib is a general-purpose, patent-free, lossless data compression library
+        which is used by many different programs.
+
+extras:
+  rpm_name: numactl
