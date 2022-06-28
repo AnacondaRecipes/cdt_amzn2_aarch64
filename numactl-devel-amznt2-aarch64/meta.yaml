@@ -1,9 +1,9 @@
 package:
-  name: numactl-amzn2-aarch64
+  name: numactl-devel-amzn2-aarch64
   version: 2.0.9
 source:
-  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/numactl-2.0.9-7.amzn2.aarch64.rpm
-    sha256: f55a6830cf42ad4b8caff053b18e8c53c6fd73aaddc33653887e85eea1006ad7
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/numactl-devel-2.0.9-7.amzn2.aarch64.rpm
+    sha256: 7a2b23e8915a0b510a07db3624d5ffc86a6e1c9ae5477c164b1a5b53793db596
     no_hoist: true
     folder: binary
   - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/numactl-2.0.9-7.amzn2.src.rpm
@@ -22,21 +22,21 @@ build:
 
 requirements:
   build:
-    - glibc-amzn2-aarch64 ==2.26
+    - numactl-amzn2-aarch64 ==2.0.9
   host:
-    - glibc-amzn2-aarch64 ==2.26
+    - numactl-amzn2-aarch64 ==2.0.9
   run:
-    - glibc-amzn2-aarch64 ==2.26
+    - numactl-amzn2-aarch64 ==2.0.9
 
 about:
   home: https://github.com/numactl/numactl
   license: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
   license_family: GPL2
   license: 
-  summary: "(CDT) The numactl"
+  summary: "(CDT) The numactl developer"
   description: |
         Zlib is a general-purpose, patent-free, lossless data compression library
         which is used by many different programs.
 
 extras:
-  rpm_name: numactl
+  rpm_name: numactl-devel
