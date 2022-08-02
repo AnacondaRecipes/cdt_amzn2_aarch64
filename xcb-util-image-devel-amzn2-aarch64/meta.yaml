@@ -1,0 +1,44 @@
+package:
+  name: xcb-util-image-devel-amzn2-aarch64
+  version: 0.4.0
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/xcb-util-image-devel-0.4.0-2.amzn2.0.2.aarch64.rpm
+    sha256: 468143c6d9fbe28e1ea1a55a3bd55a6bedf8d1ea55444de0a1b1aafba1875caf
+    no_hoist: true
+    folder: binary
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/xcb-util-image-0.4.0-2.amzn2.0.2.src.rpm
+    sha256: 6a7cddb283cdb9b57446f0275b6518c0f071d7e1f69a3639e5f3eeebeb908c2b
+    no_hoist: true
+    folder: source
+
+build:
+  number: 5
+  noarch: generic
+
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - xcb-util-image-amzn2-aarch64 ==0.4.0
+    - glibc-amzn2-aarch64 ==2.26
+  host:
+    - xcb-util-image-amzn2-aarch64 ==0.4.0
+    - glibc-amzn2-aarch64 ==2.26
+  run:
+    - xcb-util-image-amzn2-aarch64 ==0.4.0
+    - glibc-amzn2-aarch64 ==2.26
+
+about:
+  home: http://xcb.freedesktop.org/
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) A C binding to the X11 protocol"
+  description: |
+        The X protocol C-language Binding (XCB) is a replacement for Xlib featuring a
+        small footprint, latency hiding, direct access to the protocol, improved
+        threading support, and extensibility.
+
+extras:
+  rpm_name: libxcb
