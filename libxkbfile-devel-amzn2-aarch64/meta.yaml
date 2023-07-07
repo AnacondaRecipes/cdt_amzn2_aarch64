@@ -1,10 +1,10 @@
 package:
-  name: libxkbfile-amzn2-aarch64
+  name: libxkbfile-devel-amzn2-aarch64
   version: 1.0.9
 
 source:
-  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxkbfile-1.0.9-3.amzn2.0.2.aarch64.rpm
-    sha256: 1a0c4d39e4f52b5c53e57f39cb888d0e426d7e33eff4ea63f69dfec0da38bcd1
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/libxkbfile-devel-1.0.9-3.amzn2.0.2.aarch64.rpm
+    sha256: c8ae238143e8486c5cc51a298d9b526dd8eb5693c292c9fe15c3c64098781b58
     no_hoist: true
     folder: binary
   - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core-source_2021_01_26/amzn2-core-source/libxkbfile-1.0.9-3.amzn2.0.2.src.rpm
@@ -19,6 +19,14 @@ build:
   missing_dso_whitelist:
     - '*'
 
+requirements:
+  build:
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+  host:
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+  run:
+    - libxkbfile-amzn2-aarch64 ==1.0.9
+
 about:
   home: https://xorg.freedesktop.org/
   license: MIT
@@ -27,4 +35,4 @@ about:
   description: libxkbfile is used by the X servers and utilities to parse the XKB configuration data files.
 
 extras:
-  rpm_name: libxkbfile
+  rpm_name: libxkbfile-devel
