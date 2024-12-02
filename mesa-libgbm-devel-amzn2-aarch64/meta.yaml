@@ -1,0 +1,35 @@
+package:
+  name: mesa-libgbm-devel-amzn2-aarch64
+  version: 18.3.4
+
+source:
+  - url: https://graviton-rpms.s3.amazonaws.com/amzn2-core_2021_01_26/amzn2-core/mesa-libgbm-devel-18.3.4-5.amzn2.0.1.aarch64.rpm
+    sha256: 5e1fe346991587f8c11287f69e0298b6bf55535840e9820d7942cea6bc281533
+    no_hoist: true
+    folder: binary
+
+build:
+  number: 5
+  noarch: generic
+
+  missing_dso_whitelist:
+    - '*'
+
+requirements:
+  build:
+    - mesa-libgbm-amzn2-aarch64 ==18.3.4
+  host:
+    - mesa-libgbm-amzn2-aarch64 ==18.3.4
+  run:
+    - mesa-libgbm-amzn2-aarch64 ==18.3.4
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_family: MIT
+  summary: "(CDT) Mesa gbm development package"
+  description: |
+        Mesa gbm runtime development package.
+
+extras:
+  rpm_name: mesa-libgbm-devel
